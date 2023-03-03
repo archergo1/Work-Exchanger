@@ -1,0 +1,352 @@
+<!-- TO BE DONE -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2.1.1a EDIT COMMENT DETAIL</title>
+    <link href="/dist/tailwind.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrap w-full">
+      <div class="container mx-auto max-w-screen-2xl bg-myFifthColor">
+        <!-- header -->
+        <div
+          class="header mx-auto flex justify-between bg-mySecondColor pt-4 pl-6 pr-4 pb-4"
+        >
+          <a class="h-10 w-10" href="#"
+            ><img src="/src/assets/images/uniqlo.png" alt=""
+          /></a>
+          <!-- navBar -->
+          <div class="navBar flex">
+            <a
+              class="mr-2 mb-2 rounded-full bg-white px-5 py-2.5 text-center text-sm font-medium text-myFirstColor hover:bg-myyFirstColorHover hover:text-white focus:outline-none focus:ring-4 focus:ring-green-300"
+              >發表評論</a
+            >
+            <a
+              class="mr-2 mb-2 rounded-full bg-myFirstColor px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-myyFirstColorHover focus:outline-none focus:ring-4 focus:ring-green-300"
+              >登入</a
+            >
+          </div>
+        </div>
+        <!-- last page -->
+        <div class="my-4 ml-6 pl-5 text-base">
+          <a class="font-bold text-myFirstColor" href=""><上一頁</a>
+        </div>
+        <!-- body -->
+        <div class="flex justify-around py-4 pl-6 pr-6">
+          <!-- fillMe-->
+          <div class="w-full rounded bg-white px-8 py-6 shadow-lg">
+            <div class="max-w-3xl">
+              <h1 class="my-4 text-2xl font-bold">發表評論</h1>
+              <div class="my-6">
+                分享你的換宿經驗，幫助下一個換宿人有更棒的換宿體驗！
+              </div>
+
+              <h1 class="my-4 text-2xl font-bold text-myFirstColor">
+                換宿資訊
+              </h1>
+              <form>
+                <!-- store name -->
+                <div class="mb-6">
+                  <label
+                    for="storeName"
+                    class="mb-2 block text-xl font-medium text-gray-900"
+                    >換宿名稱</label
+                  >
+                  <input
+                    type="text"
+                    id="storeName"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    placeholder="beishan"
+                    required
+                  />
+                </div>
+
+                <!-- store phone -->
+                <div class="mb-6">
+                  <label
+                    for="storePhone"
+                    class="mb-2 block text-xl font-medium text-gray-900"
+                    >換宿電話</label
+                  >
+                  <input
+                    type="text"
+                    id="storePhone"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    placeholder="07 123 4567"
+                    required
+                  />
+                </div>
+
+                <!-- date -->
+                <div class="mb-6">
+                  <label
+                    for="address"
+                    class="mb-2 block text-xl font-medium text-gray-900"
+                    >換宿地址</label
+                  >
+                  <select
+                    name=""
+                    id="address"
+                    class="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                  >
+                    <option value="taipei">台北市</option>
+                    <option value="kaohsiung">高雄市</option>
+                  </select>
+                  <select
+                    name=""
+                    id="address"
+                    class="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                  >
+                    <option value="daan">大安區</option>
+                    <option value="nanzih">楠梓區</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="address"
+                    class="my-3 block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    placeholder="XX區XX路"
+                    required
+                  />
+                </div>
+                <!-- length -->
+                <!-- <div class="mb-6">
+                  <label
+                    for="length"
+                    class="mb-2 block text-xl font-medium text-gray-900"
+                    >換宿期間</label
+                  >
+                  <select
+                    name=""
+                    id="length"
+                    class="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                  >
+                    <option value="7day">1週</option>
+                    <option value="14day">2週</option>
+                    <option value="21day">3週</option>
+                    <option value="30day">1個月</option>
+                    <option value="60day">大於1個月</option>
+                  </select>
+                </div> -->
+
+                <div class="mb-6">
+                  <label
+                    for="workDate"
+                    class="mb-2 block text-xl font-medium text-gray-900"
+                    >換宿日期</label
+                  >
+                  <input
+                    type="date"
+                    max="8"
+                    min="1"
+                    id="workDate"
+                    class="block w-40 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    placeholder="3"
+                    required
+                  />
+                </div>
+
+                <div class="mb-6">
+                  <label
+                    for="workHour"
+                    class="mb-2 block text-xl font-medium text-gray-900"
+                    >每日工時</label
+                  >
+                  <input
+                    type="number"
+                    max="8"
+                    min="1"
+                    id="workHour"
+                    class="block w-40 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    placeholder="3"
+                    required
+                  />
+                </div>
+
+                <!-- dayNum -->
+                <div class="mb-2 block text-xl font-medium text-gray-900">
+                  換宿天數
+                </div>
+
+                <div class="mb-6 flex">
+                  <div>
+                    <input
+                      type="radio"
+                      name="changeDays"
+                      id="7"
+                      class="peer hidden"
+                      checked
+                    />
+                    <label
+                      for="7"
+                      class="mx-2 my-2 block cursor-pointer select-none rounded-full bg-mySecondColor p-2 px-3 py-3 text-center text-myFirstColor peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                      >一週</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="changeDays"
+                      id="14"
+                      class="peer hidden"
+                    />
+                    <label
+                      for="14"
+                      class="mx-2 my-2 block cursor-pointer select-none rounded-full bg-mySecondColor p-2 px-3 py-3 text-center text-myFirstColor peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                      >二週</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      type="radio"
+                      name="changeDays"
+                      id="21"
+                      class="peer hidden"
+                    />
+                    <label
+                      for="21"
+                      class="mx-2 my-2 block cursor-pointer select-none rounded-full bg-mySecondColor p-2 px-3 py-3 text-center text-myFirstColor peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                      >三週</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      type="radio"
+                      name="changeDays"
+                      id="30"
+                      class="peer hidden"
+                    />
+                    <label
+                      for="30"
+                      class="mx-2 my-2 block cursor-pointer select-none rounded-full bg-mySecondColor p-2 px-3 py-3 text-center text-myFirstColor peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                      >一個月</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      type="radio"
+                      name="changeDays"
+                      id="60"
+                      class="peer hidden"
+                    />
+                    <label
+                      for="60"
+                      class="mx-2 my-2 block cursor-pointer select-none rounded-full bg-mySecondColor p-2 px-3 py-3 text-center text-myFirstColor peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                      >超過一個月</label
+                    >
+                  </div>
+                </div>
+
+                <!-- exchange type i.e pro / normal-->
+                <!-- select-none / cursor-pointer -->
+                <div class="mb-2 block text-xl font-medium text-gray-900">
+                  換宿類型
+                </div>
+                <div class="mb-6 flex">
+                  <div>
+                    <input
+                      type="radio"
+                      name="exchangeType"
+                      id="normal"
+                      class="peer hidden"
+                      checked
+                    />
+                    <label
+                      for="normal"
+                      class="mx-2 my-2 block cursor-pointer select-none rounded-full bg-mySecondColor p-2 px-3 py-3 text-center text-myFirstColor peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                      >一般換宿</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="exchangeType"
+                      id="pro"
+                      class="peer hidden"
+                    />
+                    <label
+                      for="pro"
+                      class="mx-2 my-2 block cursor-pointer select-none rounded-full bg-mySecondColor p-2 px-3 py-3 text-center text-myFirstColor peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                      >專業換宿</label
+                    >
+                  </div>
+                </div>
+
+                <!-- 按鈕好難做....... -->
+                <!-- type -->
+                <!-- <div class="mb-6">
+                  <input
+                    
+                    type="radio"
+                    id="pro"
+                    name="types"
+                    class="appearance-none peer"
+                  />
+                  <label
+                    for="pro"
+                    class="mr-2 mb-2 rounded-full bg-mySecondColor px-5 py-2.5 text-center text-sm font-medium text-myFirstColor focus:outline-none peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                    >PRO</label
+                  >
+                  <input
+                    
+                    type="radio"
+                    id="normal"
+                    name="types"
+                    class="appearance-none peer"
+                  />
+                  <label
+                    for="normal"
+                    class="mr-2 mb-2 rounded-full bg-mySecondColor px-5 py-2.5 text-center text-sm font-medium text-myFirstColor focus:outline-none peer-checked:bg-myyFirstColorHover peer-checked:text-white"
+                    >normal</label
+                  >
+                </div> -->
+
+                <!-- submit -->
+                <button
+                  type="submit"
+                  class="mr-2 mb-2 rounded-full bg-myFirstColor px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-myyFirstColorHover focus:outline-none focus:ring-4 focus:ring-green-300"
+                >
+                  下一步
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <footer
+          class="rounded-lg bg-white p-4 shadow md:flex md:items-center md:justify-between md:p-6"
+        >
+          <span class="text-sm text-gray-500 sm:text-center"
+            >© 2023
+            <a href="https://flowbite.com/" class="hover:underline"
+              >WorkExchange</a
+            >. All Rights Reserved.
+          </span>
+          <ul class="mt-3 flex flex-wrap items-center text-sm text-gray-500">
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
+            </li>
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Contact</a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

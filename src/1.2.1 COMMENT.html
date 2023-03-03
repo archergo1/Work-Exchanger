@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2.1 COMMENT</title>
+    <link href="/dist/tailwind.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrap w-full">
+      <div class="container mx-auto max-w-screen-2xl bg-myFifthColor">
+        <!-- header -->
+        <div
+          class="header mx-auto flex justify-between bg-mySecondColor pt-4 pl-6 pr-4 pb-4"
+        >
+          <a class="h-10 w-10" href="#"
+            ><img src="/src/assets/images/uniqlo.png" alt=""
+          /></a>
+          <!-- navBar -->
+          <div class="navBar flex">
+            <a
+              class="mr-2 mb-2 rounded-full bg-white px-5 py-2.5 text-center text-sm font-medium text-myFirstColor hover:bg-myyFirstColorHover hover:text-white focus:outline-none focus:ring-4 focus:ring-green-300"
+              >發表評論</a
+            >
+            <a
+              class="mr-2 mb-2 rounded-full bg-myFirstColor px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-myyFirstColorHover focus:outline-none focus:ring-4 focus:ring-green-300"
+              >登入</a
+            >
+          </div>
+        </div>
+        
+        <div class="my-4 ml-6 pl-5 text-base">
+          <a class="font-bold text-myFirstColor" href=""><上一頁</a>
+        </div>
+        <!-- body -->
+        <div class="flex justify-around py-4 pl-6 pr-6">
+          
+          <!-- store info -->
+          <div class="h-96 w-80 rounded bg-white px-8 py-6 shadow-lg">
+            <img
+              class="mx-auto block h-20 w-20 rounded-full"
+              src="/src/assets/images/dog.jpeg"
+              alt=""
+            />
+            <h2 class="my-2 text-center text-3xl">北山古洋樓</h2>
+
+            <div class="flex justify-center">
+              <div
+                class="h-10 w-16 rounded-md bg-myThirdColor pt-1 text-center text-xl text-white"
+              >
+                4.5
+              </div>
+            </div>
+            <ul>
+              <li
+                class="h-10 w-full pt-2 text-left hover:bg-mySecondColor hover:text-myyFirstColorHover"
+              >
+                金門縣金寧鄉金寧鄉北山村55-3號
+              </li>
+              <li
+                class="h-10 w-full pt-2 text-left hover:bg-mySecondColor hover:text-myyFirstColorHover"
+              >
+                +886-82-313100
+              </li>
+              <li
+                class="h-10 w-full pt-2 text-left hover:bg-mySecondColor hover:text-myyFirstColorHover"
+              >
+                日工時：約3小時
+              </li>
+            </ul>
+
+            <div class="my-3 flex justify-center">
+              <a
+                class="mr-2 mb-2 rounded-full bg-mySecondColor px-5 py-2.5 text-center text-sm font-medium text-myFirstColor hover:bg-myyFirstColorHover hover:text-white focus:outline-none focus:ring-4 focus:ring-green-300"
+              >
+                發問問題
+              </a>
+              <a
+                class="mr-2 mb-2 rounded-full bg-myFirstColor px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-myyFirstColorHover focus:outline-none focus:ring-4 focus:ring-green-300"
+              >
+                發表評論
+              </a>
+            </div>
+          </div>
+
+          <!-- store comments right-->
+          <div class="">
+            <!-- matched nums & selection -->
+            <div class="my-3 flex justify-between">
+              <div>12則評論</div>
+
+              <div>
+                <!-- <label
+                  for="sorting"
+                  class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  >Select an option</label
+                > -->
+                <select
+                  id="sorting"
+                  class="block w-full rounded-md border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                >
+                  <option selected>排序</option>
+                  <option value="latest">最新評論</option>
+                  <option value="highest">最高評分</option>
+                  <option value="hottest">最熱門</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- comments -->
+            <div class="w-960px rounded bg-white px-8 py-6 shadow-lg my-4">
+              <div class="flex">
+                <!-- mug -->
+                <img
+                  class="mx-2 h-16 w-16 rounded-full"
+                  src="/src/assets/images/dog.jpeg"
+                  alt=""
+                />
+
+                <!-- info & comment -->
+                <div>
+                  <!-- basic info -->
+                  <div class="flex justify-between">
+                    <div>
+                      <div class="text-2xl font-bold">Tom</div>
+                      <div>
+                        <span>日工時：約3小時</span>
+                        <span>換宿期間：3個月</span>
+                        <div>2022/12/09</div>
+                      </div>
+                    </div>
+                    <!-- rating stars -->
+                    <div>
+                      <div
+                        class="h-10 w-16 rounded-md bg-myThirdColor pt-1 text-center text-xl text-white"
+                      >
+                        5
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- comment content -->
+                  <p class="my-2">
+                    若無法徹底理解打工換宿，恐怕會是人類的一大遺憾。既然如此，我們都很清楚，這是個嚴謹的議題。打工換宿似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。對我個人而言，打工換宿不僅僅是一個重大的事件
+                  </p>
+
+                  <!-- pros -->
+                  <div class="pt-2 pb-2">
+                    <div class="my-3 text-base font-bold">優點福利</div>
+                    <span
+                      class="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                      >#環境整潔</span
+                    >
+                    <span
+                      class="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                      >#職員友善</span
+                    >
+                    <span
+                      class="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                      >#有供餐</span
+                    >
+                  </div>
+                  <!-- cons -->
+                  <div class="pt-2 pb-2">
+                    <div class="my-3 text-base font-bold">優點福利</div>
+                    <span
+                      class="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                      >交通不便</span
+                    >
+                  </div>
+                  <!-- functions here not done yet-->
+
+                  <div></div>
+                </div>
+              </div>
+              <!-- separator -->
+
+              <hr />
+
+              <!-- plz log in=  -->
+              <a
+                class="my-4 block h-14 w-full rounded-md bg-orange-200 pt-4 text-center font-bold text-myThirdColor"
+                href=""
+                >登入以留言</a
+              >
+
+              <!-- other comments -->
+
+              <!-- each comment -->
+              <div class="mt-4 flex">
+                <img
+                  class="mx-2 h-16 w-16 rounded-full"
+                  src="/src/assets/images/dog.jpeg"
+                  alt=""
+                />
+
+                <div>
+                  <div class="text-2xl font-bold">JOHN</div>
+                  <p class="my-2">
+                    若無法徹底理解打工換宿，恐怕會是人類的一大遺憾。既然如此，我們都很清楚，這是個嚴謹的議題。打工換宿似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。對我個人而言，打工換宿不僅僅是一個重大的事件
+                  </p>
+                  <div>2023/03/03</div>
+                </div>
+              </div>
+
+              <div class="mt-4 flex">
+                <img
+                  class="mx-2 h-16 w-16 rounded-full"
+                  src="/src/assets/images/dog.jpeg"
+                  alt=""
+                />
+
+                <div>
+                  <div class="text-2xl font-bold">AMY</div>
+                  <p class="my-2">
+                    若無法徹底理解打工換宿，恐怕會是人類的一大遺憾。既然如此，我們都很清楚，這是個嚴謹的議題。打工換宿似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。對我個人而言，打工換宿不僅僅是一個重大的事件
+                  </p>
+                  <div>2023/03/03</div>
+                </div>
+              </div>
+
+              <a
+                class="my-4 block h-14 w-full rounded-md bg-mySecondColor pt-4 text-center font-bold text-myyFirstColorHover"
+                href=""
+                >載入更多留言</a
+              >
+            </div>
+
+            <!-- second review -->
+            <div class="w-960px rounded bg-white px-8 py-6 shadow-lg my-4">
+              <div class="flex">
+                <!-- mug -->
+                <img
+                  class="mx-2 h-16 w-16 rounded-full"
+                  src="/src/assets/images/dog.jpeg"
+                  alt=""
+                />
+
+                <!-- info & comment -->
+                <div>
+                  <!-- basic info -->
+                  <div class="flex justify-between">
+                    <div>
+                      <div class="text-2xl font-bold">Tom</div>
+                      <div>
+                        <span>日工時：約3小時</span>
+                        <span>換宿期間：3個月</span>
+                        <div>2022/12/09</div>
+                      </div>
+                    </div>
+                    <!-- rating stars -->
+                    <div>
+                      <div
+                        class="h-10 w-16 rounded-md bg-myThirdColor pt-1 text-center text-xl text-white"
+                      >
+                        4
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- comment content -->
+                  <p class="my-2">
+                    若無法徹底理解打工換宿，恐怕會是人類的一大遺憾。既然如此，我們都很清楚，這是個嚴謹的議題。打工換宿似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。對我個人而言，打工換宿不僅僅是一個重大的事件
+                  </p>
+
+                  <!-- pros -->
+                  <div class="pt-2 pb-2">
+                    <div class="my-3 text-base font-bold">優點福利</div>
+                    <span
+                      class="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                      >#環境整潔</span
+                    >
+                    <span
+                      class="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                      >#職員友善</span
+                    >
+                    <span
+                      class="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                      >#有供餐</span
+                    >
+                  </div>
+                  <!-- cons -->
+                  <div class="pt-2 pb-2">
+                    <div class="my-3 text-base font-bold">優點福利</div>
+                    <span
+                      class="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                      >交通不便</span
+                    >
+                  </div>
+                  <!-- functions here not done yet-->
+
+                  <div></div>
+                </div>
+              </div>
+              <!-- separator -->
+
+             
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- footer -->
+        <footer
+          class="rounded-lg bg-white p-4 shadow md:flex md:items-center md:justify-between md:p-6"
+        >
+          <span class="text-sm text-gray-500 sm:text-center"
+            >© 2023
+            <a href="https://flowbite.com/" class="hover:underline"
+              >WorkExchange</a
+            >. All Rights Reserved.
+          </span>
+          <ul
+            class="mt-3 flex flex-wrap items-center text-sm text-gray-500 sm:mt-0"
+          >
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
+            </li>
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Contact</a>
+            </li>
+          </ul>
+        </footer>
+
+      </div>
+    </div>
+  </body>
+</html>
