@@ -8,13 +8,7 @@ import React from "react";
 // import Footer from "../src/components/Footer";
 
 const Container = () => {
-  return (
-    
-      <div className="container mx-auto max-w-screen-2xl">
-
-      </div>
-    
-  );
+  return <div className="container mx-auto max-w-screen-2xl"></div>;
 };
 
 export default Container;

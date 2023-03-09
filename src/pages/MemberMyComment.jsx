@@ -1,27 +1,35 @@
 import React from "react";
 
 import Header from "../components/Header";
-import BannerArea from "../components/BannerArea";
-import OurSelect from "../components/OurSelect";
-import Latest from "../components/OurLatest";
+
 import Footer from "../components/Footer";
 
 import StoreInfoCard from "../components/StoreInfoCard";
+import MySetting from "../components/MySetting";
+import Button1 from "../components/Button1";
+import Button2 from "../components/Button2";
 import OneComment from "../components/OneComment";
 import Response from "../components/Response";
-import LastPage from "../components/LastPage";
-import Rating from "../components/Rating";
 
-const Comments = () => {
+function MemberMyComment() {
   return (
     <>
       <Header />
-      <LastPage />
       <div className="flex justify-around py-4 pl-6 pr-6">
-        <StoreInfoCard />
-
-        {/* <!-- store comments right--> */}
-        <div className="">
+        <div className="h-96 w-80 rounded bg-white px-8 py-3 shadow-lg">
+          <img
+            className="mx-auto block h-20 w-20 rounded-full"
+            src="/src/assets/images/dog.jpeg"
+            alt=""
+          />
+          <h1 className="my-6 text-center text-3xl">Archer</h1>
+          <div className="">
+            <MySetting text="個人資料"></MySetting>
+            <MySetting text="我的通知"></MySetting>
+            <MySetting text="我的評論"></MySetting>
+          </div>
+        </div>
+        <div>
           {/* <!-- matched nums & sorting --> */}
           <div className="my-3 flex justify-between">
             <div>12則評論</div>
@@ -33,18 +41,16 @@ const Comments = () => {
                 >Select an option</label
               > --> */}
               <select
-                defaultValue={"latest"}
                 id="sorting"
                 className="block w-full rounded-md border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
               >
+                <option defaultValue>排序</option>
                 <option value="latest">最新評論</option>
                 <option value="highest">最高評分</option>
                 <option value="hottest">最熱門</option>
               </select>
             </div>
           </div>
-
-          {/* <!-- comments --> */}
           <div className="my-4 w-960px rounded bg-white px-8 py-6 shadow-lg">
             <OneComment />
 
@@ -76,9 +82,10 @@ const Comments = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );
-};
+}
 
-export default Comments;
+export default MemberMyComment;

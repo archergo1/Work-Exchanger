@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Children } from 'react'
 // import Container from "./Container";
 
-const Wrap = () => {
+const Wrap = (Children) => {
   return (
     <div className="w-full">
-      
+      {Children}
     </div>
   )
 }

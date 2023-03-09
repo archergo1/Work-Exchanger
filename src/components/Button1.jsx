@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Button1 = () => {
+const Button1 = ({text}) => {
   return (
     <a href='#' className="button1">
-      發表評論
+      {text}
     </a>
   )
 }

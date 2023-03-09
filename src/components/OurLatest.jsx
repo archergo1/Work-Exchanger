@@ -1,6 +1,8 @@
 import React from "react";
 
-const Latest = () => {
+import Rating from "./Rating";
+
+const OurLatest = () => {
   return (
     // <!-- latest -->
     <div className="ourLatest w-ful bg-gray-100 pt-1">
@@ -22,9 +24,9 @@ const Latest = () => {
                   <span>2021/12/09</span>
                 </div>
                 {/* <!-- PUT RATING STARS HEAR --> */}
-                <div className="h-10 w-16 rounded-md bg-myThirdColor pt-1 text-center text-xl text-white">
-                  4.5
-                </div>
+                <Rating
+               score="4"
+               ></Rating>
               </div>
             </div>
             <p className="mt-4 mb-4 text-base text-gray-700">
@@ -60,9 +62,9 @@ const Latest = () => {
                   <span>2021/12/09</span>
                 </div>
                 {/* <!-- PUT RATING STARS HEAR --> */}
-                <div className="h-10 w-16 rounded-md bg-myThirdColor pt-1 text-center text-xl text-white">
-                  4.5
-                </div>
+                <Rating
+               score="4"
+               ></Rating>
               </div>
             </div>
             <p className="mt-4 mb-4 text-base text-gray-700">
@@ -98,9 +100,9 @@ const Latest = () => {
                   <span>2021/12/09</span>
                 </div>
                 {/* <!-- PUT RATING STARS HEAR --> */}
-                <div className="h-10 w-16 rounded-md bg-myThirdColor pt-1 text-center text-xl text-white">
-                  4.5
-                </div>
+               <Rating
+               score="4"
+               ></Rating>
               </div>
             </div>
             <p className="mt-4 mb-4 text-base text-gray-700">
@@ -136,9 +138,9 @@ const Latest = () => {
                   <span>2021/12/09</span>
                 </div>
                 {/* <!-- PUT RATING STARS HEAR --> */}
-                <div className="h-10 w-16 rounded-md bg-myThirdColor pt-1 text-center text-xl text-white">
-                  4.5
-                </div>
+                <Rating
+               score="4"
+               ></Rating>
               </div>
             </div>
             <p className="mt-4 mb-4 text-base text-gray-700">
@@ -164,4 +166,4 @@ const Latest = () => {
   );
 };
 
-export default Latest;
+export default OurLatest;

@@ -10,8 +10,12 @@ const Header = () => {
       </a>
       {/* <!-- navBar --> */}
       <div className="navBar flex">
-        <Button1></Button1>
-        <Button2></Button2>
+        <Button1
+        text="發表評論"
+        ></Button1>
+        <Button2
+        text="登入"
+        ></Button2>
       </div>
     </header>
   );

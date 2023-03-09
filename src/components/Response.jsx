@@ -4,7 +4,7 @@ const Response = () => {
   return (
     <div className="mt-4 flex">
       <img
-        class="mx-2 h-16 w-16 rounded-full"
+        className="mx-2 h-16 w-16 rounded-full"
         src="/src/assets/images/dog.jpeg"
         alt=""
       />
