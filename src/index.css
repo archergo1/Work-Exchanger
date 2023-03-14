@@ -17,7 +17,7 @@
     .button2{
         @apply mr-2 mb-2 rounded-full bg-myFirstColor px-5 py-3 text-center text-sm font-medium text-white hover:bg-myyFirstColorHover;
     }
-    .rating {
+    .rating{
         @apply h-12 w-16 rounded-md bg-myThirdColor pt-2 text-center text-xl text-white;
     }
 }

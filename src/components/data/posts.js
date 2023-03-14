@@ -1,12 +1,29 @@
 
 const data = {
-    "users":[1],
+    "users":[
+        {
+            "name":"Tom",
+            "id":1
+        },
+        {
+            "name":"Peter",
+            "id":2
+        },
+        {
+            "name":"Jane",
+            "id":3
+        },
+        {
+            "name":"Amy",
+            "id":4
+        },    
+    ],
     "posts":[
         {
             "id":1,
             "author":"Tom",
-            "title":"Beishan",
-            "write_date":"2019/07/12",
+            "title":"北山古洋樓",
+            "post_date":"2019/07/12",
             "work_date":"2019/06/12",
             "work_hour":"3",
             "type_pro":true,
@@ -16,8 +33,8 @@ const data = {
         {
             "id":2,
             "author":"Amy",
-            "title":"Beishan",
-            "write_date":"2019/07/12",
+            "title":"台東龍捲風",
+            "post_date":"2019/07/12",
             "work_date":"2019/06/12",
             "work_hour":"3",
             "type_pro":true,
@@ -27,8 +44,8 @@ const data = {
         {
             "id":3,
             "author":"Peter",
-            "title":"Beishan",
-            "write_date":"2019/07/12",
+            "title":"晃晃二手書",
+            "post_date":"2019/07/12",
             "work_date":"2019/06/12",
             "work_hour":"3",
             "type_pro":true,
@@ -38,8 +55,8 @@ const data = {
         {
             "id":4,
             "author":"Jane",
-            "title":"Beishan",
-            "write_date":"2019/07/12",
+            "title":"海街日記",
+            "post_date":"2019/07/12",
             "work_date":"2019/06/12",
             "work_hour":"3",
             "type_pro":true,
