@@ -21,7 +21,8 @@ const OurLatest = () => {
               <div className="flex w-full justify-between">
                 <div>
                   <p className="mb-2 text-xl font-bold">北山古洋樓</p>
-                  <span>2021/12/09</span>
+                  <div>Tom</div>
+                  <div>2021/12/09</div>
                 </div>
                 {/* <!-- PUT RATING STARS HEAR --> */}
                 <Rating
@@ -59,7 +60,8 @@ const OurLatest = () => {
               <div className="flex w-full justify-between">
                 <div>
                   <p className="mb-2 text-xl font-bold">北山古洋樓</p>
-                  <span>2021/12/09</span>
+                  <div>Tom</div>
+                  <div>2021/12/09</div>
                 </div>
                 {/* <!-- PUT RATING STARS HEAR --> */}
                 <Rating
@@ -97,7 +99,8 @@ const OurLatest = () => {
               <div className="flex w-full justify-between">
                 <div>
                   <p className="mb-2 text-xl font-bold">北山古洋樓</p>
-                  <span>2021/12/09</span>
+                  <div>Tom</div>
+                  <div>2021/12/09</div>
                 </div>
                 {/* <!-- PUT RATING STARS HEAR --> */}
                <Rating
@@ -135,7 +138,8 @@ const OurLatest = () => {
               <div className="flex w-full justify-between">
                 <div>
                   <p className="mb-2 text-xl font-bold">北山古洋樓</p>
-                  <span>2021/12/09</span>
+                  <div>Tom</div>
+                  <div>2021/12/09</div>
                 </div>
                 {/* <!-- PUT RATING STARS HEAR --> */}
                 <Rating

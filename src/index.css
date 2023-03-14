@@ -3,7 +3,14 @@
 @tailwind utilities;
 
 
+@layer base {
+    #root {
+        @apply w-full h-full;
+      }
+}
+
 @layer components {
+    
     .button1{
         @apply mr-2 mb-2 rounded-full bg-mySecondColor px-5 py-3 text-center text-sm font-medium text-myFirstColor hover:bg-myyFirstColorHover hover:text-white; 
     }

@@ -5,7 +5,7 @@ const Footer = () => {
     <div className=" bg-white p-4 shadow md:flex md:items-center md:justify-between md:p-6">
       <span className="text-sm text-gray-500 sm:text-center">
         © 2023
-        <a href="https://flowbite.com/" className="hover:underline">
+        <a href="#" className="hover:underline">
           WorkExchange
         </a>
         . All Rights Reserved.

@@ -14,14 +14,16 @@ import Rating from "../components/Rating";
 import Button1 from "../components/Button1";
 import Button2 from "../components/Button2";
 
+import { render } from 'react-dom'
+
 const WritePage2 = () => {
   return (
     <>
         <Header />
         <LastPage />
-        {/* <!-- body --> */}
+        
         <div className="flex justify-around py-4 pl-6 pr-6">
-          {/* <!-- fillMe--> */}
+         
           <div className="w-full rounded bg-white px-8 py-6 shadow-lg">
             <div className="max-w-3xl">
               <h1 className="my-4 text-2xl font-bold text-myFirstColor">
@@ -128,7 +130,7 @@ const WritePage2 = () => {
                   />
                 </div>
 
-                {/* <!-- my testimonial --> */}
+                
                 <div className="mb-6">
                   <label
                     htmlFor="myTestimonial"
