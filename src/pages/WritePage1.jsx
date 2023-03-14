@@ -161,7 +161,7 @@ const WritePage1 = () => {
 
                 <div className="mb-6">
                   <label
-                    htmlFor="exchangeType"
+                    htmlFor="typePro"
                     className="mb-2 block text-xl font-medium text-gray-900"
                   >
                     換宿類型
@@ -169,7 +169,7 @@ const WritePage1 = () => {
                   <select
                     defaultValue={"normal"}
                     name=""
-                    id="exchangeType"
+                    id="typePro"
                     className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   >
                     <option value="normal">一般換宿</option>

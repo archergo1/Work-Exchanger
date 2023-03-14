@@ -1,0 +1,13 @@
+import React from "react";
+
+const Avatar = (props) => {
+  return (
+    <img
+      className="mr-2 h-20 w-20"
+      src="/src/assets/images/cat.jpg"
+      alt="cat"
+    />
+  );
+};
+
+export default Avatar;
