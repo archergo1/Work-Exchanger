@@ -1,7 +1,11 @@
 import React from "react";
 
-const LogIn = () => {
-  return (
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
+const LogIn = () => (
+  <>
+    <Header />
     <div className="mx-auto my-4 w-[640px] flex-col rounded-lg bg-white px-6 py-6">
       <div className="flex justify-end ">
         <a href="" className="text-lg">
@@ -50,12 +54,16 @@ const LogIn = () => {
       </div>
       <div className="mx-auto text-center">
         <span>沒有帳號？</span>
-        <a href="#" className="my-4 text-center text-lg text-myyFirstColorHover">
+        <a
+          href="#"
+          className="my-4 text-center text-lg text-myyFirstColorHover"
+        >
           立即註冊
         </a>
       </div>
     </div>
-  );
-};
+    <Footer></Footer>
+  </>
+);
 
 export default LogIn;

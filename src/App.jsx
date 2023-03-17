@@ -1,8 +1,7 @@
 import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import "./App.css";
 
-import "/dist/tailwind.css";
+
+import "/src/tailwind.css";
 
 import Home from "./pages/Home";
 import SearchFound from "./pages/SearchFound";
@@ -22,7 +21,7 @@ function App() {
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      {/* <Test></Test> */}
+      
       {/* <Home></Home> */}
       <LogIn/>
       {/* <Register/> */}
@@ -32,7 +31,7 @@ function App() {
       {/* <MemberMyNoti></MemberMyNoti> */}
       {/* <MemberMyComment></MemberMyComment> */}
       {/* <WritePage1></WritePage1>  */}
-      <WritePage2></WritePage2>
+      {/* <WritePage2></WritePage2> */}
     </div>
   );
 }

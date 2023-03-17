@@ -9,7 +9,8 @@ const Header = () => {
       <a className="h-10 w-10" href="#">
         <img src="/src/assets/images/uniqlo.png" alt="" />
       </a>
-      <NavBar/>
+      <Button2 text="登入/註冊"
+      ></Button2>
     </header>
   );
 };

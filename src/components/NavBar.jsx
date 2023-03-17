@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <div className="flex">
       {/* <Button1 text="發表評論"></Button1> */}
-      <Button2 text="登入/註冊"></Button2>
+      
     </div>
   );
 };
