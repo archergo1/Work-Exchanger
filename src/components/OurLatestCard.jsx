@@ -1,11 +1,10 @@
 import React from "react";
 
 import Rating from "./Rating";
-
 import Avatar from "./Avatar";
 import HashTags from "./HashTags";
 
-const OurLastCard = (props) => {
+const OurLastCard = ({ title, author, post_date, score, body }) => {
   return (
     <li>
       <div className="mt-6 mb-6 h-72 w-600px rounded bg-white px-6 py-4 shadow-lg">
@@ -15,15 +14,15 @@ const OurLastCard = (props) => {
           />
           <div className="flex w-full justify-between">
             <div>
-              <div className="mb-2 text-xl font-bold">{props.title}</div>
-              <div>{props.author}</div>
-              <div>{props.post_date}</div>
+              <div className="mb-2 text-xl font-bold">{title}</div>
+              <div>{author}</div>
+              <div>{post_date}</div>
             </div>
 
-            <Rating score={props.score}/>
+            <Rating score={score} />
           </div>
         </div>
-        <p className="mt-4 mb-4 text-base text-gray-700">{props.body}</p>
+        <p className="mt-4 mb-4 text-base text-gray-700">{body}</p>
         <HashTags />
       </div>
     </li>

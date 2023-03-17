@@ -32,7 +32,7 @@ const WritePage1 = () => {
               <h1 className="my-4 text-2xl font-bold text-myFirstColor">
                 換宿資訊
               </h1>
-              <form>Name
+              <form>
                 {/* <!-- store name --> */}
                 <div className="mb-6">
                   <label
@@ -115,30 +115,40 @@ const WritePage1 = () => {
                     id="length"
                     className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   >
-                    <option value="7days">1週</option>
-                    <option value="14days">2週</option>
-                    <option value="21days">3週</option>
-                    <option value="30days">1個月</option>
-                    <option value="60days">大於1個月</option>
+                    <option value="7">1週</option>
+                    <option value="14">2週</option>
+                    <option value="21">3週</option>
+                    <option value="30">1個月</option>
+                    <option value="60">大於1個月</option>
                   </select>
                 </div>
 
                 <div className="mb-6">
                   <label
-                    htmlFor="workDate"
+                    htmlFor="workYear"
                     className="mb-2 block text-xl font-medium text-gray-900"
                   >
-                    換宿日期
+                    換宿年份
                   </label>
-                  <input
-                    type="date"
-                    max="8"
-                    min="1"
-                    id="workDate"
-                    className="block w-40 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                    placeholder="3"
-                    required
-                  />
+                  <select
+                    defaultValue={"2023"}
+                    name=""
+                    id="workYear"
+                    className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                  >
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                  </select>
+                  <select defaultValue={"上半年"}
+                    name=""
+                    id="firstHalf"
+                    className="mr-10 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover">
+                    <option value="true">上半年</option>
+                    <option value="false">下半年</option>
+                  </select>
                 </div>
 
                 <div className="mb-6">
@@ -153,7 +163,7 @@ const WritePage1 = () => {
                     max="8"
                     min="1"
                     id="workHour"
-                    className="block w-40 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    className="block w-36 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="3"
                     required
                   />

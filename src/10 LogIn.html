@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="/dist/tailwind.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="mx-auto w-[640px] flex-col bg-white px-6 py-6">
+      <div class="flex justify-end my-2">
+        <a href="" class="text-lg">X</a>
+      </div>
+      <div class="">
+        <form action="">
+          <div class="mb-6 text-center">
+            <label
+              htmlFor="storePhone"
+              class="mb-2 flex text-xl text-left font-medium text-gray-900"
+            >
+              帳號
+            </label>
+            <input
+              type="text"
+              id="account"
+              class="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover justify-center"
+              placeholder=""
+              required
+            />
+          </div>
+
+          <div class="mb-6 text-center">
+            <label
+              htmlFor="password"
+              class="mb-2 flex text-xl text-left font-medium text-gray-900"
+            >
+              密碼
+            </label>
+            <input
+              type="text"
+              id="password"
+              class="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+              placeholder=""
+              required
+            />
+          </div>
+          <Button2 text="登入"></Button2>
+        </form>
+      </div>
+      <div class="mx-auto text-center">
+        <span>沒有帳號？</span>
+        <a href="#" class="my-4 text-center text-lg text-myyFirstColorHover">
+          立即註冊
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
