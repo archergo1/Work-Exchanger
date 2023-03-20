@@ -1,5 +1,4 @@
-
-const data = {
+const data={
     "users":[
         {
             "name":"Tom",
@@ -16,7 +15,7 @@ const data = {
         {
             "name":"Amy",
             "id":4
-        },    
+        }    
     ],
     "posts":[
         {
@@ -29,7 +28,8 @@ const data = {
             "work_hour":3,
             "type_pro":true,
             "score":5,
-            "body":"如果此時我們選擇忽略打工換宿，那後果可想而知。不要先入為主覺得打工換宿很複雜，實際上，打工換宿可能比你想的還要更複雜。"
+            "body":"如果此時我們選擇忽略打工換宿，那後果可想而知。不要先入為主覺得打工換宿很複雜，實際上，打工換宿可能比你想的還要更複雜。",
+            "userId":1
         },
         {
             "id":2,
@@ -41,7 +41,8 @@ const data = {
             "work_hour":3,
             "type_pro":true,
             "score":4,
-            "body":"如果此時我們選擇忽略打工換宿，那後果可想而知。不要先入為主覺得打工換宿很複雜，實際上，打工換宿可能比你想的還要更複雜。"
+            "body":"如果此時我們選擇忽略打工換宿，那後果可想而知。不要先入為主覺得打工換宿很複雜，實際上，打工換宿可能比你想的還要更複雜。",
+            "userId":4
         },
         {
             "id":3,
@@ -53,7 +54,8 @@ const data = {
             "work_hour":5,
             "type_pro":true,
             "score":1,
-            "body":"hello"
+            "body":"hello world",
+            "userId":2
         },
         {
             "id":4,
@@ -65,19 +67,35 @@ const data = {
             "work_hour":3,
             "type_pro":true,
             "score":2,
-            "body":"北山好棒棒"
+            "body":"北山好棒棒",
+            "userId":3
         }
     ],
     "comments":[],
-    "store_info":[
+
+
+    "stores":[
         {
-           "id":1,
-           "store_name":"北山古洋樓",
-           "store_tel":"0970755911",
-           "store_address": "1213asd"
-
+            "id":1,
+            "store_name":"北山古洋樓",
+            "tel":"07123456",
+            "address":"金門縣金寧鄉金寧鄉北山村55-3號",
+            "average_score":5
+            
+        },
+        {
+            "id":2,
+            "store_name":"晃晃二手書",
+            "tel":"0800080123",
+            "address":"台東縣台東市漢陽南路139-1號",
+            "average_score":5
+        },
+        {
+            
+        },
+        {
+            
         }
-
     ]
 
 }

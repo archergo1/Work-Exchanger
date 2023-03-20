@@ -11,7 +11,7 @@ import OneComment from "../components/OneComment";
 import Response from "../components/Response";
 import LastPage from "../components/LastPage";
 import Rating from "../components/Rating";
-import Button2 from "../components/Button2";
+import Button2 from "../components/Button";
 
 
 const WritePage1 = () => {

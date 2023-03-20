@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import StoreInfoCard from "../components/StoreInfoCard";
 import MySetting from "../components/MySetting";
 import Button1 from "../components/Button1";
-import Button2 from "../components/Button2";
+import Button2 from "../components/Button";
 import OneComment from "../components/OneComment";
 import Response from "../components/Response";
 

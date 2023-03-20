@@ -12,7 +12,7 @@ import Response from "../components/Response";
 import LastPage from "../components/LastPage";
 import Rating from "../components/Rating";
 import Button1 from "../components/Button1";
-import Button2 from "../components/Button2";
+import Button2 from "../components/Button";
 
 import { render } from 'react-dom'
 

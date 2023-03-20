@@ -2,9 +2,9 @@ import React from "react";
 
 import OurLastCard from "./OurLatestCard";
 
-import data from "./data/posts.js";
+import data from "../data/data"
 
-const posts = data.posts;
+const posts = data.posts
 
 const OurLatest = () => {
   return (

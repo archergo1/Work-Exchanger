@@ -11,19 +11,24 @@ import MemberMyNoti from "./pages/MemberMyNoti";
 import MemberMyComment from "./pages/MemberMyComment";
 import WritePage1 from "./pages/WritePage1";
 import WritePage2 from "./pages/WritePage2";
-import LogIn from "./pages/LogIn";
+// import LogIn from "./pages/LogIn";
 import Register from "./pages/Register";
 
 import Test from "./obsolete/Test";
+import Ab from "./components/Ab";
+import Header from "./components/Header";
+import LogIn from "./pages/LogIn";
+
 
 function App() {
-  // const [count, setCount] = useState(0);
+  
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      
-      {/* <Home></Home> */}
-      <LogIn/>
+      {/* <Ab/> */}
+      {/* <Header/> */}
+      <Home></Home>
+      {/* <LogIn/> */}
       {/* <Register/> */}
       {/* <MemberMyInfo></MemberMyInfo> */}
       {/* <SearchFound></SearchFound> */}

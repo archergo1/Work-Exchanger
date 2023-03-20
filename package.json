@@ -17,6 +17,7 @@
     "flowbite-react": "^0.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "sweetalert2": "^11.7.3"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button1 from "./Button1";
+import Button1 from "../components/Button1";
 import Button2 from "./Button2";
 
 const NavBar = () => {

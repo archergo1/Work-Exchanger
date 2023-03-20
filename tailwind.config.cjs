@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{html,js}",
   './node_modules/flowbite/**/*.js',
   // below is for flowbite + react 
-  'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'],
+  './node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {

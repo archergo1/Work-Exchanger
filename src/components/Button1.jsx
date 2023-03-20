@@ -1,10 +1,17 @@
 import React from 'react'
 
+
+
+
+
 const Button1 = ({text}) => {
+
+
+
   return (
-    <a href='#' className="button1">
+    <div href='#' className="button1">
       {text}
-    </a>
+    </div>
   )
 }
 
