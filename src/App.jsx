@@ -12,12 +12,12 @@ import MemberMyComment from "./pages/MemberMyComment";
 import WritePage1 from "./pages/WritePage1";
 import WritePage2 from "./pages/WritePage2";
 // import LogIn from "./pages/LogIn";
-import Register from "./pages/Register";
+import Register from "./obsolete/Register";
 
 import Test from "./obsolete/Test";
 import Ab from "./components/Ab";
 import Header from "./components/Header";
-import LogIn from "./pages/LogIn";
+
 
 
 function App() {

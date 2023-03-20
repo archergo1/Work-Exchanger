@@ -7,8 +7,6 @@ import { useState } from "react";
 
 Modal.setAppElement("#root");
 
-// s
-
 // const Button = ({ openModal, text }) => {
 //   return (
 //     <div className="button2" onClick={openModal}>
@@ -20,82 +18,10 @@ Modal.setAppElement("#root");
 // const style1="button1"
 // const style2="button2"
 
-const Register = () => (
-  <div className="mx-auto w-[640px] flex-col rounded-lg bg-white px-6 py-6">
-    <div className="my-2 flex justify-end">
-      <a href="" className="text-lg">
-        X
-      </a>
-    </div>
-    <div className="">
-      <form action="">
-        <div className="mb-6 text-center">
-          <label
-            htmlFor="storePhone"
-            className="mb-2 flex text-left text-xl font-medium text-gray-900"
-          >
-            帳號
-          </label>
-          <input
-            type="text"
-            id="account"
-            className="w-full justify-center rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-            placeholder=""
-            required
-          />
-        </div>
-
-        <div className="mb-6 text-center">
-          <label
-            htmlFor="password"
-            className="mb-2 flex text-left text-xl font-medium text-gray-900"
-          >
-            密碼
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-            placeholder=""
-            required
-          />
-        </div>
-
-        <div className="mb-6 text-center">
-          <label
-            htmlFor="email"
-            className="mb-2 flex text-left text-xl font-medium text-gray-900"
-          >
-            信箱
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-            placeholder=""
-            required
-          />
-        </div>
-
-        <input
-          type="submit"
-          value="註冊"
-          className="mr-2 mb-2 w-full rounded-full bg-myFirstColor px-5 py-3 text-center text-lg font-medium text-white hover:bg-myyFirstColorHover"
-        />
-      </form>
-    </div>
-
-    <div className="mx-auto text-center">
-      <span>已經有帳號？</span>
-      <a href="#" className="my-4 text-center text-lg text-myyFirstColorHover">
-        立即登入
-      </a>
-    </div>
-  </div>
-);
-
 const Header = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const [haveAccount, setHaveAccount] = useState(false);
 
   function openModal() {
     setModalIsOpen(true);
@@ -104,7 +30,17 @@ const Header = () => {
   function closeModal() {
     setModalIsOpen(false);
   }
-  // 註冊 登入互相切換要用巢狀迴圈嗎？
+
+  function toLogIn() {
+    setHaveAccount(false);
+  }
+
+  function toRegister() {
+    setHaveAccount(true);
+  }
+
+  //Q 註冊 登入互相切換要用巢狀迴圈嗎？
+  // A 用state切換就可以
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
       <a className="h-10 w-10" href="#">
@@ -159,22 +95,61 @@ const Header = () => {
                   required
                 />
               </div>
-              <input
-                type="submit"
-                value="登入"
-                className="mr-2 mb-2 w-full rounded-full bg-myFirstColor px-5 py-3 text-center text-lg font-medium text-white hover:bg-myyFirstColorHover"
-              />
+
+              {/* 需要註冊時顯示 */}
+              {haveAccount ? (
+                <div className="mb-6 text-center">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 flex text-left text-xl font-medium text-gray-900"
+                  >
+                    信箱
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    placeholder=""
+                    required
+                  />
+                </div>
+              ) : null}
+              {haveAccount ? (
+                <input
+                  type="submit"
+                  value="註冊"
+                  className="mr-2 mb-2 w-full rounded-full bg-myFirstColor px-5 py-3 text-center text-lg font-medium text-white hover:bg-myyFirstColorHover"
+                />
+              ) : (
+                <input
+                  type="submit"
+                  value="登入"
+                  className="mr-2 mb-2 w-full rounded-full bg-myFirstColor px-5 py-3 text-center text-lg font-medium text-white hover:bg-myyFirstColorHover"
+                />
+              )}
             </form>
           </div>
-          <div className="mx-auto text-center">
-            <span>沒有帳號？</span>
-            <a
-              href="#"
-              className="my-4 text-center text-lg text-myyFirstColorHover"
-            >
-              立即註冊
-            </a>
-          </div>
+          {haveAccount ? (
+            <div className="mx-auto text-center">
+              <span>已經有帳號？</span>
+              <a
+                onClick={toLogIn}
+                className="my-4 text-center text-lg text-myyFirstColorHover"
+              >
+                立即登入
+              </a>
+            </div>
+          ) : (
+            <div className="mx-auto text-center">
+              <span>沒有帳號？</span>
+              <a
+                onClick={toRegister}
+                className="my-4 text-center text-lg text-myyFirstColorHover"
+              >
+                立即註冊
+              </a>
+            </div>
+          )}
         </div>
       </Modal>
     </div>

@@ -81,7 +81,6 @@ const data={
             "tel":"07123456",
             "address":"金門縣金寧鄉金寧鄉北山村55-3號",
             "average_score":5
-            
         },
         {
             "id":2,
@@ -92,6 +91,11 @@ const data={
         },
         {
             
+            "id":3,
+            "store_name":"台東龍捲風",
+            "tel":"01234567",
+            "address":"台東縣台東市漢陽南路139-1號",
+            "average_score":5
         },
         {
             
