@@ -13,3 +13,4 @@ const Button = ({text, openModal}) => {
 
 export default Button
     // the appearance settings are in the index.css
+    

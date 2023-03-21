@@ -11,7 +11,7 @@ import OneComment from "../components/OneComment";
 import Response from "../components/Response";
 import LastPage from "../components/LastPage";
 import Rating from "../components/Rating";
-import Button2 from "../components/Button";
+import Button from "../components/Button";
 
 
 const WritePage1 = () => {
@@ -187,7 +187,7 @@ const WritePage1 = () => {
                   </select>
                 </div>
 
-                <Button2 text="下一步"></Button2>
+                <Button text="下一步"></Button>
               </form>
             </div>
           </div>

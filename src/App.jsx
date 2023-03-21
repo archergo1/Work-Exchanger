@@ -15,7 +15,6 @@ import WritePage2 from "./pages/WritePage2";
 import Register from "./obsolete/Register";
 
 import Test from "./obsolete/Test";
-import Ab from "./components/Ab";
 import Header from "./components/Header";
 
 
@@ -35,8 +34,8 @@ function App() {
       {/* <Comments></Comments> */}
       {/* <MemberMyNoti></MemberMyNoti> */}
       {/* <MemberMyComment></MemberMyComment> */}
-      {/* <WritePage1></WritePage1>  */}
-      {/* <WritePage2></WritePage2> */}
+      <WritePage1></WritePage1> 
+      <WritePage2></WritePage2>
     </div>
   );
 }

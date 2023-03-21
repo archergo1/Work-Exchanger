@@ -29,7 +29,9 @@ const data={
             "type_pro":true,
             "score":5,
             "body":"如果此時我們選擇忽略打工換宿，那後果可想而知。不要先入為主覺得打工換宿很複雜，實際上，打工換宿可能比你想的還要更複雜。",
-            "userId":1
+            "userId":1,
+            "storeId":1
+
         },
         {
             "id":2,
@@ -42,7 +44,8 @@ const data={
             "type_pro":true,
             "score":4,
             "body":"如果此時我們選擇忽略打工換宿，那後果可想而知。不要先入為主覺得打工換宿很複雜，實際上，打工換宿可能比你想的還要更複雜。",
-            "userId":4
+            "userId":4,
+            "storeId":3
         },
         {
             "id":3,
@@ -55,7 +58,8 @@ const data={
             "type_pro":true,
             "score":1,
             "body":"hello world",
-            "userId":2
+            "userId":2,
+            "storeId":2
         },
         {
             "id":4,
@@ -68,7 +72,8 @@ const data={
             "type_pro":true,
             "score":2,
             "body":"北山好棒棒",
-            "userId":3
+            "userId":3,
+            "storeId":4
         }
     ],
     "comments":[],
@@ -77,14 +82,14 @@ const data={
     "stores":[
         {
             "id":1,
-            "store_name":"北山古洋樓",
+            "name":"北山古洋樓",
             "tel":"07123456",
             "address":"金門縣金寧鄉金寧鄉北山村55-3號",
             "average_score":5
         },
         {
             "id":2,
-            "store_name":"晃晃二手書",
+            "name":"晃晃二手書",
             "tel":"0800080123",
             "address":"台東縣台東市漢陽南路139-1號",
             "average_score":5
@@ -92,13 +97,17 @@ const data={
         {
             
             "id":3,
-            "store_name":"台東龍捲風",
+            "name":"台東龍捲風",
             "tel":"01234567",
             "address":"台東縣台東市漢陽南路139-1號",
-            "average_score":5
+            "average_score":3
         },
         {
-            
+            "id":4,
+            "name":"海街日記",
+            "tel":"0412113212",
+            "address":"台東縣台東市漢陽南路139-1號",
+            "average_score":4
         }
     ]
 
