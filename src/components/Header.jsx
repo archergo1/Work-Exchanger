@@ -2,8 +2,12 @@ import React from "react";
 
 import Button from "./Button";
 
+// import Modal from '@mui/material/Modal';
+
 import Modal from "react-modal";
 import { useState } from "react";
+import axios from 'axios';
+
 
 Modal.setAppElement("#root");
 
@@ -17,6 +21,14 @@ Modal.setAppElement("#root");
 
 // const style1="button1"
 // const style2="button2"
+
+// const url ="http://localhost:3000"
+
+// function fetchApi(){
+//   axios.get(`${url}`)
+//       .then()
+// }
+
 
 const Header = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);

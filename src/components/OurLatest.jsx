@@ -1,12 +1,24 @@
 import React from "react";
-
+import {useState, useEffect} from 'react';
 import OurLastCard from "./OurLatestCard";
 
-import data from "../data/data"
+import axios from "axios";
 
-const posts = data.posts
 
 const OurLatest = () => {
+
+  const url = "http://localhost:3000";
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => { 
+// get all the posts from the server
+    const getPosts = async () =>{
+      const res = await axios.get(`${url}/posts`)
+      setPosts(res.data);
+    }
+    getPosts();
+     }, []);
+
   return (
     <div className="ourLatest w-full bg-gray-100 pt-1">
       <h2 className="my-16 text-center text-4xl text-black">最新評論</h2>

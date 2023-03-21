@@ -16,7 +16,7 @@ import Register from "./obsolete/Register";
 
 import Test from "./obsolete/Test";
 import Header from "./components/Header";
-
+import axios from 'axios';
 
 
 function App() {
@@ -34,8 +34,8 @@ function App() {
       {/* <Comments></Comments> */}
       {/* <MemberMyNoti></MemberMyNoti> */}
       {/* <MemberMyComment></MemberMyComment> */}
-      <WritePage1></WritePage1> 
-      <WritePage2></WritePage2>
+      {/* <WritePage1></WritePage1>  */}
+      {/* <WritePage2></WritePage2> */}
     </div>
   );
 }
