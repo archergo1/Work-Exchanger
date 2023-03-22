@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 import StoreInfoCard from "../components/StoreInfoCard";
 import OnePost from "../components/OnePost";
-import Response from "../components/Comments";
+import Comments from "../components/Comments";
 import LastPage from "../components/LastPage";
 
 const Posts = () => {
@@ -18,7 +18,6 @@ const Posts = () => {
       <div className="flex justify-around py-4 pl-6 pr-6">
         <StoreInfoCard />
 
-        {/* <!-- store comments right--> */}
         <div className="">
           {/* <!-- matched nums & sorting --> */}
           <div className="my-3 flex justify-between">
@@ -50,7 +49,7 @@ const Posts = () => {
               登入以留言
             </a>}
             {/* <!-- each response --> */}
-            <Response />
+            <Comments />
 
             {/* more comments */}
             <a

@@ -6,7 +6,6 @@ const url = "http://localhost:3000";
 
 const OnePost = () => {
   const [posts, setPosts] = useState([]);
-
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
@@ -15,14 +14,36 @@ const OnePost = () => {
       const res = await axios.get(`${url}/posts`);
       setPosts(res.data);
     };
-
     getPosts();
   }, []);
+  const post0 = posts[0];
 
   if (posts.length === 0) {
     return null;
   }
-  const post0 = posts[0];
+
+  const {
+    author,
+    title,
+    post_date,
+    work_year,
+    first_half,
+    work_hour,
+    work_span,
+    type_pro,
+    score,
+    body,
+    pros,
+    cons,
+  } = post0;
+  // could i use destructuring assignment here?
+
+  let firstHalf = "";
+  if (first_half == true) {
+    firstHalf = "上半年";
+  } else {
+    firstHalf = "下半年";
+  }
 
   return (
     <div className="onePost flex">
@@ -37,44 +58,60 @@ const OnePost = () => {
       <div>
         <div className="flex justify-between">
           <div>
-            <div className="text-2xl font-bold">{post0.author}</div>
+            <div className="text-2xl font-bold">{author}</div>
             <div>
-              <span className="my-2 mr-2 text-base">
-                日工時：{post0.work_hour}小時
-              </span>
-              •<span className="my-2 ml-2">換宿期間：3個月</span>
-              <div className="my-2 mr-2">發文日期：{post0.post_date}</div>
+              <div className="mt-2">
+                <div className="mr-2 inline-block">日工時：{work_hour}小時</div>
+                •<div className="ml-2 inline-block">換宿期間：3個月</div>
+              </div>
+              <div className="mb-2">
+                <div className="mr-2 inline-block">
+                  換宿時間：{work_year} {firstHalf}
+                </div>
+                •<div className="ml-2 inline-block">發文日期：{post_date}</div>
+              </div>
             </div>
           </div>
           {/* <!-- rating stars --> */}
           <div>
-            <Rating score={post0.score}></Rating>
+            <Rating score={score}></Rating>
           </div>
         </div>
-        <p className="my-2 text-lg">{post0.body}</p>
+        <p className="my-2 text-lg">{body}</p>
 
         {/* <!-- pros --> */}
-        <div className="pt-2 pb-2">
-          <div className="my-3 text-base font-bold">優點福利</div>
-          <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-            #環境整潔
-          </span>
-          <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-            #職員友善
-          </span>
-          <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-            #有供餐
-          </span>
+        <div className="my-3">
+          <div className="mb-4 font-bold">優點福利</div>
+          <ul>
+            {pros.map((item, index) => {
+              return (
+                <li
+                  key={index}
+                  className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #{item}
+                </li>
+              );
+            })}
+          </ul>
         </div>
         {/* <!-- cons --> */}
-        <div className="pt-2 pb-2">
-          <div className="my-3 text-base font-bold">有待改進</div>
-          <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-            交通不便
-          </span>
+        <div className="my-3">
+          <div className="mb-4 font-bold">有待改進</div>
+          <ul>
+            {cons.map((item, index) => {
+              return (
+                <li
+                  key={index}
+                  className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #{item}
+                </li>
+              );
+            })}
+          </ul>
         </div>
-        {/* <!-- functions here not done yet--> */}
-
+        {/* <!-- other functions may need to be added in the future*/}
         <div></div>
       </div>
     </div>

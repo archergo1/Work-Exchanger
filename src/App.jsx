@@ -17,10 +17,10 @@ function App() {
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       {/* <Ab/> */}
       {/* <Test></Test> */}
-      {/* <Home></Home> */}
-      <MemberMyInfo></MemberMyInfo>
-      {/* <SearchFound></SearchFound> */}
-      {/* <Posts /> */}
+      {/* <Home/> */}
+      {/* <MemberMyInfo/> */}
+      {/* <SearchFound/> */}
+      <Posts />
      
       {/* <WritePage1></WritePage1>   */}
       {/* <WritePage2></WritePage2> */}
