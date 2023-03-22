@@ -7,8 +7,8 @@ import Latest from "../components/OurLatest";
 import Footer from "../components/Footer";
 
 import StoreInfoCard from "../components/StoreInfoCard";
-import OneComment from "../components/OneComment";
-import Response from "../components/Response";
+import OnePost from "../components/OnePost";
+
 import LastPage from "../components/LastPage";
 import Rating from "../components/Rating";
 import Button1 from "../components/Button1";

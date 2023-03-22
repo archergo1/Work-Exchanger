@@ -1,13 +1,11 @@
 import React from "react";
-
 import Button from "./Button";
 
 // import Modal from '@mui/material/Modal';
 
 import Modal from "react-modal";
 import { useState } from "react";
-import axios from 'axios';
-
+import axios from "axios";
 
 Modal.setAppElement("#root");
 
@@ -29,8 +27,9 @@ Modal.setAppElement("#root");
 //       .then()
 // }
 
-
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const [haveAccount, setHaveAccount] = useState(false);
@@ -38,15 +37,12 @@ const Header = () => {
   function openModal() {
     setModalIsOpen(true);
   }
-
   function closeModal() {
     setModalIsOpen(false);
   }
-
   function toLogIn() {
     setHaveAccount(false);
   }
-
   function toRegister() {
     setHaveAccount(true);
   }
@@ -58,8 +54,11 @@ const Header = () => {
       <a className="h-10 w-10" href="#">
         <img src="/src/assets/images/uniqlo.png" alt="" />
       </a>
-
-      <Button openModal={openModal} text="登入/註冊" />
+      {isLoggedIn ? (
+        <Button text="Hi Archer!" />
+      ) : (
+        <Button openModal={openModal} text="登入/註冊" />
+      )}
 
       <Modal
         className="flex"

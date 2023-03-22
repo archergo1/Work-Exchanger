@@ -7,8 +7,8 @@ import Latest from "../components/OurLatest";
 import Footer from "../components/Footer";
 
 import StoreInfoCard from "../components/StoreInfoCard";
-import OneComment from "../components/OneComment";
-import Response from "../components/Response";
+import OnePost from "../components/OnePost";
+import Comments from "../components/Comments";
 import LastPage from "../components/LastPage";
 import Rating from "../components/Rating";
 import Button from "../components/Button";
@@ -104,7 +104,7 @@ const WritePage1 = () => {
                 {/* <!-- length --> */}
                 <div className="mb-6">
                   <label
-                    htmlFor="length"
+                    htmlFor="workSpan"
                     className="mb-2 block text-xl font-medium text-gray-900"
                   >
                     換宿天數
@@ -112,7 +112,7 @@ const WritePage1 = () => {
                   <select
                     defaultValue={"7days"}
                     name=""
-                    id="length"
+                    id="workSpan"
                     className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   >
                     <option value="7">1週</option>

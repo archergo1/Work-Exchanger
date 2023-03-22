@@ -1,10 +1,31 @@
 import React from "react";
-
+import { useState, useEffect } from "react";
 import Rating from "./Rating";
+import axios from "axios";
+const url = "http://localhost:3000";
 
-const OneComment = () => {
+const OnePost = () => {
+  const [posts, setPosts] = useState([]);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  useEffect(() => {
+    // get all the posts from the server
+    const getPosts = async () => {
+      const res = await axios.get(`${url}/posts`);
+      setPosts(res.data);
+    };
+
+    getPosts();
+  }, []);
+
+  if (posts.length === 0) {
+    return null;
+  }
+  const post0 = posts[0];
+
   return (
-    <div className="oneComment flex">
+    <div className="onePost flex">
       {/* <!-- mug --> */}
       <img
         className="mx-2 h-16 w-16 rounded-full"
@@ -14,28 +35,23 @@ const OneComment = () => {
 
       {/* <!-- info & comment --> */}
       <div>
-        {/* <!-- basic info --> */}
         <div className="flex justify-between">
           <div>
-            <div className="text-2xl font-bold">Tom</div>
+            <div className="text-2xl font-bold">{post0.author}</div>
             <div>
-              <span>日工時：約3小時</span>
-              <span>換宿期間：3個月</span>
-              <div>2022/12/09</div>
+              <span className="my-2 mr-2 text-base">
+                日工時：{post0.work_hour}小時
+              </span>
+              •<span className="my-2 ml-2">換宿期間：3個月</span>
+              <div className="my-2 mr-2">發文日期：{post0.post_date}</div>
             </div>
           </div>
           {/* <!-- rating stars --> */}
           <div>
-            <Rating
-            score="5"
-            ></Rating>
+            <Rating score={post0.score}></Rating>
           </div>
         </div>
-
-        {/* <!-- comment content --> */}
-        <p className="my-2">
-          若無法徹底理解打工換宿，恐怕會是人類的一大遺憾。既然如此，我們都很清楚，這是個嚴謹的議題。打工換宿似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。對我個人而言，打工換宿不僅僅是一個重大的事件
-        </p>
+        <p className="my-2 text-lg">{post0.body}</p>
 
         {/* <!-- pros --> */}
         <div className="pt-2 pb-2">
@@ -52,7 +68,7 @@ const OneComment = () => {
         </div>
         {/* <!-- cons --> */}
         <div className="pt-2 pb-2">
-          <div className="my-3 text-base font-bold">優點福利</div>
+          <div className="my-3 text-base font-bold">有待改進</div>
           <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
             交通不便
           </span>
@@ -65,4 +81,4 @@ const OneComment = () => {
   );
 };
 
-export default OneComment;
+export default OnePost;
