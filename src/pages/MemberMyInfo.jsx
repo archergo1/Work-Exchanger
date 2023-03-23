@@ -15,9 +15,9 @@ function MemberMyInfo() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <>
+    <div className="flex-col">
       <Header />
-      <Tabs className="flex justify-around py-4 pl-6 pr-6">
+      <Tabs className="flex justify-around py-4 pl-6 pr-6 grow">
         <div className="h-96 w-80 rounded bg-white px-8 py-3 shadow-lg">
           <img
             className="mx-auto block h-20 w-20 rounded-full"
@@ -183,8 +183,8 @@ function MemberMyInfo() {
         </TabPanel>
       </Tabs>
       <Footer />
-    </>
+    </div>
   );
 }
-
+// 如何在content不足的時候，把footer置底？ 用了flex-grow好像沒效果？
 export default MemberMyInfo;

@@ -1,16 +1,8 @@
 import React from "react";
-
 import Header from "../components/Header";
-import BannerArea from "../components/BannerArea";
-import OurSelect from "../components/OurSelect";
-import Latest from "../components/OurLatest";
 import Footer from "../components/Footer";
 
-import StoreInfoCard from "../components/StoreInfoCard";
-import OnePost from "../components/OnePost";
-
 import LastPage from "../components/LastPage";
-import Rating from "../components/Rating";
 import Button1 from "../components/Button1";
 import Button2 from "../components/Button";
 

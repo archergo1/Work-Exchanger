@@ -39,10 +39,17 @@ const OnePost = () => {
   // could i use destructuring assignment here?
 
   let firstHalf = "";
-  if (first_half == true) {
+  if (first_half) {
     firstHalf = "上半年";
   } else {
     firstHalf = "下半年";
+  }
+
+  let typePro = "";
+  if (type_pro) {
+    typePro = "專長換宿";
+  } else {
+    typePro = "一般換宿";
   }
 
   return (
@@ -58,7 +65,12 @@ const OnePost = () => {
       <div>
         <div className="flex justify-between">
           <div>
-            <div className="text-2xl font-bold">{author}</div>
+            <div className="flex items-center">
+              <div className="text-2xl font-bold">{author}</div>
+              <div className="mx-4 h-6 w-32 rounded-lg bg-yellow-400 text-white">
+                {typePro}
+              </div>
+            </div>
             <div>
               <div className="mt-2">
                 <div className="mr-2 inline-block">日工時：{work_hour}小時</div>

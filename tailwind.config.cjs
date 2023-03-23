@@ -171,7 +171,8 @@ module.exports = {
       mySecondColor: "#F0F8F5",
       myThirdColor:"#F48C2B",
       myFourthColor: "#65BFF6",
-      myFifthColor: "#E5E5E5"
+      myFifthColor: "#E5E5E5",
+      mySixthColor: "#CF945E",
       
     }),
     columns: {
