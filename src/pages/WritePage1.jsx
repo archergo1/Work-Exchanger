@@ -41,99 +41,100 @@ const trial = {
   ],
 };
 
-
 const WritePage1 = () => {
-
-
   // why should i need to use async await, even in post?
   const addPost = async () => {
-    try{
-    await axios.post(`${url}/posts`, trial)
-    .then((res) => {
-      console.log(res);
-      Swal.fire({ title: `送出成功` });
-    });
-    } catch(error){
+    try {
+      await axios.post(`${url}/posts`, trial).then((res) => {
+        console.log(res);
+        Swal.fire({ title: `送出成功` });
+      });
+    } catch (error) {
       console.log(error);
-      Swal.fire({ title: `送出失敗`});
+      Swal.fire({ title: `送出失敗` });
     }
   };
 
-
-  const {register, handleSubmit, watch, formState:{errors}} = useForm();
-  const onSubmit = (data) => {console.log(typeof data);}
-
-  console.log(register);
-  // console.log(watch("example"));
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+  // console.log(watch(address));
 
   return (
     <>
       <Header />
       <LastPage />
-
       <button onClick={addPost}>send</button>
+      {/* FORM STARTS HERE */}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex justify-around py-4 pl-6 pr-6">
+          <div className="w-full rounded bg-white px-8 py-6 shadow-lg">
+            <div className="firstSection max-w-3xl">
+              <div className="my-4 text-2xl font-bold">發表評論</div>
+              <div className="my-6">
+                分享你的換宿經驗，幫助下一個換宿人有更棒的換宿體驗！
+              </div>
+              <h1 className="my-4 text-2xl font-bold text-myFirstColor">
+                換宿資訊
+              </h1>
 
-      <div className="flex justify-around py-4 pl-6 pr-6">
-
-        <div className="w-full rounded bg-white px-8 py-6 shadow-lg">
-          <div className="max-w-3xl">
-            <h1 className="my-4 text-2xl font-bold">發表評論</h1>
-            <div className="my-6">
-              分享你的換宿經驗，幫助下一個換宿人有更棒的換宿體驗！
-            </div>
-
-            <h1 className="my-4 text-2xl font-bold text-myFirstColor">
-              換宿資訊
-            </h1>
-
-            {/* FORM STARTS HERE */}
-            <form onSubmit={handleSubmit(onSubmit)}>
               {/* <!-- store name --> */}
               <div className="mb-6">
                 <label
-                  htmlFor="storeName"
+                  htmlFor="store_name"
                   className="mb-2 block text-xl font-medium text-gray-900"
                 >
-                  換宿名稱  
+                  換宿名稱
+                </label>
                 <input
                   // defaultValue="北山古洋樓"
                   type="text"
-                  id="storeName"
+                  id="store_name"
                   className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   placeholder="例如：北山古洋樓"
-                  {...register("storeName", {required: true})}
+                  {...register("store_name", { required: true })}
                 />
-                </label>
+                {errors.store_name && (
+                  <p className="text-red-600">此欄位為必填</p>
+                )}
               </div>
-              {errors.storeNameRequired && <p>此欄位為必填</p>}
+
               {/* tel */}
               <div className="mb-6">
                 <label
-                  htmlFor="storePhone"
+                  htmlFor="store_phone"
                   className="mb-2 block text-xl font-medium text-gray-900"
                 >
                   換宿電話
                 </label>
                 <input
                   type="text"
-                  id="storePhone"
+                  id="store_phone"
                   className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   placeholder="例如：071234567"
-                  {...register("storePhone", {required: true})}
+                  {...register("store_phone", { required: true })}
                 />
-                {errors.storePhoneRequired && <p>此欄位為必填</p>}
+                {errors.store_phone && (
+                  <p className="text-red-600">此欄位為必填</p>
+                )}
               </div>
 
               {/* address*/}
               <div className="mb-6">
                 <label
-                  htmlFor="address"
+                  htmlFor="store_address"
                   className="mb-2 block text-xl font-medium text-gray-900"
                 >
                   換宿地址
                 </label>
-
-                <select
+                {/* county */}
+                {/* <select
                   defaultValue="taipei"
                   name=""
                   id="county"
@@ -142,8 +143,9 @@ const WritePage1 = () => {
                 >
                   <option value="台北市">台北市</option>
                   <option value="高雄市">高雄市</option>
-                </select>
-                <select
+                </select> */}
+                {/* district */}
+                {/* <select
                   defaultValue="大安區"
                   name=""
                   id="district"
@@ -152,114 +154,268 @@ const WritePage1 = () => {
                 >
                   <option value="大安區">大安區</option>
                   <option value="楠梓區">楠梓區</option>
-                </select>
+                </select> */}
                 <input
                   type="text"
-                  id="road"
+                  id="store_address"
                   className="my-3 block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  placeholder="XX路XX號"
-                  {...register("road", {required: true})}
+                  placeholder="例如：花蓮縣XX鄉XX村XX號"
+                  {...register("store_address", { required: true })}
                 />
-                {errors.roadRequired && <p>此欄位為必填</p>}
+                {errors.store_address && (
+                  <p className="text-red-600">此欄位為必填</p>
+                )}
               </div>
 
               {/* work_span */}
               <div className="mb-6">
                 <label
-                  htmlFor="workSpan"
+                  htmlFor="work_span"
                   className="mb-2 block text-xl font-medium text-gray-900"
                 >
                   換宿天數
                 </label>
                 <select
-                  defaultValue="7"
-                  name=""
-                  id="workSpan"
+                  defaultValue="10"
+                  name="work_span"
+                  id="work_span"
                   className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("workSpan", {required: true})}
+                  {...register("work_span", { required: true })}
                 >
-                  <option value="10" >1週－2週</option>
-                  <option value="25">3週－1個月</option>
-                  <option value="60">大於1個月</option>
+                  <option name="work_span" value="10">
+                    1週－2週
+                  </option>
+                  <option name="work_span" value="25">
+                    3週－1個月
+                  </option>
+                  <option name="work_span" value="60">
+                    大於1個月
+                  </option>
                 </select>
               </div>
-              {errors.workSpanRequired && <p>此欄位為必填</p>}
+              {errors.work_span && <p className="text-red-600">此欄位為必填</p>}
 
               {/* work_year */}
               <div className="mb-6">
                 <label
-                  htmlFor="workYear"
+                  htmlFor="work_year"
                   className="mb-2 block text-xl font-medium text-gray-900"
                 >
                   換宿年份
                 </label>
                 <select
                   defaultValue="2022"
-                  name=""
-                  id="workYear"
+                  name="work_year"
+                  id="work_year"
                   className="mr-3 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("workYear", {required: true})}
+                  {...register("work_year", { required: true })}
                 >
-                  <option value="2019">2019</option>
-                  <option value="2020">2020</option>
-                  <option value="2021">2021</option>
-                  <option value="2022">2022</option>
-                  <option value="2023">2023</option>
+                  <option name="work_year" value="2019">
+                    2019
+                  </option>
+                  <option name="work_year" value="2020">
+                    2020
+                  </option>
+                  <option name="work_year" value="2021">
+                    2021
+                  </option>
+                  <option name="work_year" value="2022">
+                    2022
+                  </option>
+                  <option name="work_year" value="2023">
+                    2023
+                  </option>
                 </select>
                 <select
-                  // defaultValue={true} 
-                  name=""
-                  id="firstHalf"
+                  // defaultValue={true}
+                  name="first_half"
+                  id="first_half"
                   className="mr-10 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("firstHalf", {required: true})}
+                  {...register("first_half", { required: true })}
                 >
-                  <option value={true}>上半年</option>
-                  <option value={false}>下半年</option>
+                  <option name="first_half" value={true}>
+                    上半年
+                  </option>
+                  <option name="first_half" value={false}>
+                    下半年
+                  </option>
                 </select>
               </div>
 
               {/* work_hour */}
               <div className="mb-6">
                 <label
-                  htmlFor="workHour"
+                  htmlFor="work_hour"
                   className="mb-2 block text-xl font-medium text-gray-900"
                 >
-                  每日工時
+                  每日工時（小時）
                 </label>
                 <input
+                  min="1"
+                  max="8"
                   type="number"
-                  id="workHour"
+                  id="work_hour"
                   className="block w-36 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  placeholder="3小時"
-                  {...register("workHour", {min:1, max:8})}
+                  {...register("work_hour", { required: true })}
+                  // 為什麼這裡的最大最小值驗證沒效？
                 />
               </div>
 
               {/* type_pro */}
               <div className="mb-6">
                 <label
-                  htmlFor="typePro"
+                  htmlFor="type_pro"
                   className="mb-2 block text-xl font-medium text-gray-900"
                 >
                   換宿類型
                 </label>
                 <select
                   defaultValue={false}
-                  name=""
-                  id="typePro"
+                  name="type_pro"
+                  id="type_pro"
                   className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("typePro", {required: true})}
+                  {...register("type＿pro", { required: true })}
                 >
-                  <option value={false}>一般換宿</option>
-                  <option value={true}>專業換宿</option>
+                  <option name="type_pro" value={false}>
+                    一般換宿
+                  </option>
+                  <option name="type_pro" value={true}>
+                    專業換宿
+                  </option>
                 </select>
               </div>
-              <input type="submit" />
-              <Button text="下一步"></Button>
-            </form>
+              <hr />
+            </div>
+            <hr />
+            <div className="secondSection max-w-3xl">
+              <h2 className="my-4 text-2xl font-bold text-myFirstColor">
+                換宿評價
+              </h2>
+              {/*  */}
+              {/* <!-- pros --> */}
+              <div className="mb-6">
+                <label
+                  htmlFor="pros"
+                  className="mb-2 block text-xl font-medium text-gray-900"
+                >
+                  優點福利(複選)
+                </label>
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #有供餐
+                </a>
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #職員友善
+                </a>
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #交通便利
+                </a>
+
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #居住環境佳
+                </a>
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #有體驗課程
+                </a>
+              </div>
+
+              {/* <!-- cons --> */}
+              <div className="mb-6">
+                <label
+                  htmlFor="storeName"
+                  className="mb-2 block text-xl font-medium text-gray-900"
+                >
+                  有待改進(複選)
+                </label>
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #有供餐
+                </a>
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #職員友善
+                </a>
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #交通便利
+                </a>
+
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #居住環境佳
+                </a>
+                <a
+                  href=""
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #有體驗課程
+                </a>
+              </div>
+              {/* <!-- give a score --> */}
+              <div className="mb-6">
+                <label
+                  htmlFor="score"
+                  className="mb-2 block text-xl font-medium text-gray-900"
+                >
+                  整體評分（１～５分）
+                </label>
+                <input
+                  type="number"
+                  max="5"
+                  min="1"
+                  id="score"
+                  className="block w-16 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                  {...register("score", { required: true })}
+                />
+                {errors.score && <p className="text-red-600">此欄位為必填</p>}
+              </div>
+
+              <div className="mb-6">
+                <label
+                  htmlFor="body"
+                  className="mb-2 block text-xl font-medium text-gray-900"
+                >
+                  分享換宿心得
+                </label>
+                <textarea
+                  required
+                  id="body"
+                  className="block h-60 w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                  placeholder="分享你的換宿生活，有關店家環境、工作狀況和換宿生活等"
+                  name=""
+                  cols="30"
+                  rows="10"
+                  {...register("body", { required: true })}
+                ></textarea>
+                {errors.body && <p className="text-red-600">此欄位為必填</p>}
+              </div>
+              <input type="submit" value="送出" className="button2" />
+            </div>
           </div>
         </div>
-      </div>
+      </form>
       <Footer />
     </>
   );

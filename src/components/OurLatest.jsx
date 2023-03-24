@@ -30,7 +30,7 @@ const OurLatest = () => {
           <OurLastCard
             id={post.id}
             key={post.id}
-            title={post.title}
+            store_name={post.store_name}
             author={post.author}
             post_date={post.post_date}
             score={post.score}

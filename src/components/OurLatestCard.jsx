@@ -3,7 +3,7 @@ import Rating from "./Rating";
 import Avatar from "./Avatar";
 import HashTags from "./HashTags";
 
-const OurLastCard = ({ title, author, post_date, score, body, pros }) => {
+const OurLastCard = ({ store_name, author, post_date, score, body, pros }) => {
   return (
     <li className="mt-6 mb-6 h-72 w-600px rounded bg-white px-6 py-4 shadow-lg">
       <div className="flex">
@@ -12,7 +12,7 @@ const OurLastCard = ({ title, author, post_date, score, body, pros }) => {
         />
         <div className="flex w-full justify-between">
           <div>
-            <div className="mb-2 text-xl font-bold">{title}</div>
+            <div className="mb-2 text-xl font-bold">{store_name}</div>
             <div>{author}</div>
             <div>{post_date}</div>
           </div>
