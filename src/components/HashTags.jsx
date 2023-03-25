@@ -1,5 +1,3 @@
-import React from "react";
-
 const HashTags = ({ pros }) => {
   return (
     <ul className="pt-2 pb-2">

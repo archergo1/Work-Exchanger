@@ -1,7 +1,3 @@
-import React from "react";
-
-// import Container from "../Container";
-
 import Header from "../components/Header";
 import BannerArea from "../components/BannerArea";
 import OurSelect from "../components/OurSelect";

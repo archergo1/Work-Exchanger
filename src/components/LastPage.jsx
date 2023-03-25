@@ -1,5 +1,3 @@
-import React from "react";
-
 const LastPage = () => {
   return (
     <div className="my-4 ml-6 pl-5 text-base">

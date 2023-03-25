@@ -1,4 +1,3 @@
-import React from "react";
 import Rating from "./Rating";
 import Avatar from "./Avatar";
 import HashTags from "./HashTags";

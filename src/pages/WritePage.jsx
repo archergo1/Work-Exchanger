@@ -1,76 +1,48 @@
-import React from "react";
 import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 import LastPage from "../components/LastPage";
-import Button from "../components/Button";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-import { useForm } from "react-hook-form";
-
 const url = "http://localhost:3000";
-const trial = {
-  author: "al",
-  title: "北山古洋樓",
-  post_date: "2025/07/12",
-  work_year: "2024",
-  first_half: true,
-  work_hour: 3,
-  work_span: 14,
-  type_pro: true,
-  score: 5,
-  body: "eat all",
-  pros: [
-    "環境整潔",
-    "人員友善",
-    "有零用金",
-    "體驗課程",
-    "住宿優良",
-    "提供機車",
-  ],
-  cons: [
-    "環境髒亂",
-    "交通不便",
-    "人員不友善",
-    "住宿差",
-    "工時長",
-    "性騷擾",
-    "圖文不符",
-  ],
-};
 
-const WritePage1 = () => {
-  // why should i need to use async await, even in post?
-  const addPost = async () => {
-    try {
-      await axios.post(`${url}/posts`, trial).then((res) => {
-        console.log(res);
-        Swal.fire({ title: `送出成功` });
-      });
-    } catch (error) {
-      console.log(error);
-      Swal.fire({ title: `送出失敗` });
-    }
-  };
+const WritePage = () => {
+  const [pros, setPros] = useState([]);
+  const [cons, setCons] = useState([]);
 
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      pros: [],
+    },
+  });
+
   const onSubmit = (data) => {
-    console.log(data);
+    const addPost = async () => {
+      try {
+        await axios.post(`${url}/posts`, data).then((res) => {
+          console.log(res);
+          Swal.fire({ title: `送出成功` });
+        });
+      } catch (error) {
+        console.log(error);
+        Swal.fire({ title: `送出失敗` });
+      }
+    };
+    addPost();
   };
-  // console.log(watch(address));
+  // why should i need to use async await, even in post?
 
   return (
     <>
       <Header />
       <LastPage />
-      <button onClick={addPost}>send</button>
       {/* FORM STARTS HERE */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-around py-4 pl-6 pr-6">
@@ -294,13 +266,142 @@ const WritePage1 = () => {
               {/*  */}
               {/* <!-- pros --> */}
               <div className="mb-6">
-                <label
-                  htmlFor="pros"
-                  className="mb-2 block text-xl font-medium text-gray-900"
-                >
+                <div className="mb-2 block text-xl font-medium text-gray-900">
                   優點福利(複選)
+                </div>
+
+                <input
+                  name="pros"
+                  className=""
+                  type="checkbox"
+                  id="goodEnv"
+                  value="店家環境佳"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="goodEnv"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #店家環境佳
                 </label>
-                <a
+
+                <input
+                  name="pros"
+                  className=""
+                  type="checkbox"
+                  id="goodLocation"
+                  value="交通便利"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="goodLocation"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #交通便利
+                </label>
+
+                <input
+                  name="pros"
+                  className=""
+                  type="checkbox"
+                  id="friendlyPeople"
+                  value="人員友善"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="friendlyPeople"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #人員友善
+                </label>
+
+                <input
+                  className=""
+                  type="checkbox"
+                  id="goodRules"
+                  value="制度完善"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="goodRules"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #制度完善
+                </label>
+
+                <input
+                  name="pros"
+                  className=""
+                  type="checkbox"
+                  id="freeMeal"
+                  value="免費供餐"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="freeMeal"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #免費供餐
+                </label>
+
+                <input
+                  name="pros"
+                  className=""
+                  type="checkbox"
+                  id="allowance"
+                  value="有零用金/補助餐費"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="allowance"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #有零用金/補助餐費
+                </label>
+
+                <input
+                  className=""
+                  type="checkbox"
+                  id="trialActivityEnv"
+                  value="有體驗活動"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="trialActivityEnv"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #有體驗活動
+                </label>
+                <input
+                  name="pros"
+                  className=""
+                  type="checkbox"
+                  id="cleanEnv"
+                  value="環境整潔"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="cleanEnv"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #環境整潔
+                </label>
+                <input
+                  name="pros"
+                  className=""
+                  type="checkbox"
+                  id="goodDorm"
+                  value="住宿佳"
+                  {...register("checkbox")}
+                />
+                <label
+                  htmlFor="goodDorm"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #住宿佳
+                </label>
+
+                {/* <a
                   href=""
                   className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
                 >
@@ -330,18 +431,114 @@ const WritePage1 = () => {
                   className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
                 >
                   #有體驗課程
-                </a>
+                </a> */}
               </div>
 
               {/* <!-- cons --> */}
               <div className="mb-6">
-                <label
-                  htmlFor="storeName"
-                  className="mb-2 block text-xl font-medium text-gray-900"
-                >
+                <div className="mb-2 block text-xl font-medium text-gray-900">
                   有待改進(複選)
+                </div>
+
+                <input
+                  className=""
+                  type="checkbox"
+                  id="badEnv"
+                  value="店家環境差"
+                />
+                <label
+                  htmlFor="badEnv"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #店家環境差
                 </label>
-                <a
+
+                <input
+                  className=""
+                  type="checkbox"
+                  id="badLocation"
+                  value="交通不便"
+                />
+                <label
+                  htmlFor="badLocation"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #交通不便
+                </label>
+                <input
+                  className=""
+                  type="checkbox"
+                  id="unfriendlyPeople"
+                  value="人員不友善"
+                />
+                <label
+                  htmlFor="unfriendlyPeople"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #人員不友善
+                </label>
+                <input
+                  className=""
+                  type="checkbox"
+                  id="badRules"
+                  value="制度不完善"
+                />
+                <label
+                  htmlFor="badRules"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #制度不完善
+                </label>
+                <input
+                  className=""
+                  type="checkbox"
+                  id="longHours"
+                  value="工時過長"
+                />
+                <label
+                  htmlFor="longHours"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #工時過長
+                </label>
+                <input
+                  className=""
+                  type="checkbox"
+                  id="cleanEnv"
+                  value="性騷擾"
+                />
+                <label
+                  htmlFor="cleanEnv"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #性騷擾
+                </label>
+                <input
+                  className=""
+                  type="checkbox"
+                  id="inConsistency"
+                  value="實際換宿狀況與敘述不符"
+                />
+                <label
+                  htmlFor="inConsistency"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #實際換宿狀況與敘述不符
+                </label>
+                <input
+                  className=""
+                  type="checkbox"
+                  id="badDorm"
+                  value="住宿差"
+                />
+                <label
+                  htmlFor="badDorm"
+                  className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                >
+                  #住宿差
+                </label>
+
+                {/* <a
                   href=""
                   className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
                 >
@@ -371,7 +568,7 @@ const WritePage1 = () => {
                   className="my-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
                 >
                   #有體驗課程
-                </a>
+                </a> */}
               </div>
               {/* <!-- give a score --> */}
               <div className="mb-6">
@@ -421,4 +618,4 @@ const WritePage1 = () => {
   );
 };
 
-export default WritePage1;
+export default WritePage;

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const OurSelect = () => {
   return (
     <div className="ourSelect bg-mySecondColor pt-1">

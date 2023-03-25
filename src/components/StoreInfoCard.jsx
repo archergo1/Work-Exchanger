@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import Button1 from "./Button1";
 import Button2 from "./Button";

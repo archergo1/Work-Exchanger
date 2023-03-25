@@ -1,5 +1,3 @@
-import React from "react";
-
 import Header from "../components/Header";
 import BannerArea from "../components/BannerArea";
 import Footer from "../components/Footer";

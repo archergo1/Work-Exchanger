@@ -5,8 +5,8 @@ import Home from "./pages/Home";
 import SearchFound from "./pages/SearchFound";
 import Posts from "./pages/Posts";
 import MemberMyInfo from "./pages/MemberMyInfo";
-import WritePage1 from "./pages/WritePage1";
-import WritePage2 from "./pages/WritePage2";
+import WritePage from "./pages/WritePage";
+
 // import Test from "./pages/Test";
 
 function App() {
@@ -17,9 +17,7 @@ function App() {
       {/* <MemberMyInfo/> */}
       {/* <SearchFound/> */}
       {/* <Posts /> */}
-     
-      <WritePage1/>  
-      {/* <WritePage2/> */}
+      <WritePage/>  
     </div>
   );
 }

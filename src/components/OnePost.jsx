@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import Rating from "./Rating";
 import axios from "axios";
