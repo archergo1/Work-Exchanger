@@ -18,12 +18,11 @@ const WritePage = () => {
     watch,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      pros: [],
-    },
+    defaultValues: {},
   });
 
   const onSubmit = (data) => {
+    const { work_span, work_hour, first_half, type_pro, score } = data;
     const addPost = async () => {
       try {
         await axios.post(`${url}/posts`, data).then((res) => {
@@ -65,7 +64,6 @@ const WritePage = () => {
                   換宿名稱
                 </label>
                 <input
-                  // defaultValue="北山古洋樓"
                   type="text"
                   id="store_name"
                   className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
@@ -148,19 +146,18 @@ const WritePage = () => {
                   換宿天數
                 </label>
                 <select
-                  defaultValue="10"
                   name="work_span"
                   id="work_span"
                   className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("work_span", { required: true })}
                 >
-                  <option name="work_span" value="10">
+                  <option name="work_span" value={parseInt(10)}>
                     1週－2週
                   </option>
-                  <option name="work_span" value="25">
+                  <option name="work_span" value={parseInt(25)}>
                     3週－1個月
                   </option>
-                  <option name="work_span" value="60">
+                  <option name="work_span" value={parseInt(60)}>
                     大於1個月
                   </option>
                 </select>
@@ -176,7 +173,6 @@ const WritePage = () => {
                   換宿年份
                 </label>
                 <select
-                  defaultValue="2022"
                   name="work_year"
                   id="work_year"
                   className="mr-3 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
@@ -199,16 +195,15 @@ const WritePage = () => {
                   </option>
                 </select>
                 <select
-                  // defaultValue={true}
                   name="first_half"
                   id="first_half"
                   className="mr-10 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("first_half", { required: true })}
                 >
-                  <option name="first_half" value={true}>
+                  <option name="first_half" value={Boolean(true)}>
                     上半年
                   </option>
-                  <option name="first_half" value={false}>
+                  <option name="first_half" value={Boolean(false)}>
                     下半年
                   </option>
                 </select>
@@ -242,16 +237,15 @@ const WritePage = () => {
                   換宿類型
                 </label>
                 <select
-                  defaultValue={false}
                   name="type_pro"
                   id="type_pro"
                   className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("type＿pro", { required: true })}
+                  {...register("type_pro", { required: true })}
                 >
-                  <option name="type_pro" value={false}>
+                  <option name="type_pro" value={Boolean(false)}>
                     一般換宿
                   </option>
-                  <option name="type_pro" value={true}>
+                  <option name="type_pro" value={Boolean(true)}>
                     專業換宿
                   </option>
                 </select>

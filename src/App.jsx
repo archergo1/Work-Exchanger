@@ -15,9 +15,9 @@ function App() {
     
       {/* <Home/> */}
       {/* <MemberMyInfo/> */}
-      {/* <SearchFound/> */}
+      <SearchFound/>
       {/* <Posts /> */}
-      <WritePage/>  
+      {/* <WritePage/>   */}
     </div>
   );
 }
