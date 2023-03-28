@@ -14,9 +14,10 @@ function MemberMyInfo() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <div className="flex-col">
+    <div className="flex-col mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
-      <Tabs className="flex justify-around py-4 pl-6 pr-6 grow">
+      <div className="">
+      <Tabs className="flex flex-grow justify-around py-4 pl-6 pr-6">
         <div className="h-96 w-80 rounded bg-white px-8 py-3 shadow-lg">
           <img
             className="mx-auto block h-20 w-20 rounded-full"
@@ -136,7 +137,7 @@ function MemberMyInfo() {
             {/* <!-- matched nums & sorting --> */}
             <div className="my-3 flex justify-between">
               <div>12則評論</div>
-              <div>
+              {/* <div>
                 <select
                   defaultValue={"latest"}
                   id="sorting"
@@ -144,14 +145,14 @@ function MemberMyInfo() {
                 >
                   <option value="latest">依最新評論</option>
                   <option value="highest">依最高評分</option>
-                  {/* <option value="hottest">最熱門</option> */}
+                   <option value="hottest">最熱門</option> 
                 </select>
-              </div>
+              </div> */}
             </div>
 
             <div className="my-4 w-960px rounded bg-white px-8 py-6 shadow-lg">
-              <OnePost/>
-              <hr/>
+              <OnePost />
+              <hr />
 
               {/* if logged in, render the link */}
               {isLoggedIn ? null : (
@@ -181,6 +182,8 @@ function MemberMyInfo() {
           </div>
         </TabPanel>
       </Tabs>
+      </div>
+     
       <Footer />
     </div>
   );

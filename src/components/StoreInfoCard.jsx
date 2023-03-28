@@ -41,8 +41,8 @@ const StoreInfoCard = () => {
         <div className="rating">{store0.average_score}</div>
       </div>
       <ul>
-        <li className="my-1 h-10 w-full text-left">地址：{store0.address}</li>
-        <li className="my-1 h-10 w-full text-left">電話：{store0.tel}</li>
+        <li className="my-1 h-10 w-full text-left">地址：{store0.store_address}</li>
+        <li className="my-1 h-10 w-full text-left">電話：{store0.store_phone}</li>
         <li className="my-1 h-10 w-full text-left">
           平均日工時：{store0.average_hour}小時
         </li>

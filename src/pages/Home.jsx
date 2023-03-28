@@ -6,13 +6,13 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <>
+    <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header></Header>
       <BannerArea></BannerArea>
       <OurSelect></OurSelect>
       <OurLatest></OurLatest>
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 

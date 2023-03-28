@@ -27,7 +27,7 @@ Modal.setAppElement("#root");
 // }
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -50,7 +50,7 @@ const Header = () => {
   // A 用state切換就可以
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
-      <a className="h-10 w-10" href="#">
+      <a className="h-10 w-10" href="/">
         <img src="/src/assets/images/uniqlo.png" alt="" />
       </a>
       {isLoggedIn ? (

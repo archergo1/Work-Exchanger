@@ -11,7 +11,7 @@ const Posts = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <>
+    <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
       <LastPage />
       <div className="flex justify-around py-4 pl-6 pr-6">
@@ -66,7 +66,7 @@ const Posts = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
