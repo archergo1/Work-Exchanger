@@ -40,7 +40,7 @@ const OurLatest = () => {
             key={item.id}
             store_name={item.store_name}
             author={item.author}
-            post_date={item.post_date}
+            post_date={item.post_date.substring(0, 10)}
             score={item.score}
             body={item.body}
             pros={item.pros}

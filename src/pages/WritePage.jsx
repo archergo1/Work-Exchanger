@@ -9,9 +9,6 @@ import Swal from "sweetalert2";
 const url = "http://localhost:3000";
 
 const WritePage = () => {
-  const [pros, setPros] = useState([]);
-  const [cons, setCons] = useState([]);
-
   const {
     register,
     handleSubmit,
@@ -23,12 +20,14 @@ const WritePage = () => {
 
   const onSubmit = (data) => {
     const { work_span, work_hour, first_half, type_pro, score } = data;
-    //  轉型
+    //
     const toBoolean1 = type_pro === "true" ? true : false;
     const toBoolean2 = first_half === "true" ? true : false;
     const toNumber1 = parseInt(work_span);
     const toNumber2 = parseInt(work_hour);
     const toNumber3 = parseInt(score);
+
+    const nowTime = new Date();
 
     const convertedData = {
       ...data,
@@ -36,10 +35,10 @@ const WritePage = () => {
       first_half: toBoolean2,
       work_span: toNumber1,
       work_hour: toNumber2,
-      score: toNumber3
+      score: toNumber3,
+      post_date: nowTime,
     };
 
-    // console.log("test", test);
     const addPost = async () => {
       try {
         await axios.post(`${url}/posts`, convertedData).then((res) => {
@@ -120,28 +119,7 @@ const WritePage = () => {
                 >
                   換宿地址
                 </label>
-                {/* county */}
-                {/* <select
-                  defaultValue="taipei"
-                  name=""
-                  id="county"
-                  className="mr-3 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("county", {required: true})}
-                >
-                  <option value="台北市">台北市</option>
-                  <option value="高雄市">高雄市</option>
-                </select> */}
-                {/* district */}
-                {/* <select
-                  defaultValue="大安區"
-                  name=""
-                  id="district"
-                  className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("district", {required: true})}
-                >
-                  <option value="大安區">大安區</option>
-                  <option value="楠梓區">楠梓區</option>
-                </select> */}
+
                 <input
                   type="text"
                   id="store_address"
@@ -287,7 +265,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="goodEnv"
                   value="店家環境佳"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="goodEnv"
@@ -302,7 +280,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="goodLocation"
                   value="交通便利"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="goodLocation"
@@ -317,7 +295,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="friendlyPeople"
                   value="人員友善"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="friendlyPeople"
@@ -331,7 +309,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="goodRules"
                   value="制度完善"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="goodRules"
@@ -346,7 +324,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="freeMeal"
                   value="免費供餐"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="freeMeal"
@@ -361,7 +339,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="allowance"
                   value="有零用金/補助餐費"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="allowance"
@@ -375,7 +353,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="trialActivityEnv"
                   value="有體驗活動"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="trialActivityEnv"
@@ -389,7 +367,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="cleanEnv"
                   value="環境整潔"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="cleanEnv"
@@ -403,7 +381,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="goodDorm"
                   value="住宿佳"
-                  {...register("checkbox")}
+                  {...register("pros")}
                 />
                 <label
                   htmlFor="goodDorm"
@@ -456,6 +434,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="badEnv"
                   value="店家環境差"
+                  {...register("cons")}
                 />
                 <label
                   htmlFor="badEnv"
@@ -469,6 +448,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="badLocation"
                   value="交通不便"
+                  {...register("cons")}
                 />
                 <label
                   htmlFor="badLocation"
@@ -481,6 +461,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="unfriendlyPeople"
                   value="人員不友善"
+                  {...register("cons")}
                 />
                 <label
                   htmlFor="unfriendlyPeople"
@@ -493,6 +474,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="badRules"
                   value="制度不完善"
+                  {...register("cons")}
                 />
                 <label
                   htmlFor="badRules"
@@ -505,6 +487,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="longHours"
                   value="工時過長"
+                  {...register("cons")}
                 />
                 <label
                   htmlFor="longHours"
@@ -517,6 +500,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="cleanEnv"
                   value="性騷擾"
+                  {...register("cons")}
                 />
                 <label
                   htmlFor="cleanEnv"
@@ -529,6 +513,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="inConsistency"
                   value="實際換宿狀況與敘述不符"
+                  {...register("cons")}
                 />
                 <label
                   htmlFor="inConsistency"
@@ -541,6 +526,7 @@ const WritePage = () => {
                   type="checkbox"
                   id="badDorm"
                   value="住宿差"
+                  {...register("cons")}
                 />
                 <label
                   htmlFor="badDorm"

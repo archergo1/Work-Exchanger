@@ -26,6 +26,10 @@ const SearchResults = () => {
   };
 
   const handleSearch = useCallback(() => {
+    if(!searchInput){
+      return ;
+      
+    }
     const matched = data.filter((item) =>
       item.store_name.includes(searchInput)
     );
