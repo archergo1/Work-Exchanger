@@ -33,7 +33,7 @@ const SearchFound = () => {
   }, [data, searchInput]);
 
   return (
-    <>
+    <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
       {/* banner area */}
       <div className="banner h-64 bg-bannerImage bg-center pt-24">
@@ -88,7 +88,7 @@ const SearchFound = () => {
         </ul>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

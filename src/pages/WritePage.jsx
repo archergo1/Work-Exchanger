@@ -39,7 +39,7 @@ const WritePage = () => {
   // why should i need to use async await, even in post?
 
   return (
-    <>
+    <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
       <LastPage />
       {/* FORM STARTS HERE */}
@@ -608,7 +608,7 @@ const WritePage = () => {
         </div>
       </form>
       <Footer />
-    </>
+    </div>
   );
 };
 
