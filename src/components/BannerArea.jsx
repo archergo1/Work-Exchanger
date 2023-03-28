@@ -32,26 +32,28 @@ function BannerArea() {
   return (
     // <!-- banner & search input-->
     <div className="banner h-64 bg-bannerImage bg-center pt-24">
-        <div className="mx-auto max-w-xl">
-          <div className="relative">
-            <input
-              type="text"
-              value={searchInput}
-              id="search"
-              className=":border-gray-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900"
-              placeholder="請輸入換宿商家名稱"
-              onChange={handleInputChange}
-            />
-            <button
-              onClick={handleSearch}
-              className="absolute right-2.5 bottom-2.5 rounded-lg bg-myThirdColor px-4 py-2 text-sm font-medium text-white focus:outline-none"
-            >
-              搜尋
-            </button>
-          </div>
+      <div className="mx-auto max-w-xl">
+        <div className="relative">
+          <input
+            type="text"
+            value={searchInput}
+            id="search"
+            className=":border-gray-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900"
+            placeholder="請輸入換宿商家名稱"
+            onChange={handleInputChange}
+          />
+          <button
+            goToSearchFound
+            onClick={handleSearch}
+            className="absolute right-2.5 bottom-2.5 rounded-lg bg-myThirdColor px-4 py-2 text-sm font-medium text-white focus:outline-none"
+          >
+            搜尋
+          </button>
         </div>
       </div>
+    </div>
   );
 }
+
 
 export default BannerArea;

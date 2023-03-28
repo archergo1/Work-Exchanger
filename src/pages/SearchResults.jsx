@@ -7,7 +7,7 @@ import axios from "axios";
 
 const url = "http://localhost:3000";
 
-const SearchFound = () => {
+const SearchResults = () => {
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [results, setResults] = useState([]);
@@ -57,7 +57,7 @@ const SearchFound = () => {
         </div>
       </div>
       {/* <!-- possible matches indicator --> */}
-      <div className="my-4 ml-6 text-base">{results.length}個搜尋結果</div>
+      <div className="my-4 ml-6 text-base">{results.length} 個搜尋結果</div>
       {/* <!-- matched items --> */}
       <div className="mb-4 w-full px-6">
         <ul>
@@ -92,4 +92,4 @@ const SearchFound = () => {
   );
 };
 
-export default SearchFound;
+export default SearchResults;

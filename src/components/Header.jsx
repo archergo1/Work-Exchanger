@@ -27,7 +27,7 @@ Modal.setAppElement("#root");
 // }
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -48,13 +48,14 @@ const Header = () => {
 
   //Q 註冊 登入互相切換要用巢狀迴圈嗎？
   // A 用state切換就可以
+
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
       <a className="h-10 w-10" href="/">
         <img src="/src/assets/images/uniqlo.png" alt="" />
       </a>
       {isLoggedIn ? (
-        <Button text="Hi Archer!" />
+        <Button goToMy text="Hi Archer!" />
       ) : (
         <Button openModal={openModal} text="登入/註冊" />
       )}

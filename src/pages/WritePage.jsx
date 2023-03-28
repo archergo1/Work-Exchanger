@@ -23,9 +23,26 @@ const WritePage = () => {
 
   const onSubmit = (data) => {
     const { work_span, work_hour, first_half, type_pro, score } = data;
+    //  轉型
+    const toBoolean1 = type_pro === "true" ? true : false;
+    const toBoolean2 = first_half === "true" ? true : false;
+    const toNumber1 = parseInt(work_span);
+    const toNumber2 = parseInt(work_hour);
+    const toNumber3 = parseInt(score);
+
+    const convertedData = {
+      ...data,
+      type_pro: toBoolean1,
+      first_half: toBoolean2,
+      work_span: toNumber1,
+      work_hour: toNumber2,
+      score: toNumber3
+    };
+
+    // console.log("test", test);
     const addPost = async () => {
       try {
-        await axios.post(`${url}/posts`, data).then((res) => {
+        await axios.post(`${url}/posts`, convertedData).then((res) => {
           console.log(res);
           Swal.fire({ title: `送出成功` });
         });
