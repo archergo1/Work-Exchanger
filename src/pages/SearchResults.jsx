@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 // import BannerArea from "../components/BannerArea";
 import Footer from "../components/Footer";
@@ -7,33 +8,70 @@ import axios from "axios";
 
 const url = "http://localhost:3000";
 
+
+
 const SearchResults = () => {
+
+  const location = useLocation();
+  const initialSearch = location.state.searchInput;
+  console.log(initialSearch);
+
   const [data, setData] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState(initialSearch);
   const [results, setResults] = useState([]);
 
+
+  const getData =  () => {
+     axios.get(`${url}/stores`).then((res) => {
+      setData(res.data);
+    });
+  };
+
   useEffect(() => {
-    const getData = async () => {
-      axios.get(`${url}/stores`).then((res) => {
-        setData(res.data);
-      });
-    };
     getData();
   }, []);
+
+  useEffect(()=>{
+    // console.log(13412);
+    handleSearch()
+  },[data])
+
+  // useEffect(() => { 
+  //   setSearchInput(initialSearch)
+  //   console.log(searchInput);
+  //  },[initialSearch])
+
+  //  useEffect(()=>{handleSearch()},[searchInput])
 
   const handleInputChange = (e) => {
     setSearchInput(e.target.value);
   };
 
   const handleSearch = useCallback(() => {
-    if (!searchInput) {
-      return;
-    }
+    console.log(2);
+    // if (searchInput==='') {
+    // console.log('沒有被執行');
+
+    //   return;
+    // }
     const matched = data.filter((item) =>
       item.store_name.includes(searchInput)
     );
     setResults(matched);
   }, [data, searchInput]);
+
+  // const handleSearch2 = useCallback(() => {
+  //   if (!initialSearch)  {
+  //     return;
+  //   }
+  //   const matched = data.filter((item) =>
+  //     item.store_name.includes(initialSearch)
+  //   );
+  //   setResults(matched);
+  // }, [data, searchInput]);
+  // handleSearch2();
+
+
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
