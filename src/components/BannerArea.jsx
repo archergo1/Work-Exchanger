@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const url = "http://localhost:3000";
@@ -8,6 +8,7 @@ function BannerArea() {
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [results, setResults] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
@@ -44,7 +45,7 @@ function BannerArea() {
           />
           <button
             goToSearchFound
-            onClick={handleSearch}
+            onClick={() => {  }}
             className="absolute right-2.5 bottom-2.5 rounded-lg bg-myThirdColor px-4 py-2 text-sm font-medium text-white focus:outline-none"
           >
             搜尋

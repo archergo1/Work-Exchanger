@@ -19,14 +19,29 @@ const WritePage = () => {
   });
 
   const onSubmit = (data) => {
-    const { work_span, work_hour, first_half, type_pro, score } = data;
-    //
+    const {
+      work_span,
+      work_hour,
+      first_half,
+      type_pro,
+      score,
+      store_name,
+      store_address,
+      store_phone,
+    } = data;
+
+    const store_info = {
+      store_name: store_name,
+      store_phone: store_phone,
+      store_address: store_address,
+    };
+
+    // make data type conversions for that the values type of data are strings by default
     const toBoolean1 = type_pro === "true" ? true : false;
     const toBoolean2 = first_half === "true" ? true : false;
     const toNumber1 = parseInt(work_span);
     const toNumber2 = parseInt(work_hour);
     const toNumber3 = parseInt(score);
-
     const nowTime = new Date();
 
     const convertedData = {
@@ -39,25 +54,26 @@ const WritePage = () => {
       post_date: nowTime,
     };
 
-    const addPost = async () => {
+    const sendData = async () => {
       try {
         await axios.post(`${url}/posts`, convertedData).then((res) => {
           console.log(res);
           Swal.fire({ title: `送出成功` });
         });
+        await axios.post(`${url}/stores`, store_info);
       } catch (error) {
         console.log(error);
         Swal.fire({ title: `送出失敗` });
       }
     };
-    addPost();
+    sendData();
   };
   // why should i need to use async await, even in post?
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
-      <LastPage />
+      {/* <LastPage /> */}
       {/* FORM STARTS HERE */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-around py-4 pl-6 pr-6">
@@ -146,13 +162,13 @@ const WritePage = () => {
                   className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("work_span", { required: true })}
                 >
-                  <option name="work_span" value={parseInt(10)}>
+                  <option name="work_span" value={10}>
                     1週－2週
                   </option>
-                  <option name="work_span" value={parseInt(25)}>
+                  <option name="work_span" value={25}>
                     3週－1個月
                   </option>
-                  <option name="work_span" value={parseInt(60)}>
+                  <option name="work_span" value={60}>
                     大於1個月
                   </option>
                 </select>
@@ -195,10 +211,10 @@ const WritePage = () => {
                   className="mr-10 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("first_half", { required: true })}
                 >
-                  <option name="first_half" value={Boolean(true)}>
+                  <option name="first_half" value={true}>
                     上半年
                   </option>
-                  <option name="first_half" value={Boolean(false)}>
+                  <option name="first_half" value={false}>
                     下半年
                   </option>
                 </select>
@@ -237,10 +253,10 @@ const WritePage = () => {
                   className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("type_pro", { required: true })}
                 >
-                  <option name="type_pro" value={Boolean(false)}>
+                  <option name="type_pro" value={false}>
                     一般換宿
                   </option>
-                  <option name="type_pro" value={Boolean(true)}>
+                  <option name="type_pro" value={true}>
                     專業換宿
                   </option>
                 </select>

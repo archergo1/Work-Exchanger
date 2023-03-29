@@ -33,8 +33,8 @@ const OurSelect = () => {
   //   return;
   // });
 
-  // sort 會改變原來的data!?
-  // 用slice來淺拷貝
+  // Q sort 會改變原來的data!?
+  // A 用slice來淺拷貝
 
   return (
     <div className="ourSelect bg-mySecondColor pt-1">
@@ -45,7 +45,7 @@ const OurSelect = () => {
           <h3 className="my-8 text-center text-3xl">評分最高</h3>
           <ol className="list-decimal pl-12">
             {scoreDescending.map((item) => {
-              return <li key={item.id}>{item.store_name}</li>;
+              return <li key={item.id} id={item.id}>{item.store_name}</li>;
             })}
           </ol>
         </div>
@@ -54,7 +54,7 @@ const OurSelect = () => {
           <h3 className="my-8 text-center text-3xl">工時最短</h3>
           <ol className="list-decimal pl-12">
             {hourAscending.map((item) => {
-              return <li key={item.id}>{item.store_name}</li>;
+              return <li key={item.id} id={item.id}>{item.store_name}</li>;
             })}
           </ol>
         </div>

@@ -52,7 +52,7 @@ const OnePost = () => {
   }
 
   return (
-    <div className="onePost flex">
+    <div className="onePost flex my-4 w-960px rounded bg-white px-8 py-6 shadow-lg">
       {/* <!-- mug --> */}
       <img
         className="mx-2 h-16 w-16 rounded-full"
@@ -79,7 +79,7 @@ const OnePost = () => {
                 <div className="mr-2 inline-block">
                   換宿時間：{work_year} {firstHalf}
                 </div>
-                •<div className="ml-2 inline-block">發文日期：{post_date}</div>
+                •<div className="ml-2 inline-block">發文日期：{post_date.substring(0, 10)}</div>
               </div>
             </div>
           </div>
