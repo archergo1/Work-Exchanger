@@ -1,18 +1,48 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 import MySetting from "../components/MySetting";
 import Button from "../components/Button";
 import Button1 from "../components/Button1";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import OnePost from "../components/OnePost";
 import Comments from "../components/Comments";
+import Rating from "../components/Rating";
+import axios from "axios";
+const url = "http://localhost:3000";
 
-function MemberMyInfo() {
+function MemberPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [posts, setPosts] = useState([]);
+  const [user, setUser] = useState([]);
+  const userId = 1;
 
+  useEffect(() => {
+    const getUserData = async () => {
+      const res = await axios.get(`${url}/users/${userId}`);
+      setUser(res.data);
+    };
+    getUserData();
+  }, []);
+
+  useEffect(() => {
+    if (!user) {
+      return null;
+    }
+    // get posts by the user
+    const getPostData = async () => {
+      const res = await axios.get(`${url}/users/${userId}/posts`);
+      setPosts(res.data);
+    };
+    getPostData();
+    console.log("212");
+  }, [user]);
+  const { id, name, email, password } = user;
+  if (!posts) {
+    return null;
+  }
+  console.log(posts);
+  
   return (
     <div className="mx-auto max-w-screen-2xl flex-col bg-myFifthColor">
       <Header />
@@ -24,7 +54,7 @@ function MemberMyInfo() {
               src="/src/assets/images/dog.jpeg"
               alt=""
             />
-            <h1 className="my-6 text-center text-3xl">Archer</h1>
+            <h1 className="my-6 text-center text-3xl">{name}</h1>
 
             <TabList className="">
               <Tab className="flex">
@@ -136,7 +166,7 @@ function MemberMyInfo() {
             <div>
               {/* <!-- matched nums & sorting --> */}
               <div className="my-3 flex justify-between">
-                <div>12則評論</div>
+                <div className="font-bold">{posts.length}則評論</div>
                 {/* <div>
                 <select
                   defaultValue={"latest"}
@@ -150,8 +180,113 @@ function MemberMyInfo() {
               </div> */}
               </div>
 
-              <div className="my-4 w-960px rounded bg-white px-8 py-6 shadow-lg">
-                <OnePost />
+              <ul>
+                {posts.map(
+                  ({
+                    store_name,
+                    post_date,
+                    work_year,
+                    first_half,
+                    work_hour,
+                    work_span,
+                    type_pro,
+                    score,
+                    body,
+                    pros,
+                    cons,
+                  }) => {
+                    return (
+                      <li
+                        key={id}
+                        className="my-4 flex w-960px rounded bg-white px-8 py-6 shadow-lg"
+                      >
+                        {/* <!-- mug --> */}
+                        <img
+                          className="mx-2 h-16 w-16 rounded-full"
+                          src="/src/assets/images/dog.jpeg"
+                          alt=""
+                        />
+
+                        {/* <!-- info & comment --> */}
+                        <div>
+                          <div className="flex justify-between">
+                            <div>
+                              <div className="flex items-center">
+                                <div className="text-2xl font-bold">
+                                  {store_name}
+                                </div>
+                                <div className="mx-4 h-6 w-32 rounded-lg bg-yellow-400 text-white">
+                                  {type_pro}
+                                </div>
+                              </div>
+                              <div>
+                                <div className="mt-2">
+                                  <div className="mr-2 inline-block">
+                                    日工時：{work_hour}小時
+                                  </div>
+                                  •
+                                  <div className="ml-2 inline-block">
+                                    換宿期間：{work_span}
+                                  </div>
+                                </div>
+                                <div className="mb-2">
+                                  <div className="mr-2 inline-block">
+                                    換宿時間：{work_year} {first_half}
+                                  </div>
+                                  •
+                                  <div className="ml-2 inline-block">
+                                    發文日期：{post_date.substring(0, 10)}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            {/* <!-- rating stars --> */}
+                            <div>
+                              <Rating score={score}></Rating>
+                            </div>
+                          </div>
+                          <p className="my-2 text-lg">{body}</p>
+
+                          {/* <!-- pros --> */}
+                          <div className="my-3">
+                            <div className="mb-4 font-bold">優點福利</div>
+                            <ul>
+                              {pros.map((item, index) => {
+                                return (
+                                  <li
+                                    key={index}
+                                    className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                                  >
+                                    #{item}
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                          {/* <!-- cons --> */}
+                          <div className="my-3">
+                            <div className="mb-4 font-bold">有待改進</div>
+                            <ul>
+                              {cons.map((item, index) => {
+                                return (
+                                  <li
+                                    key={index}
+                                    className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                                  >
+                                    #{item}
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                          {/* <!-- other functions may need to be added in the future*/}
+                          <div></div>
+                        </div>
+                      </li>
+                    );
+                  }
+                )}
+
                 <hr />
 
                 {/* if logged in, render the link */}
@@ -164,7 +299,7 @@ function MemberMyInfo() {
                   </a>
                 )}
                 {/* <!-- each response --> */}
-                <Comments />
+                {/* <Comments />    */}
 
                 {/* more comments */}
                 <a
@@ -173,20 +308,14 @@ function MemberMyInfo() {
                 >
                   載入更多留言
                 </a>
-              </div>
-
-              {/* <!-- second comment --> */}
-              <div className="my-4 w-960px rounded bg-white px-8 py-6 shadow-lg">
-                <OnePost />
-              </div>
+              </ul>
             </div>
           </TabPanel>
         </Tabs>
       </div>
-
       <Footer />
     </div>
   );
 }
 // 如何在content不足的時候，把footer置底？ 用了flex-grow好像沒效果？
-export default MemberMyInfo;
+export default MemberPage;

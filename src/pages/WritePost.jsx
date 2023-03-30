@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const url = "http://localhost:3000";
 
-const WritePage = () => {
+const WritePost = () => {
   const {
     register,
     handleSubmit,
@@ -37,18 +37,18 @@ const WritePage = () => {
     };
 
     // make data type conversions for that the values type of data are strings by default
-    const toBoolean1 = type_pro === "true" ? true : false;
-    const toBoolean2 = first_half === "true" ? true : false;
-    const toNumber1 = parseInt(work_span);
+    // const toBoolean1 = type_pro === "true" ? true : false; 
+    // const toBoolean2 = first_half === "true" ? true : false;
+    // const toNumber1 = parseInt(work_span);
     const toNumber2 = parseInt(work_hour);
     const toNumber3 = parseInt(score);
     const nowTime = new Date();
 
     const convertedData = {
       ...data,
-      type_pro: toBoolean1,
-      first_half: toBoolean2,
-      work_span: toNumber1,
+      // type_pro: toBoolean1,
+      // first_half: toBoolean2,
+      // work_span: toNumber1,
       work_hour: toNumber2,
       score: toNumber3,
       post_date: nowTime,
@@ -162,13 +162,13 @@ const WritePage = () => {
                   className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("work_span", { required: true })}
                 >
-                  <option name="work_span" value={10}>
+                  <option name="work_span" value={"1週－2週"}>
                     1週－2週
                   </option>
-                  <option name="work_span" value={25}>
+                  <option name="work_span" value={"3週－1個月"}>
                     3週－1個月
                   </option>
-                  <option name="work_span" value={60}>
+                  <option name="work_span" value={"大於1個月"}>
                     大於1個月
                   </option>
                 </select>
@@ -211,10 +211,10 @@ const WritePage = () => {
                   className="mr-10 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("first_half", { required: true })}
                 >
-                  <option name="first_half" value={true}>
+                  <option name="first_half" value="上半年">
                     上半年
                   </option>
-                  <option name="first_half" value={false}>
+                  <option name="first_half" value="下半年">
                     下半年
                   </option>
                 </select>
@@ -253,10 +253,10 @@ const WritePage = () => {
                   className="rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("type_pro", { required: true })}
                 >
-                  <option name="type_pro" value={false}>
+                  <option name="type_pro" value="一般換宿">
                     一般換宿
                   </option>
-                  <option name="type_pro" value={true}>
+                  <option name="type_pro" value="專業換宿">
                     專業換宿
                   </option>
                 </select>
@@ -631,4 +631,4 @@ const WritePage = () => {
   );
 };
 
-export default WritePage;
+export default WritePost;

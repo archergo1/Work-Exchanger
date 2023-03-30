@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
-import Posts from "./pages/Posts";
-import MemberMyInfo from "./pages/MemberMyInfo";
-import WritePage from "./pages/WritePage";
+import StoreBriefAndPosts from "./pages/StoreBriefAndPosts";
+import MemberPage from "./pages/MemberPage";
+import WritePost from "./pages/WritePost";
 import axios from "axios";
 import "/src/tailwind.css";
 
@@ -13,10 +13,10 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/MemberMyInfo" element={<MemberMyInfo />} />
+        <Route path="/MemberPage" element={<MemberPage />} />
         <Route path="/SearchResults" element={<SearchResults />} />
-        <Route path="/Posts" element={<Posts />} />
-        <Route path="/WritePage" element={<WritePage />} />
+        <Route path="/StoreBriefAndPosts" element={<StoreBriefAndPosts />} />
+        <Route path="/WritePost" element={<WritePost />} />
       </Routes>
     </HashRouter>
   );

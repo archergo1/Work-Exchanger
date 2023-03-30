@@ -12,21 +12,21 @@ const url = "http://localhost:3000";
 
 const Posts = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [stores, setStores] = useState([]);
+  const [store, setStore] = useState([]);
+  const storeId = 1;
 
   useEffect(() => {
-    const getStores = async () => {
-      const res = await axios.get(`${url}/stores`);
-      setStores(res.data);
+    const getPostData = async () => {
+      const res = await axios.get(`${url}/stores/${storeId}`);
+      setStore(res.data);
     };
-    getStores();
+    getPostData();
   }, []);
   // 為什麼stores有時候有接收到資料，從空陣列改變為有資料
   // 店有時候又沒有，維持空陣列？
 
-  const store0 = stores[0];
   // 先以第一項測試
-  if (stores.length === 0) {
+  if (store.length === 0) {
     return null;
   }
 
@@ -34,7 +34,6 @@ const Posts = () => {
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
       <LastPage />
-
       {/* StoreInfoCard starts here */}
       <div className="flex justify-around py-4 pl-6 pr-6">
         <div className="h-96 w-80 rounded bg-white px-4 py-3 shadow-lg">
@@ -43,21 +42,21 @@ const Posts = () => {
             src="/src/assets/images/dog.jpeg"
             alt=""
           />
-          <h2 className="my-2 text-center text-3xl">{store0.name}</h2>
+          <h2 className="my-2 text-center text-3xl">{store.name}</h2>
 
           {/* rating */}
           <div className="flex justify-center">
-            <div className="rating">{store0.average_score}</div>
+            <div className="rating">{store.average_score}</div>
           </div>
           <ul>
             <li className="my-1 h-10 w-full text-left">
-              地址：{store0.store_address}
+              地址：{store.store_address}
             </li>
             <li className="my-1 h-10 w-full text-left">
-              電話：{store0.store_phone}
+              電話：{store.store_phone}
             </li>
             <li className="my-1 h-10 w-full text-left">
-              平均日工時：{store0.average_hour}小時
+              平均日工時：{store.average_hour}小時
             </li>
           </ul>
 
@@ -76,8 +75,8 @@ const Posts = () => {
         <div className="">
           {/* <!-- matched nums & sorting --> */}
           <div className="my-3 flex justify-between">
-            <div>12則評論</div>
-            <div>
+            {/* <div>12則評論{}</div> */}
+            {/* <div>
               <select
                 defaultValue={"latest"}
                 id="sorting"
@@ -85,13 +84,15 @@ const Posts = () => {
               >
                 <option value="latest">依最新評論</option>
                 <option value="highest">依最高評分</option>
-                {/* <option value="hottest">最熱門</option> */}
+                <option value="hottest">最熱門</option>
               </select>
-            </div>
+            </div> */}
           </div>
           {/* <!-- posts --> */}
           <div className="">
-            <OnePost />
+            <OnePost 
+            storeId={storeId}
+            />
             <hr />
             {/* if logged in, render the link */}
             {isLoggedIn ? null : (
@@ -113,9 +114,6 @@ const Posts = () => {
               載入更多留言
             </a> */}
           </div>
-
-          {/* <!-- second comment --> */}
-          <OnePost />
         </div>
       </div>
       <Footer />

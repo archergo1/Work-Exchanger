@@ -4,14 +4,12 @@ import Header from "../components/Header";
 // import BannerArea from "../components/BannerArea";
 import Footer from "../components/Footer";
 import Rating from "../components/Rating";
+import LastPage from "../components/LastPage";
 import axios from "axios";
 
 const url = "http://localhost:3000";
 
-
-
 const SearchResults = () => {
-
   const location = useLocation();
   const initialSearch = location.state.searchInput;
   console.log(initialSearch);
@@ -20,9 +18,8 @@ const SearchResults = () => {
   const [searchInput, setSearchInput] = useState(initialSearch);
   const [results, setResults] = useState([]);
 
-
-  const getData =  () => {
-     axios.get(`${url}/stores`).then((res) => {
+  const getData = () => {
+    axios.get(`${url}/stores`).then((res) => {
       setData(res.data);
     });
   };
@@ -31,12 +28,11 @@ const SearchResults = () => {
     getData();
   }, []);
 
-  useEffect(()=>{
-    // console.log(13412);
-    handleSearch()
-  },[data])
+  useEffect(() => {
+    handleSearch();
+  }, [data]);
 
-  // useEffect(() => { 
+  // useEffect(() => {
   //   setSearchInput(initialSearch)
   //   console.log(searchInput);
   //  },[initialSearch])
@@ -48,10 +44,8 @@ const SearchResults = () => {
   };
 
   const handleSearch = useCallback(() => {
-    console.log(2);
     // if (searchInput==='') {
     // console.log('沒有被執行');
-
     //   return;
     // }
     const matched = data.filter((item) =>
@@ -70,8 +64,6 @@ const SearchResults = () => {
   //   setResults(matched);
   // }, [data, searchInput]);
   // handleSearch2();
-
-
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
@@ -97,8 +89,11 @@ const SearchResults = () => {
           </div>
         </div>
       </div>
+
       {/* <!-- possible matches indicator --> */}
-      <div className="my-4 ml-6 text-base">{results.length} 個搜尋結果</div>
+      <div className="my-4 ml-6 text-base font-bold">
+        {results.length} 個搜尋結果
+      </div>
       {/* <!-- matched items --> */}
       <div className="mb-4 w-full px-6">
         <ul>
