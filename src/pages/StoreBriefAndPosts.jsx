@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import StoreInfoCard from "../components/StoreInfoCard";
@@ -10,10 +11,11 @@ import axios from "axios";
 
 const url = "http://localhost:3000";
 
-const Posts = () => {
+const StoreBriefAndPosts = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [store, setStore] = useState([]);
-  const storeId = 1;
+  const routeParams = useParams();
+  const storeId = routeParams.storeId;
 
   useEffect(() => {
     const getPostData = async () => {
@@ -42,7 +44,7 @@ const Posts = () => {
             src="/src/assets/images/dog.jpeg"
             alt=""
           />
-          <h2 className="my-2 text-center text-3xl">{store.name}</h2>
+          <h2 className="my-2 text-center text-3xl">{store.store_name}</h2>
 
           {/* rating */}
           <div className="flex justify-center">
@@ -90,9 +92,7 @@ const Posts = () => {
           </div>
           {/* <!-- posts --> */}
           <div className="">
-            <OnePost 
-            storeId={storeId}
-            />
+            <OnePost storeId={storeId} />
             <hr />
             {/* if logged in, render the link */}
             {isLoggedIn ? null : (
@@ -121,4 +121,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default StoreBriefAndPosts;

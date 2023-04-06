@@ -1,4 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
+import {
+  BrowserRouter,
+  HashRouter,
+  Outlet,
+  NavLink,
+  Route,
+  Routes,
+} from "react-router-dom";
 import axios from "axios";
 
 const url = "http://localhost:3000";
@@ -44,8 +52,18 @@ const OurSelect = () => {
         <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
           <h3 className="my-8 text-center text-3xl">評分最高</h3>
           <ol className="list-decimal pl-12">
-            {scoreDescending.map((item) => {
-              return <li key={item.id} id={item.id}>{item.store_name}</li>;
+         
+            {scoreDescending.map(({id, store_name}) => {
+              // console.log(item)
+              return (
+                <NavLink to={`/stores/${id}`}>
+                <li 
+                key={id} 
+                id={id}>
+                  {store_name}
+                </li>
+                </NavLink>
+              );
             })}
           </ol>
         </div>
@@ -53,12 +71,20 @@ const OurSelect = () => {
         <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
           <h3 className="my-8 text-center text-3xl">工時最短</h3>
           <ol className="list-decimal pl-12">
-            {hourAscending.map((item) => {
-              return <li key={item.id} id={item.id}>{item.store_name}</li>;
+            {hourAscending.map(({id, store_name}) => {
+              return (
+                <NavLink to={`/stores/${id}`}>
+                <li 
+                key={id} 
+                id={id}>
+                  {store_name}
+                </li>
+                </NavLink>
+              );
             })}
           </ol>
         </div>
-
+            {/* not done yet */}
         <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
           <h3 className="my-8 text-center text-3xl">評論最多</h3>
           <ol className="list-decimal pl-12">

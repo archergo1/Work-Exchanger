@@ -13,10 +13,12 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/MemberPage" element={<MemberPage />} />
-        <Route path="/SearchResults" element={<SearchResults />} />
-        <Route path="/StoreBriefAndPosts" element={<StoreBriefAndPosts />} />
-        <Route path="/WritePost" element={<WritePost />} />
+        <Route path="memberpage" element={<MemberPage />} />
+        <Route path="searchresults" element={<SearchResults />} />
+        <Route path="stores">
+          <Route path=":storeId" element={<StoreBriefAndPosts />} />
+        </Route>
+        <Route path="writepost" element={<WritePost />} />
       </Routes>
     </HashRouter>
   );
