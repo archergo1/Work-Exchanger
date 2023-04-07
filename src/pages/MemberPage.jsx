@@ -1,23 +1,39 @@
 import { useState, useEffect } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { useForm } from "react-hook-form";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MySetting from "../components/MySetting";
 import Button from "../components/Button";
 import Button1 from "../components/Button1";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Comments from "../components/Comments";
 import Rating from "../components/Rating";
 import axios from "axios";
+import Swal from "sweetalert2";
 const url = "http://localhost:3000";
 
 function MemberPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState([]);
-  const userId = 1;
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {},
+  });
+
+  let JWTtoken = "";
+  let userId = "";
+  userId = localStorage.getItem("userId");
+  JWTtoken = localStorage.getItem("JWTtoken");
 
   useEffect(() => {
+    // could i use IIFE here?
     const getUserData = async () => {
       const res = await axios.get(`${url}/users/${userId}`);
       setUser(res.data);
@@ -42,7 +58,32 @@ function MemberPage() {
     return null;
   }
   console.log(posts);
-  
+
+  const onSubmit = (data) => {
+    function updateInfo() {
+      axios
+        .patch(
+          `${url}/600/users/${userId}`,
+          { ...data, name: name, email: email, password: password },
+          {
+            headers: {
+              authorization: `Bearer ${JWTtoken}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          Swal.fire({ title: `修改成功` });
+        })
+        .catch((error) => {
+          console.log(error.response);
+          Swal.fire({ title: `修改失敗` });
+        });
+    }
+    updateInfo();
+    // 為什麽會新增data這個key?
+  };
+
   return (
     <div className="mx-auto max-w-screen-2xl flex-col bg-myFifthColor">
       <Header />
@@ -86,20 +127,20 @@ function MemberPage() {
                 </a>
               </div>
 
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-6">
                   <label
-                    htmlFor="yourName"
+                    htmlFor="name"
                     className="mb-2 block text-xl font-medium text-gray-900"
                   >
                     名稱
                   </label>
                   <input
                     type="text"
-                    id="yourName"
+                    id="name"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="Archer Huang"
-                    required
+                    {...register("name", { required: false })}
                   />
                 </div>
                 <div className="mb-6">
@@ -114,12 +155,30 @@ function MemberPage() {
                     id="email"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="WorkExchange@gmail.com"
-                    required
+                    {...register("email", { required: false })}
+                  />
+                </div>
+                <div className="mb-6">
+                  <label
+                    htmlFor="password"
+                    className="mb-2 block text-xl font-medium text-gray-900"
+                  >
+                    密碼
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    {...register("password", { required: false })}
                   />
                 </div>
                 <div className="flex justify-center">
-                  <Button1 text="修改密碼"></Button1>
-                  <Button text="儲存"></Button>
+                  {/* <Button1 text="修改密碼"></Button1> */}
+                  <input
+                    type="submit"
+                    value="儲存修改"
+                    className="button2"
+                  ></input>
                 </div>
               </form>
             </div>

@@ -5,14 +5,12 @@ import Footer from "../components/Footer";
 import LastPage from "../components/LastPage";
 import axios from "axios";
 import Swal from "sweetalert2";
-
 const url = "http://localhost:3000";
 
 const WritePost = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -30,6 +28,7 @@ const WritePost = () => {
       store_phone,
     } = data;
 
+    // another data to be sent to `stores`
     const store_info = {
       store_name: store_name,
       store_phone: store_phone,
@@ -37,7 +36,7 @@ const WritePost = () => {
     };
 
     // make data type conversions for that the values type of data are strings by default
-    // const toBoolean1 = type_pro === "true" ? true : false; 
+    // const toBoolean1 = type_pro === "true" ? true : false;
     // const toBoolean2 = first_half === "true" ? true : false;
     // const toNumber1 = parseInt(work_span);
     const toNumber2 = parseInt(work_hour);
@@ -54,19 +53,38 @@ const WritePost = () => {
       post_date: nowTime,
     };
 
-    const sendData = async () => {
-      try {
-        await axios.post(`${url}/posts`, convertedData).then((res) => {
+    let JWTtoken = "";
+    let userId = "";
+    userId = localStorage.getItem("userId");
+    JWTtoken = localStorage.getItem("JWTtoken");
+    console.log(userId);
+    console.log(JWTtoken);
+
+    const addPost = () => {
+      axios
+        .post(
+          `${url}/600/posts`,
+          {
+            ...convertedData,
+            userId: `${userId}`,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${JWTtoken}`,
+            },
+          }
+        )
+        .then((res) => {
           console.log(res);
           Swal.fire({ title: `送出成功` });
+        })
+        // await axios.post(`${url}/600/stores`, store_info);
+        .catch((error) => {
+          console.log(error.response);
+          Swal.fire({ title: `送出失敗` });
         });
-        await axios.post(`${url}/stores`, store_info);
-      } catch (error) {
-        console.log(error);
-        Swal.fire({ title: `送出失敗` });
-      }
     };
-    sendData();
+    addPost();
   };
   // why should i need to use async await, even in post?
 

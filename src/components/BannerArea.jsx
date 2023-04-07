@@ -47,7 +47,7 @@ function BannerArea() {
           {/* direct to SearchInput page */}
           <button
             onClick={() => {
-              navigate("/SearchResults", {
+              navigate("/searchresults", {
                 state: {
                   searchInput,
                 },

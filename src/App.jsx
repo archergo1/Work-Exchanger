@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
 import StoreBriefAndPosts from "./pages/StoreBriefAndPosts";
@@ -13,12 +13,10 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="memberpage" element={<MemberPage />} />
-        <Route path="searchresults" element={<SearchResults />} />
-        <Route path="stores">
-          <Route path=":storeId" element={<StoreBriefAndPosts />} />
-        </Route>
-        <Route path="writepost" element={<WritePost />} />
+        <Route path="/memberpage" element={<MemberPage />} />
+        <Route path="/searchresults" element={<SearchResults />} />
+        <Route path="/stores/:storeId" element={<StoreBriefAndPosts />}/>  
+        <Route path="/writepost" element={<WritePost />} />
       </Routes>
     </HashRouter>
   );
