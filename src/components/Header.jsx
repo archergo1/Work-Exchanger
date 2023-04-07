@@ -108,7 +108,6 @@ const Header = () => {
         <button
           className="button2"
           onClick={() => {
-            console.log("hahah");
             navigate("/memberpage", {});
           }}
         >{`Hi ${userName}`}</button>

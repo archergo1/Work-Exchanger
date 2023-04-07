@@ -5,6 +5,7 @@ import SearchResults from "./pages/SearchResults";
 import StoreBriefAndPosts from "./pages/StoreBriefAndPosts";
 import MemberPage from "./pages/MemberPage";
 import WritePost from "./pages/WritePost";
+import PageNotFound from "./pages/PageNotFound";
 import axios from "axios";
 import "/src/tailwind.css";
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/searchresults" element={<SearchResults />} />
         <Route path="/stores/:storeId" element={<StoreBriefAndPosts />}/>  
         <Route path="/writepost" element={<WritePost />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </HashRouter>
   );

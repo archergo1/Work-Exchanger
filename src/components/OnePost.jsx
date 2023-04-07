@@ -58,7 +58,7 @@ const OnePost = ({ storeId }) => {
 
               {/* <!-- info & comment --> */}
               <div>
-                <div className="flex justify-between">
+                <div className="flex justify-between w-full">
                   <div>
                     <div className="flex items-center">
                       <div className="text-2xl font-bold">{author}</div>
@@ -88,8 +88,8 @@ const OnePost = ({ storeId }) => {
                     </div>
                   </div>
                   {/* <!-- rating stars --> */}
-                  <div>
-                    <Rating score={score}></Rating>
+                  <div className="">
+                    <Rating score={score}/>
                   </div>
                 </div>
                 <p className="my-2 text-lg">{body}</p>
