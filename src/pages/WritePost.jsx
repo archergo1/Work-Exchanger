@@ -8,6 +8,25 @@ import Swal from "sweetalert2";
 const url = "http://localhost:3000";
 
 const WritePost = () => {
+  const [stores, setStores] = useState([]);
+  const userId = parseInt(localStorage.getItem("userId"));
+  const JWTtoken = localStorage.getItem("JWTtoken");
+  const userName = localStorage.getItem("userName");
+  console.log(userId);
+  console.log(JWTtoken);
+  console.log(userName);
+
+  useEffect(() => {
+    const getStoresData = async () => {
+      axios.get(`${url}/stores`).then((res) => {
+        setStores(res.data);
+      });
+    };
+    getStoresData();
+  }, []);
+
+  console.log(stores);
+
   const {
     register,
     handleSubmit,
@@ -28,8 +47,8 @@ const WritePost = () => {
       store_phone,
     } = data;
 
-    // another data to be sent to `stores`
-    const store_info = {
+    // another data to be sent to `stores` if there is no store_name matched in the database
+    const newStoreInfo = {
       store_name: store_name,
       store_phone: store_phone,
       store_address: store_address,
@@ -53,20 +72,37 @@ const WritePost = () => {
       post_date: nowTime,
     };
 
-    let JWTtoken = "";
-    let userId = "";
-    userId = localStorage.getItem("userId");
-    JWTtoken = localStorage.getItem("JWTtoken");
-    console.log(userId);
-    console.log(JWTtoken);
+    // to find if there is any store_name matched in the database
+    // if not, also add a new store info
+    const storeExisted = stores.find((item, index) => {
+      return item.store_name === store_name;
+    });
+    console.log(storeExisted);
 
-    const addPost = () => {
+    let storeId = "";
+
+    if (storeExisted) {
+      storeId = parseInt(storeExisted.id);
+      console.log("a");
+      addPost();
+    } else {
+      storeId = stores.length + 1;
+      addPost();
+      addStore();
+      console.log("b");
+    }
+
+    console.log(storeId);
+
+    function addPost() {
       axios
         .post(
           `${url}/600/posts`,
           {
+            userId: userId,
+            storeId: storeId,
+            author: userName,
             ...convertedData,
-            userId: `${userId}`,
           },
           {
             headers: {
@@ -78,13 +114,28 @@ const WritePost = () => {
           console.log(res);
           Swal.fire({ title: `送出成功` });
         })
-        // await axios.post(`${url}/600/stores`, store_info);
         .catch((error) => {
           console.log(error.response);
           Swal.fire({ title: `送出失敗` });
         });
-    };
-    addPost();
+    }
+
+    function addStore() {
+      axios
+        .post(`${url}/stores`, newStoreInfo, {
+          headers: {
+            authorization: `Bearer ${JWTtoken}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          // Swal.fire({ title: `送出成功` });
+        })
+        .catch((error) => {
+          console.log(error.response);
+          // Swal.fire({ title: `送出失敗` });
+        });
+    }
   };
   // why should i need to use async await, even in post?
 

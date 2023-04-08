@@ -22,8 +22,6 @@ const OnePost = ({ storeId }) => {
   }
   console.log(posts);
 
-  // could i use destructuring assignment here?
-
   return (
     <ul>
       {posts.map(
