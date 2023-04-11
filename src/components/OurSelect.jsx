@@ -1,12 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import {
-  BrowserRouter,
-  HashRouter,
-  Outlet,
-  NavLink,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { HashRouter, NavLink, Link, Route, Routes } from "react-router-dom";
 import axios from "axios";
 
 const url = "http://localhost:3000";
@@ -55,11 +48,13 @@ const OurSelect = () => {
             {scoreDescending.map(({ id, store_name }) => {
               // console.log(item)
               return (
-                <NavLink to={`/stores/${id}`}>
-                  <li key={id} id={id}>
-                    {store_name}
+                <Link to={`/stores/${id}`}>
+                  <li 
+                  key={id} 
+                  id={id}>
+                  {store_name}
                   </li>
-                </NavLink>
+                </Link>
               );
             })}
           </ol>
@@ -70,11 +65,13 @@ const OurSelect = () => {
           <ol className="list-decimal pl-12">
             {hourAscending.map(({ id, store_name }) => {
               return (
-                <NavLink to={`/stores/${id}`}>
-                  <li key={id} id={id}>
-                    {store_name}
+                <Link to={`/stores/${id}`}>
+                  <li 
+                  key={id} 
+                  id={id}>
+                  {store_name}
                   </li>
-                </NavLink>
+                </Link>
               );
             })}
           </ol>
@@ -82,7 +79,7 @@ const OurSelect = () => {
         {/* not done yet */}
         <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
           <h3 className="my-8 text-center text-3xl">評論最多</h3>
-          <ol className="list-decimal pl-12">
+          {/* <ol className="list-decimal pl-12">
             <li>
               <a href="">北山古洋樓</a>
             </li>
@@ -92,7 +89,7 @@ const OurSelect = () => {
             <li>
               <a href="">台東龍捲風</a>
             </li>
-          </ol>
+          </ol> */}
         </div>
       </div>
     </div>

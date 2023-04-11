@@ -14,23 +14,23 @@ import Swal from "sweetalert2";
 const url = "http://localhost:3000";
 
 function MemberPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
+  const [userName, setUserName] = useState(localStorage.getItem("userName"));
+  const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
+
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState([]);
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {},
   });
-
-  let JWTtoken = "";
-  let userId = "";
-  userId = localStorage.getItem("userId");
-  JWTtoken = localStorage.getItem("JWTtoken");
 
   useEffect(() => {
     // could i use IIFE here?
@@ -51,7 +51,7 @@ function MemberPage() {
       setPosts(res.data);
     };
     getPostData();
-    console.log("212");
+    // console.log("212");
   }, [user]);
   const { id, name, email, password } = user;
   if (!posts) {
@@ -60,10 +60,12 @@ function MemberPage() {
   console.log(posts);
 
   const onSubmit = (data) => {
+    console.log(data);
     function updateInfo() {
       axios
+        // with the code 600, I can't see the change in data.json
         .patch(
-          `${url}/600/users/${userId}`,
+          `${url}/users/600/${userId}`,
           { ...data, name: name, email: email, password: password },
           {
             headers: {
@@ -81,13 +83,12 @@ function MemberPage() {
         });
     }
     updateInfo();
-    // 為什麽會新增data這個key?
   };
 
   return (
     <div className="mx-auto max-w-screen-2xl flex-col bg-myFifthColor">
       <Header />
-      <div className="">
+      <div className="min-h-[calc(100vh-200px)]">
         <Tabs className="flex flex-grow justify-around py-4 pl-6 pr-6">
           <div className="h-96 w-80 rounded bg-white px-8 py-3 shadow-lg">
             <img
@@ -95,6 +96,7 @@ function MemberPage() {
               src="/src/assets/images/dog.jpeg"
               alt=""
             />
+            {/* look at here */}
             <h1 className="my-6 text-center text-3xl">{name}</h1>
 
             <TabList className="">
@@ -108,6 +110,11 @@ function MemberPage() {
                 <MySetting text="我的評論"></MySetting>
               </Tab>
             </TabList>
+
+          <a className="button2 mx-auto" href="#/writepost">
+            發表評論
+          </a>
+            
           </div>
 
           <TabPanel>
@@ -155,7 +162,7 @@ function MemberPage() {
                     id="email"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="WorkExchange@gmail.com"
-                    {...register("email", { required: false })}
+                    {...register("email", { required: true })}
                   />
                 </div>
                 <div className="mb-6">
@@ -169,7 +176,7 @@ function MemberPage() {
                     type="password"
                     id="password"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                    {...register("password", { required: false })}
+                    {...register("password", { required: true })}
                   />
                 </div>
                 <div className="flex justify-center">

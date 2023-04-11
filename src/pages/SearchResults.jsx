@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import Header from "../components/Header";
 // import BannerArea from "../components/BannerArea";
 import Footer from "../components/Footer";
@@ -99,26 +99,28 @@ const SearchResults = () => {
         <ul>
           {results.map((item) => {
             return (
-              <li
-                key={item.id}
-                className="my-3 flex w-full rounded-md bg-white px-4 py-4"
-              >
-                {/* <!-- mug --> */}
-                <img
-                  className="h-24 w-24"
-                  src="/src/assets/images/cat.jpg"
-                  alt="cat"
-                />
+              <NavLink to={`/stores/${item.id}`}>
+                <li
+                  key={item.id}
+                  className="my-3 flex w-full rounded-md bg-white px-4 py-4"
+                >
+                  {/* <!-- mug --> */}
+                  <img
+                    className="h-24 w-24"
+                    src="/src/assets/images/cat.jpg"
+                    alt="cat"
+                  />
 
-                <div className="ml-4 flex w-full items-center justify-between">
-                  <div>
-                    <p className="text-xl font-bold">{item.store_name}</p>
-                    <p>{item.store_address}</p>
-                    <p>{item.store_phone}</p>
+                  <div className="ml-4 flex w-full items-center justify-between">
+                    <div>
+                      <p className="text-xl font-bold">{item.store_name}</p>
+                      <p>{item.store_address}</p>
+                      <p>{item.store_phone}</p>
+                    </div>
+                    <Rating score={item.average_score} />
                   </div>
-                  <Rating score={item.average_score} />
-                </div>
-              </li>
+                </li>
+               </NavLink>
             );
           })}
         </ul>

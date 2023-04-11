@@ -1,7 +1,6 @@
 import Button from "./Button";
-// import Modal from '@mui/material/Modal';
 import Modal from "react-modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -12,12 +11,20 @@ const url = "http://localhost:3000";
 Modal.setAppElement("#root");
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [haveAccount, setHaveAccount] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [haveAccount, setHaveAccount] = useState(
+    localStorage.getItem("haveAccount")
+  );
+  const [userName, setUserName] = useState(localStorage.getItem("userName"));
+  const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
+
   const navigate = useNavigate();
 
+  // react hook form
   const {
     register,
     handleSubmit,
@@ -29,6 +36,11 @@ const Header = () => {
       name: "",
     },
   });
+
+  console.log(JWTtoken);
+  console.log(userName);
+
+  // useEffect(setUserName(localStorage.getItem("userName")), []);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -50,7 +62,7 @@ const Header = () => {
         .then((response) => {
           console.log(response.data);
           Swal.fire({ title: `註冊成功，請重新登入` });
-          setTimeout(closeModal, 1000);
+          // setTimeout(closeModal, 2000);
         })
         .catch((error) => {
           console.log(error.response);
@@ -65,14 +77,18 @@ const Header = () => {
           password: password.trim(),
         })
         .then((response) => {
-          console.log(response.data);
-          setUserName(response.data.user.name);
+          // console.log(response.data);
+          // setUserName(response.data.user.name);
+          setIsLoggedIn(true);
+          setHaveAccount(true);
+          // NOTE: DO NOT USE setState HERE FOR ASYNC ISSUE
           localStorage.setItem("JWTtoken", response.data.accessToken);
           localStorage.setItem("userName", response.data.user.name);
           localStorage.setItem("userId", response.data.user.id);
+          localStorage.setItem("isLoggedIn", true);
+
           Swal.fire({ title: `登入成功` });
-          setTimeout(closeModal, 1000);
-          setIsLoggedIn(true);
+          setTimeout(closeModal, 2000);
         })
         .catch((error) => {
           console.log(error);
@@ -112,13 +128,6 @@ const Header = () => {
           }}
         >{`Hi ${userName}`}</button>
       ) : (
-        // <Button
-        //   // goToMemberPage={() => {
-        //   //   console.log("hahah");
-        //   //   navigate("/memberpage", {});
-        //   // }}
-        //   text={`Hi ${userName}`}
-        // />
         <Button openModal={openModal} text="登入/註冊" />
       )}
 
@@ -169,7 +178,7 @@ const Header = () => {
                 {errors.password && <p className="text-red-600">請輸入密碼</p>}
               </div>
 
-              {/* 需要註冊時顯示 */}
+              {/* 需要註冊時顯示名稱欄 */}
               {haveAccount ? (
                 <div className="mb-6 text-center">
                   <label

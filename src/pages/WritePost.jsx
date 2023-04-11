@@ -97,7 +97,7 @@ const WritePost = () => {
     function addPost() {
       axios
         .post(
-          `${url}/600/posts`,
+          `${url}/posts`,
           {
             userId: userId,
             storeId: storeId,

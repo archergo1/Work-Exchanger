@@ -37,7 +37,7 @@ const StoreBriefAndPosts = () => {
       <Header />
       <LastPage />
       {/* StoreInfoCard starts here */}
-      <div className="flex justify-around py-4 pl-6 pr-6">
+      <div className="flex justify-around py-4 pl-6 pr-6 min-h-[calc(100vh-230px)]">
         <div className="h-96 w-80 rounded bg-white px-4 py-3 shadow-lg">
           <img
             className="mx-auto block h-20 w-20 rounded-full"

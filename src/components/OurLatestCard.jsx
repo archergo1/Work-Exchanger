@@ -2,9 +2,7 @@ import Rating from "./Rating";
 import Avatar from "./Avatar";
 import HashTags from "./HashTags";
 import {
-  BrowserRouter,
   HashRouter,
-  Outlet,
   NavLink,
   Route,
   Routes,
