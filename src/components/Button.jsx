@@ -1,8 +1,8 @@
-const Button = ({ text, openModal }) => {
+const Button = ({ text, onClick }) => {
   return (
-    <div className="button2" onClick={openModal}>
+    <button className="button2" onClick={onClick}>
       {text}
-    </div>
+    </button>
   );
 };
 

@@ -1,12 +1,11 @@
 import Button from "./Button";
 import Modal from "react-modal";
+import { url } from "../components/contexts/UserContext";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-
-const url = "http://localhost:3000";
 
 Modal.setAppElement("#root");
 
@@ -29,6 +28,7 @@ const Header = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm({
     defaultValues: {
       email: "",
@@ -60,6 +60,7 @@ const Header = () => {
           name: name.trim(),
         })
         .then((response) => {
+          reset()
           console.log(response.data);
           Swal.fire({ title: `註冊成功，請重新登入` });
           // setTimeout(closeModal, 2000);
@@ -77,15 +78,17 @@ const Header = () => {
           password: password.trim(),
         })
         .then((response) => {
+          
           // console.log(response.data);
           // setUserName(response.data.user.name);
+
           setIsLoggedIn(true);
           setHaveAccount(true);
           // NOTE: DO NOT USE setState HERE FOR ASYNC ISSUE
           localStorage.setItem("JWTtoken", response.data.accessToken);
           localStorage.setItem("userName", response.data.user.name);
           localStorage.setItem("userId", response.data.user.id);
-          localStorage.setItem("isLoggedIn", true);
+          localStorage.setItem("isLoggedIn", isLoggedIn);
 
           Swal.fire({ title: `登入成功` });
           setTimeout(closeModal, 2000);
@@ -114,6 +117,15 @@ const Header = () => {
   //Q 註冊 登入互相切換要用巢狀迴圈嗎？
   // A 用state切換即可
 
+  useEffect(()=>{
+    if(modalIsOpen) {
+      document.body.style.overflow='hidden';
+      return 
+    }
+    document.body.style.overflow='auto';
+
+  },[modalIsOpen])
+
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
       <a className="h-10 w-10" href="/">
@@ -121,14 +133,15 @@ const Header = () => {
       </a>
       {isLoggedIn ? (
         // direct to memberpage
-        <button
+        <Button
+          text={`Hi ${userName}`}
           className="button2"
           onClick={() => {
             navigate("/memberpage", {});
           }}
-        >{`Hi ${userName}`}</button>
+        />
       ) : (
-        <Button openModal={openModal} text="登入/註冊" />
+        <Button onClick={openModal} text="登入/註冊" />
       )}
 
       <Modal
@@ -136,6 +149,9 @@ const Header = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
+        shouldCloseOnOverlayClick={false}
+        preventScroll={true}
+
       >
         {/* Login Component */}
         <div className="mx-auto my-4 w-[640px] flex-col rounded-lg bg-white px-6 py-6">

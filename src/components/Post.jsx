@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { url } from "../components/contexts/UserContext";
 import Rating from "./Rating";
 import axios from "axios";
-const url = "http://localhost:3000";
+// import LinesEllipsis from "react-lines-ellipsis";
+import ShowMoreText from "react-show-more-text";
 
-const OnePost = ({ storeId }) => {
+export default function Post({ storeId }) {
   const [posts, setPosts] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
@@ -22,9 +24,19 @@ const OnePost = ({ storeId }) => {
   }
   console.log(posts);
 
+  function dateComparison(a, b) {
+    const date1 = new Date(a.post_date);
+    const date2 = new Date(b.post_date);
+
+    return date2 - date1;
+  }
+
+  const dateDescending = posts.slice().sort(dateComparison).slice(0, 4);
+  console.log(dateDescending);
+
   return (
     <ul>
-      {posts.map(
+      {dateDescending.map(
         (
           {
             id,
@@ -55,8 +67,8 @@ const OnePost = ({ storeId }) => {
               />
 
               {/* <!-- info & comment --> */}
-              <div>
-                <div className="flex justify-between w-full">
+              <div className="w-full">
+                <div className="flex w-full justify-between">
                   <div>
                     <div className="flex items-center">
                       <div className="text-2xl font-bold">{author}</div>
@@ -87,11 +99,23 @@ const OnePost = ({ storeId }) => {
                   </div>
                   {/* <!-- rating stars --> */}
                   <div className="">
-                    <Rating score={score}/>
+                    <Rating score={score} />
                   </div>
                 </div>
-                <p className="my-2 text-lg">{body}</p>
-
+                <div className="my-2 text-lg">
+                  <ShowMoreText
+                    lines={3}
+                    more="看更多"
+                    less="看更少"
+                    className="content-css"
+                    anchorClass="show-more-less-clickable"
+                    expanded={false}
+                    width={780}
+                    truncatedEndingComponent={"... "}
+                  >
+                    {body}
+                  </ShowMoreText>
+                </div>
                 {/* <!-- pros --> */}
                 <div className="my-3">
                   <div className="mb-4 font-bold">優點福利</div>
@@ -133,6 +157,4 @@ const OnePost = ({ storeId }) => {
       )}
     </ul>
   );
-};
-
-export default OnePost;
+}

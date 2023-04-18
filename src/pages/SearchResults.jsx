@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import { url } from "../components/contexts/UserContext"
 import Header from "../components/Header";
 // import BannerArea from "../components/BannerArea";
 import Footer from "../components/Footer";
@@ -7,9 +8,7 @@ import Rating from "../components/Rating";
 import LastPage from "../components/LastPage";
 import axios from "axios";
 
-const url = "http://localhost:3000";
-
-const SearchResults = () => {
+export default function SearchResults  ()  {
   const location = useLocation();
   const initialSearch = location.state.searchInput;
   console.log(initialSearch);
@@ -99,7 +98,7 @@ const SearchResults = () => {
         <ul>
           {results.map((item) => {
             return (
-              <NavLink to={`/stores/${item.id}`}>
+              <Link to={`/stores/${item.id}`}>
                 <li
                   key={item.id}
                   className="my-3 flex w-full rounded-md bg-white px-4 py-4"
@@ -120,7 +119,7 @@ const SearchResults = () => {
                     <Rating score={item.average_score} />
                   </div>
                 </li>
-               </NavLink>
+               </Link>
             );
           })}
         </ul>
@@ -130,4 +129,3 @@ const SearchResults = () => {
   );
 };
 
-export default SearchResults;

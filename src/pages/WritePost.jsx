@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { url } from "../components/contexts/UserContext"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LastPage from "../components/LastPage";
 import axios from "axios";
 import Swal from "sweetalert2";
-const url = "http://localhost:3000";
 
-const WritePost = () => {
+
+export default function WritePost () {
   const [stores, setStores] = useState([]);
   const userId = parseInt(localStorage.getItem("userId"));
   const JWTtoken = localStorage.getItem("JWTtoken");
@@ -52,6 +53,9 @@ const WritePost = () => {
       store_name: store_name,
       store_phone: store_phone,
       store_address: store_address,
+      // 先用第一篇po文的資訊代替average_score and average_hour
+      average_score: score,
+      average_hour: work_hour
     };
 
     // make data type conversions for that the values type of data are strings by default
@@ -303,7 +307,7 @@ const WritePost = () => {
                   type="number"
                   id="work_hour"
                   className="block w-36 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("work_hour", { required: true })}
+                  {...register("work_hour", { required: true ,max: 8 })}
                   // 為什麼這裡的最大最小值驗證沒效？
                 />
               </div>
@@ -700,4 +704,3 @@ const WritePost = () => {
   );
 };
 
-export default WritePost;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useForm } from "react-hook-form";
+import { url } from "../components/contexts/UserContext"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MySetting from "../components/MySetting";
@@ -11,9 +12,8 @@ import Comments from "../components/Comments";
 import Rating from "../components/Rating";
 import axios from "axios";
 import Swal from "sweetalert2";
-const url = "http://localhost:3000";
 
-function MemberPage() {
+export default function MemberPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn")
   );
@@ -384,4 +384,3 @@ function MemberPage() {
   );
 }
 // 如何在content不足的時候，把footer置底？ 用了flex-grow好像沒效果？
-export default MemberPage;

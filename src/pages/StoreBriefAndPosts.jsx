@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { url } from "../components/contexts/UserContext"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import StoreInfoCard from "../components/StoreInfoCard";
-import OnePost from "../components/OnePost";
+import Post from "../components/Post";
 import Comments from "../components/Comments";
 import LastPage from "../components/LastPage";
 import Button2 from "../components/Button";
 import axios from "axios";
 
-const url = "http://localhost:3000";
 
-const StoreBriefAndPosts = () => {
+export default function StoreBriefAndPosts () {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [store, setStore] = useState([]);
   const routeParams = useParams();
@@ -27,7 +27,6 @@ const StoreBriefAndPosts = () => {
   // 為什麼stores有時候有接收到資料，從空陣列改變為有資料
   // 店有時候又沒有，維持空陣列？
 
-  // 先以第一項測試
   if (store.length === 0) {
     return null;
   }
@@ -92,7 +91,7 @@ const StoreBriefAndPosts = () => {
           </div>
           {/* <!-- posts --> */}
           <div className="">
-            <OnePost storeId={storeId} />
+            <Post storeId={storeId} />
             <hr />
             {/* if logged in, render the link */}
             {isLoggedIn ? null : (
@@ -121,4 +120,3 @@ const StoreBriefAndPosts = () => {
   );
 };
 
-export default StoreBriefAndPosts;

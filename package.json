@@ -22,6 +22,7 @@
     "react-hook-form": "^7.43.7",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.9.0",
+    "react-show-more-text": "^1.6.2",
     "react-tabs": "^6.0.0",
     "sort-by": "^1.2.0",
     "styled-components": "^5.3.9",

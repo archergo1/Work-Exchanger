@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import { url } from "../components/contexts/UserContext"
 import OurLastCard from "./OurLatestCard";
 import axios from "axios";
 
-const url = "http://localhost:3000";
 
 const OurLatest = () => {
   const [posts, setPosts] = useState([]);
@@ -26,7 +26,7 @@ const OurLatest = () => {
 
     return date2 - date1;
   }
-
+  
   const dateDescending = posts.slice().sort(dateComparison).slice(0, 4);
   console.log(posts);
 

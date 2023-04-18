@@ -1,6 +1,6 @@
 import React from "react";
 
-const PageNotFound = () => {
+export default function PageNotFound () {
   return (
     <div>
       <h2>404 Page not found</h2>
@@ -8,4 +8,3 @@ const PageNotFound = () => {
   );
 };
 
-export default PageNotFound;

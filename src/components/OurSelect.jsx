@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
-import { HashRouter, NavLink, Link, Route, Routes } from "react-router-dom";
+import { HashRouter, Link, Route, Routes } from "react-router-dom";
+import { url } from "../components/contexts/UserContext"
 import axios from "axios";
 
-const url = "http://localhost:3000";
 
-const OurSelect = () => {
+
+export default function OurSelect() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -66,10 +67,8 @@ const OurSelect = () => {
             {hourAscending.map(({ id, store_name }) => {
               return (
                 <Link to={`/stores/${id}`}>
-                  <li 
-                  key={id} 
-                  id={id}>
-                  {store_name}
+                  <li key={id} id={id}>
+                    {store_name}
                   </li>
                 </Link>
               );
@@ -94,6 +93,4 @@ const OurSelect = () => {
       </div>
     </div>
   );
-};
-
-export default OurSelect;
+}

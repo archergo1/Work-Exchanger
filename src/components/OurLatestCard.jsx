@@ -1,12 +1,7 @@
 import Rating from "./Rating";
 import Avatar from "./Avatar";
 import HashTags from "./HashTags";
-import {
-  HashRouter,
-  NavLink,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const OurLastCard = ({
   id,
@@ -19,7 +14,7 @@ const OurLastCard = ({
   storeId,
 }) => {
   return (
-    <NavLink to={`/stores/${storeId}`}>
+    <Link to={`/stores/${storeId}`}>
       <li className="mt-6 mb-6 h-72 w-600px rounded bg-white px-6 py-4 shadow-lg">
         <div className="flex">
           <Avatar
@@ -37,7 +32,7 @@ const OurLastCard = ({
         <p className="mt-4 mb-4 text-base text-gray-700">{body}</p>
         <HashTags pros={pros} />
       </li>
-    </NavLink>
+    </Link>
   );
 };
 
