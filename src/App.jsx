@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/memberpage" element={<MemberPage />} />
         <Route path="/searchresults" element={<SearchResults />} />
-        <Route path="/stores/:storeId" element={<StoreBriefAndPosts />}/>  
+        <Route path="/stores/:storeId" element={<StoreBriefAndPosts />} />
         <Route path="/writepost" element={<WritePost />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

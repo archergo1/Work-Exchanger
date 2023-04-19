@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 function BannerArea() {
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState("");

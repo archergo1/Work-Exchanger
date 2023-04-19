@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { url } from "../components/contexts/UserContext"
+import { url } from "../components/contexts/UserContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import StoreInfoCard from "../components/StoreInfoCard";
@@ -10,8 +10,7 @@ import LastPage from "../components/LastPage";
 import Button2 from "../components/Button";
 import axios from "axios";
 
-
-export default function StoreBriefAndPosts () {
+export default function StoreBriefAndPosts() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [store, setStore] = useState([]);
   const routeParams = useParams();
@@ -36,7 +35,7 @@ export default function StoreBriefAndPosts () {
       <Header />
       <LastPage />
       {/* StoreInfoCard starts here */}
-      <div className="flex justify-around py-4 pl-6 pr-6 min-h-[calc(100vh-230px)]">
+      <div className="flex min-h-[calc(100vh-230px)] justify-around py-4 pl-6 pr-6">
         <div className="h-96 w-80 rounded bg-white px-4 py-3 shadow-lg">
           <img
             className="mx-auto block h-20 w-20 rounded-full"
@@ -118,5 +117,4 @@ export default function StoreBriefAndPosts () {
       <Footer />
     </div>
   );
-};
-
+}

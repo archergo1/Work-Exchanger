@@ -1,9 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { HashRouter, Link, Route, Routes } from "react-router-dom";
-import { url } from "../components/contexts/UserContext"
+import { url } from "../components/contexts/UserContext";
 import axios from "axios";
-
-
 
 export default function OurSelect() {
   const [data, setData] = useState([]);
@@ -50,10 +48,8 @@ export default function OurSelect() {
               // console.log(item)
               return (
                 <Link to={`/stores/${id}`}>
-                  <li 
-                  key={id} 
-                  id={id}>
-                  {store_name}
+                  <li key={id} id={id}>
+                    {store_name}
                   </li>
                 </Link>
               );

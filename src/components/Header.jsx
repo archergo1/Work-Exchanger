@@ -28,7 +28,7 @@ const Header = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm({
     defaultValues: {
       email: "",
@@ -60,7 +60,7 @@ const Header = () => {
           name: name.trim(),
         })
         .then((response) => {
-          reset()
+          reset();
           console.log(response.data);
           Swal.fire({ title: `註冊成功，請重新登入` });
           // setTimeout(closeModal, 2000);
@@ -78,7 +78,6 @@ const Header = () => {
           password: password.trim(),
         })
         .then((response) => {
-          
           // console.log(response.data);
           // setUserName(response.data.user.name);
 
@@ -117,14 +116,13 @@ const Header = () => {
   //Q 註冊 登入互相切換要用巢狀迴圈嗎？
   // A 用state切換即可
 
-  useEffect(()=>{
-    if(modalIsOpen) {
-      document.body.style.overflow='hidden';
-      return 
+  useEffect(() => {
+    if (modalIsOpen) {
+      document.body.style.overflow = "hidden";
+      return;
     }
-    document.body.style.overflow='auto';
-
-  },[modalIsOpen])
+    document.body.style.overflow = "auto";
+  }, [modalIsOpen]);
 
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
@@ -151,7 +149,6 @@ const Header = () => {
         contentLabel="Example Modal"
         shouldCloseOnOverlayClick={false}
         preventScroll={true}
-
       >
         {/* Login Component */}
         <div className="mx-auto my-4 w-[640px] flex-col rounded-lg bg-white px-6 py-6">

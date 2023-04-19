@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useForm } from "react-hook-form";
-import { url } from "../components/contexts/UserContext"
+import { url } from "../components/contexts/UserContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MySetting from "../components/MySetting";
@@ -111,10 +111,9 @@ export default function MemberPage() {
               </Tab>
             </TabList>
 
-          <a className="button2 mx-auto" href="#/writepost">
-            發表評論
-          </a>
-            
+            <a className="button2 mx-auto" href="#/writepost">
+              發表評論
+            </a>
           </div>
 
           <TabPanel>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { url } from "../components/contexts/UserContext"
+import { url } from "../components/contexts/UserContext";
 import Header from "../components/Header";
 // import BannerArea from "../components/BannerArea";
 import Footer from "../components/Footer";
@@ -8,7 +8,7 @@ import Rating from "../components/Rating";
 import LastPage from "../components/LastPage";
 import axios from "axios";
 
-export default function SearchResults  ()  {
+export default function SearchResults() {
   const location = useLocation();
   const initialSearch = location.state.searchInput;
   console.log(initialSearch);
@@ -119,7 +119,7 @@ export default function SearchResults  ()  {
                     <Rating score={item.average_score} />
                   </div>
                 </li>
-               </Link>
+              </Link>
             );
           })}
         </ul>
@@ -127,5 +127,4 @@ export default function SearchResults  ()  {
       <Footer />
     </div>
   );
-};
-
+}

@@ -1,9 +1,9 @@
-const Button1 = ({text}) => {
+const Button1 = ({ text }) => {
   return (
-    <div href='#' className="button1">
+    <div href="#" className="button1">
       {text}
     </div>
-  )
-}
+  );
+};
 
-export default Button1
+export default Button1;

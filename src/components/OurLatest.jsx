@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { url } from "../components/contexts/UserContext"
+import { url } from "../components/contexts/UserContext";
 import OurLastCard from "./OurLatestCard";
 import axios from "axios";
-
 
 const OurLatest = () => {
   const [posts, setPosts] = useState([]);
@@ -26,7 +25,7 @@ const OurLatest = () => {
 
     return date2 - date1;
   }
-  
+
   const dateDescending = posts.slice().sort(dateComparison).slice(0, 4);
   console.log(posts);
 
@@ -34,19 +33,30 @@ const OurLatest = () => {
     <div className="ourLatest w-full bg-gray-100 pt-1">
       <h2 className="my-16 text-center text-4xl text-black">最新評論</h2>
       <ul className="mx-auto flex max-w-screen-xl flex-wrap justify-between">
-        {dateDescending.map(({id, store_name, author, post_date, score, body, pros, storeId}) => (
-          <OurLastCard
-            id={id}
-            key={id}
-            store_name={store_name}
-            author={author}
-            post_date={post_date.substring(0, 10)}
-            score={score}
-            body={body}
-            pros={pros}
-            storeId={storeId}
-          />
-        ))}
+        {dateDescending.map(
+          ({
+            id,
+            store_name,
+            author,
+            post_date,
+            score,
+            body,
+            pros,
+            storeId,
+          }) => (
+            <OurLastCard
+              id={id}
+              key={id}
+              store_name={store_name}
+              author={author}
+              post_date={post_date.substring(0, 10)}
+              score={score}
+              body={body}
+              pros={pros}
+              storeId={storeId}
+            />
+          )
+        )}
       </ul>
     </div>
   );
