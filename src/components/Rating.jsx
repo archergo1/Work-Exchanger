@@ -1,4 +1,3 @@
-const Rating = ({ score }) => {
+export default function Rating({ score }) {
   return <div className="rating">{score}</div>;
-};
-export default Rating;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useForm } from "react-hook-form";
 import { url } from "../components/contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MySetting from "../components/MySetting";
@@ -14,6 +15,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default function MemberPage() {
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn")
   );
@@ -99,7 +101,7 @@ export default function MemberPage() {
             {/* look at here */}
             <h1 className="my-6 text-center text-3xl">{name}</h1>
 
-            <TabList className="">
+            <TabList>
               <Tab className="flex">
                 <MySetting text="個人資料"></MySetting>
               </Tab>
@@ -110,10 +112,15 @@ export default function MemberPage() {
                 <MySetting text="我的評論"></MySetting>
               </Tab>
             </TabList>
-
-            <a className="button2 mx-auto" href="#/writepost">
-              發表評論
-            </a>
+            <div className="flex justify-center">
+            <Button
+              text="發表評論"
+              onClick={() => {
+                navigate("/writepost");
+              }}
+            />
+            </div>
+            
           </div>
 
           <TabPanel>
@@ -355,14 +362,14 @@ export default function MemberPage() {
                 <hr />
 
                 {/* if logged in, render the link */}
-                {isLoggedIn ? null : (
+                {/* {isLoggedIn ? null : (
                   <a
                     className="my-4 block h-14 w-full rounded-md bg-orange-200 pt-4 text-center font-bold text-myThirdColor"
                     href="#"
                   >
                     登入以留言
                   </a>
-                )}
+                )} */}
                 {/* <!-- each response --> */}
                 {/* <Comments />    */}
 

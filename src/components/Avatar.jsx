@@ -1,4 +1,4 @@
-const Avatar = (props) => {
+export default function Avatar(props) {
   return (
     <img
       className="mr-2 h-20 w-20"
@@ -6,6 +6,4 @@ const Avatar = (props) => {
       alt="cat"
     />
   );
-};
-
-export default Avatar;
+}

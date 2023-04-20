@@ -45,10 +45,9 @@ export default function OurSelect() {
           <h3 className="my-8 text-center text-3xl">評分最高</h3>
           <ol className="list-decimal pl-12">
             {scoreDescending.map(({ id, store_name }) => {
-              // console.log(item)
               return (
                 <Link to={`/stores/${id}`}>
-                  <li key={id} id={id}>
+                  <li className="my-2" key={id} id={id}>
                     {store_name}
                   </li>
                 </Link>
@@ -63,7 +62,7 @@ export default function OurSelect() {
             {hourAscending.map(({ id, store_name }) => {
               return (
                 <Link to={`/stores/${id}`}>
-                  <li key={id} id={id}>
+                  <li className="my-2" key={id} id={id}>
                     {store_name}
                   </li>
                 </Link>

@@ -1,4 +1,4 @@
-const Footer = () => {
+export default function Footer() {
   return (
     <div className=" bg-white p-4 shadow md:flex md:items-center md:justify-between md:p-6">
       <span className="text-sm text-gray-500 sm:text-center">
@@ -23,6 +23,4 @@ const Footer = () => {
       </ul>
     </div>
   );
-};
-
-export default Footer;
+}

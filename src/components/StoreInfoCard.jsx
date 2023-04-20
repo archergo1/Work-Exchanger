@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
+import { url } from "../components/contexts/UserContext";
 import Button1 from "./Button1";
 import Button2 from "./Button";
 import axios from "axios";
-
-const url = "http://localhost:3000";
 
 const StoreInfoCard = () => {
   const [stores, setStores] = useState([]);

@@ -1,4 +1,4 @@
-const HashTags = ({ pros }) => {
+export default function HashTags({ pros }) {
   return (
     <ul className="pt-2 pb-2">
       {pros.map((item, index) => {
@@ -13,6 +13,4 @@ const HashTags = ({ pros }) => {
       })}
     </ul>
   );
-};
-
-export default HashTags;
+}

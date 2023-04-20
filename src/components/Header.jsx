@@ -9,7 +9,8 @@ import Swal from "sweetalert2";
 
 Modal.setAppElement("#root");
 
-const Header = () => {
+export default function Header() {
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn")
   );
@@ -21,9 +22,15 @@ const Header = () => {
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
-  const navigate = useNavigate();
+  // preventScroll
+  useEffect(() => {
+    if (modalIsOpen) {
+      document.body.style.overflow = "hidden";
+      return;
+    }
+    document.body.style.overflow = "auto";
+  }, [modalIsOpen]);
 
-  // react hook form
   const {
     register,
     handleSubmit,
@@ -39,8 +46,6 @@ const Header = () => {
 
   console.log(JWTtoken);
   console.log(userName);
-
-  // useEffect(setUserName(localStorage.getItem("userName")), []);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -63,7 +68,6 @@ const Header = () => {
           reset();
           console.log(response.data);
           Swal.fire({ title: `註冊成功，請重新登入` });
-          // setTimeout(closeModal, 2000);
         })
         .catch((error) => {
           console.log(error.response);
@@ -79,18 +83,22 @@ const Header = () => {
         })
         .then((response) => {
           // console.log(response.data);
-          // setUserName(response.data.user.name);
 
+          setIsLoggedIn(response.data.accessToken);
+          setUserId(response.data.user.id);
+          setUserName(response.data.user.name);
           setIsLoggedIn(true);
           setHaveAccount(true);
+
           // NOTE: DO NOT USE setState HERE FOR ASYNC ISSUE
           localStorage.setItem("JWTtoken", response.data.accessToken);
           localStorage.setItem("userName", response.data.user.name);
           localStorage.setItem("userId", response.data.user.id);
-          localStorage.setItem("isLoggedIn", isLoggedIn);
+          localStorage.setItem("isLoggedIn", true);
 
           Swal.fire({ title: `登入成功` });
-          setTimeout(closeModal, 2000);
+          setTimeout('closeModal', 2000);
+          setTimeout('reset', 2000);
         })
         .catch((error) => {
           console.log(error);
@@ -113,17 +121,6 @@ const Header = () => {
     setHaveAccount(true);
   }
 
-  //Q 註冊 登入互相切換要用巢狀迴圈嗎？
-  // A 用state切換即可
-
-  useEffect(() => {
-    if (modalIsOpen) {
-      document.body.style.overflow = "hidden";
-      return;
-    }
-    document.body.style.overflow = "auto";
-  }, [modalIsOpen]);
-
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
       <a className="h-10 w-10" href="/">
@@ -133,7 +130,6 @@ const Header = () => {
         // direct to memberpage
         <Button
           text={`Hi ${userName}`}
-          className="button2"
           onClick={() => {
             navigate("/memberpage", {});
           }}
@@ -249,6 +245,4 @@ const Header = () => {
       </Modal>
     </div>
   );
-};
-
-export default Header;
+}

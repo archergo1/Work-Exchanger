@@ -17,13 +17,12 @@ export default function SearchResults() {
   const [searchInput, setSearchInput] = useState(initialSearch);
   const [results, setResults] = useState([]);
 
-  const getData = () => {
-    axios.get(`${url}/stores`).then((res) => {
-      setData(res.data);
-    });
-  };
-
   useEffect(() => {
+    const getData = () => {
+      axios.get(`${url}/stores`).then((res) => {
+        setData(res.data);
+      });
+    };
     getData();
   }, []);
 
@@ -88,13 +87,13 @@ export default function SearchResults() {
           </div>
         </div>
       </div>
-
+      <LastPage/>
       {/* <!-- possible matches indicator --> */}
       <div className="my-4 ml-6 text-base font-bold">
         {results.length} 個搜尋結果
       </div>
       {/* <!-- matched items --> */}
-      <div className="mb-4 w-full px-6">
+      <div className="mb-4 min-h-[calc(100vh-550px)] w-full px-6">
         <ul>
           {results.map((item) => {
             return (

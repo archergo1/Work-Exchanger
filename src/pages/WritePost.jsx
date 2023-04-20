@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { url } from "../components/contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LastPage from "../components/LastPage";
@@ -8,6 +9,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default function WritePost() {
+  const navigate = useNavigate();
   const [stores, setStores] = useState([]);
   const userId = parseInt(localStorage.getItem("userId"));
   const JWTtoken = localStorage.getItem("JWTtoken");
@@ -83,7 +85,6 @@ export default function WritePost() {
     console.log(storeExisted);
 
     let storeId = "";
-
     if (storeExisted) {
       storeId = parseInt(storeExisted.id);
       console.log("a");
@@ -116,6 +117,9 @@ export default function WritePost() {
         .then((res) => {
           console.log(res);
           Swal.fire({ title: `送出成功` });
+          setTimeout(() => {
+            navigate(`/stores/${storeId}`);
+          }, 3000);
         })
         .catch((error) => {
           console.log(error.response);
@@ -132,11 +136,9 @@ export default function WritePost() {
         })
         .then((res) => {
           console.log(res);
-          // Swal.fire({ title: `送出成功` });
         })
         .catch((error) => {
           console.log(error.response);
-          // Swal.fire({ title: `送出失敗` });
         });
     }
   };
@@ -145,7 +147,7 @@ export default function WritePost() {
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
-      {/* <LastPage /> */}
+      <LastPage />
       {/* FORM STARTS HERE */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-around py-4 pl-6 pr-6">

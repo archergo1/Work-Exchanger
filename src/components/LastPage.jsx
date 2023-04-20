@@ -10,7 +10,7 @@ export default function LastPage() {
         navigate(-1);
       }}
     >
-      上一頁
+      {`<上一頁`}
     </button>
   );
 }
