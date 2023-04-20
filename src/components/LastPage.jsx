@@ -1,12 +1,16 @@
-const LastPage = () => {
+import { useNavigate } from "react-router-dom";
+
+export default function LastPage() {
+  const navigate = useNavigate();
+
   return (
-    <a
+    <button
       className="my-4 ml-6 block pl-5 text-base font-bold text-myFirstColor"
-      href="#"
+      onClick={() => {
+        navigate(-1);
+      }}
     >
       上一頁
-    </a>
+    </button>
   );
-};
-
-export default LastPage;
+}
