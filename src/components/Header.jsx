@@ -97,8 +97,8 @@ export default function Header() {
           localStorage.setItem("isLoggedIn", true);
 
           Swal.fire({ title: `登入成功` });
-          setTimeout('closeModal', 2000);
-          setTimeout('reset', 2000);
+          setTimeout(closeModal, 2000);
+          setTimeout(reset, 2000);
         })
         .catch((error) => {
           console.log(error);
@@ -181,10 +181,20 @@ export default function Header() {
                 <input
                   type="password"
                   id="password"
+                  placeholder="Password"
                   className="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                  {...register("password", { required: true })}
+                  {...register("password", {
+                    required: {
+                      value: true,
+                      message: "請輸入密碼！",
+                    },
+                    minLength: {
+                      value: 6,
+                      message: "密碼長度至少6位字元",
+                    },
+                  })}
                 />
-                {errors.password && <p className="text-red-600">請輸入密碼</p>}
+                <p className="mb-2 text-red-600">{errors.password?.message}</p>
               </div>
 
               {/* 需要註冊時顯示名稱欄 */}

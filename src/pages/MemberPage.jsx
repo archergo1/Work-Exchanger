@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MySetting from "../components/MySetting";
 import Button from "../components/Button";
-import Button1 from "../components/Button1";
+
 import "react-tabs/style/react-tabs.css";
 import Comments from "../components/Comments";
 import Rating from "../components/Rating";
@@ -29,6 +29,7 @@ export default function MemberPage() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {},
@@ -47,28 +48,37 @@ export default function MemberPage() {
     if (!user) {
       return null;
     }
-    // get posts by the user
+    // get all posts by the user
     const getPostData = async () => {
       const res = await axios.get(`${url}/users/${userId}/posts`);
       setPosts(res.data);
     };
     getPostData();
-    // console.log("212");
   }, [user]);
-  const { id, name, email, password } = user;
+
+  console.log(user);
+  const { id, name } = user;
+
   if (!posts) {
     return null;
   }
+
   console.log(posts);
+  console.log(userId);
 
   const onSubmit = (data) => {
     console.log(data);
+    const { newName, newPassword } = data;
+
+    console.log(JWTtoken);
+
+    updateInfo();
     function updateInfo() {
       axios
         // with the code 600, I can't see the change in data.json
         .patch(
-          `${url}/users/600/${userId}`,
-          { ...data, name: name, email: email, password: password },
+          `${url}/600/users/${userId}`,
+          { ...user, name: newName.trim(), password: newPassword.trim() },
           {
             headers: {
               authorization: `Bearer ${JWTtoken}`,
@@ -77,6 +87,10 @@ export default function MemberPage() {
         )
         .then((response) => {
           console.log(response);
+          localStorage.setItem("userName", response.data.name);
+          setUserName(response.data.name);
+
+          reset();
           Swal.fire({ title: `修改成功` });
         })
         .catch((error) => {
@@ -84,7 +98,6 @@ export default function MemberPage() {
           Swal.fire({ title: `修改失敗` });
         });
     }
-    updateInfo();
   };
 
   return (
@@ -99,7 +112,7 @@ export default function MemberPage() {
               alt=""
             />
             {/* look at here */}
-            <h1 className="my-6 text-center text-3xl">{name}</h1>
+            <h1 className="my-6 text-center text-3xl">{userName}</h1>
 
             <TabList>
               <Tab className="flex">
@@ -142,20 +155,20 @@ export default function MemberPage() {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-6">
                   <label
-                    htmlFor="name"
+                    htmlFor="newName"
                     className="mb-2 block text-xl font-medium text-gray-900"
                   >
                     名稱
                   </label>
                   <input
                     type="text"
-                    id="name"
+                    id="newName"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="Archer Huang"
-                    {...register("name", { required: false })}
+                    {...register("newName", { required: false })}
                   />
                 </div>
-                <div className="mb-6">
+                {/* <div className="mb-6">
                   <label
                     htmlFor="email"
                     className="mb-2 block text-xl font-medium text-gray-900"
@@ -169,28 +182,65 @@ export default function MemberPage() {
                     placeholder="WorkExchange@gmail.com"
                     {...register("email", { required: true })}
                   />
-                </div>
+                </div> */}
                 <div className="mb-6">
                   <label
-                    htmlFor="password"
+                    htmlFor="newPassword"
                     className="mb-2 block text-xl font-medium text-gray-900"
                   >
                     密碼
                   </label>
                   <input
                     type="password"
-                    id="password"
+                    id="newPassword"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                    {...register("password", { required: true })}
+                    placeholder="New password"
+                    {...register("newPassword", {
+                      required: {
+                        value: true,
+                        message: "請輸入密碼！",
+                      },
+                      minLength: {
+                        value: 6,
+                        message: "密碼長度至少6位字元",
+                      },
+                    })}
                   />
+                  <p className="mb-2 text-red-600">
+                    {errors.newPassword?.message}
+                  </p>
                 </div>
+                <div className="mb-6">
+                  <label
+                    htmlFor="newPasswordConfirm"
+                    className="mb-2 block text-xl font-medium text-gray-900"
+                  >
+                    請再次輸入密碼
+                  </label>
+                  <input
+                    type="password"
+                    id="newPasswordConfirm"
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    placeholder="Please enter new password again"
+                    {...register("newPasswordConfirm", {
+                      required: {
+                        value: true,
+                        message: "請再次輸入密碼！",
+                      },
+                      minLength: {
+                        value: 6,
+                        message: "密碼長度至少6位字元",
+                      },
+                    })}
+                  />
+                  <p className="mb-2 text-red-600">
+                    {errors.newPasswordConfirm?.message}
+                  </p>
+                </div>
+
                 <div className="flex justify-center">
                   {/* <Button1 text="修改密碼"></Button1> */}
-                  <input
-                    type="submit"
-                    value="儲存修改"
-                    className="button2"
-                  ></input>
+                  <input type="submit" value="儲存修改" className="button2" />
                 </div>
               </form>
             </div>
