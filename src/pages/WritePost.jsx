@@ -54,6 +54,7 @@ export default function WritePost() {
       store_name: store_name,
       store_phone: store_phone,
       store_address: store_address,
+      
       // 先用第一篇po文的資訊代替average_score and average_hour
       average_score: score,
       average_hour: work_hour,

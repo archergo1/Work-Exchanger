@@ -113,14 +113,13 @@ export default function MemberPage() {
               </Tab>
             </TabList>
             <div className="flex justify-center">
-            <Button
-              text="發表評論"
-              onClick={() => {
-                navigate("/writepost");
-              }}
-            />
+              <Button
+                text="發表評論"
+                onClick={() => {
+                  navigate("/writepost");
+                }}
+              />
             </div>
-            
           </div>
 
           <TabPanel>
@@ -280,7 +279,7 @@ export default function MemberPage() {
                         />
 
                         {/* <!-- info & comment --> */}
-                        <div>
+                        <div className="w-full">
                           <div className="flex justify-between">
                             <div>
                               <div className="flex items-center">

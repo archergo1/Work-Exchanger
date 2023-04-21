@@ -68,7 +68,7 @@ export default function Post({ storeId }) {
 
               {/* <!-- info & comment --> */}
               <div className="w-full">
-                <div className="flex w-full justify-between">
+                <div className="flex justify-between">
                   <div>
                     <div className="flex items-center">
                       <div className="text-2xl font-bold">{author}</div>
