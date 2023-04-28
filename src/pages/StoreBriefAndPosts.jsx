@@ -16,7 +16,8 @@ export default function StoreBriefAndPosts() {
   const routeParams = useParams();
   const storeId = routeParams.storeId;
 
-  useEffect(() => {
+  useEffect(
+    () => {
     const getPostData = async () => {
       const res = await axios.get(`${url}/stores/${storeId}`);
       setStore(res.data);
@@ -29,17 +30,17 @@ export default function StoreBriefAndPosts() {
   if (store.length === 0) {
     return null;
   }
+  console.log(store);
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
       <LastPage />
-      {/* StoreInfoCard starts here */}
       <div className="flex min-h-[calc(100vh-230px)] justify-around py-4 pl-6 pr-6">
         <div className="h-96 w-80 rounded bg-white px-4 py-3 shadow-lg">
           <img
             className="mx-auto block h-20 w-20 rounded-full"
-            src="/src/assets/images/dog.jpeg"
+            src={store?.img_url}
             alt=""
           />
           <h2 className="my-2 text-center text-3xl">{store.store_name}</h2>

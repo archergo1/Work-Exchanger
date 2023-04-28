@@ -4,14 +4,17 @@ import OurSelect from "../components/OurSelect";
 import OurLatest from "../components/OurLatest";
 import Footer from "../components/Footer";
 
+import UploadImg from "../components/UploadImg";
+
 export default function Home() {
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      <Header></Header>
-      <BannerArea></BannerArea>
-      <OurSelect></OurSelect>
-      <OurLatest></OurLatest>
-      <Footer></Footer>
+      <Header/>
+      <BannerArea/>
+      <OurSelect/>
+      <OurLatest/>
+      <Footer/>
+      {/* <UploadImg/> */}
     </div>
   );
 }

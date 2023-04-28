@@ -4,7 +4,7 @@ import Button1 from "./Button1";
 import Button2 from "./Button";
 import axios from "axios";
 
-const StoreInfoCard = () => {
+export default function StoreInfoCard() {
   const [stores, setStores] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,6 @@ const StoreInfoCard = () => {
   // 店有時候又沒有，維持空陣列？
 
   const store0 = stores[0];
-  // 先以第一項測試
   if (stores.length === 0) {
     return null;
   }
@@ -61,6 +60,4 @@ const StoreInfoCard = () => {
       </div>
     </div>
   );
-};
-
-export default StoreInfoCard;
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { url } from "../components/contexts/UserContext";
 import axios from "axios";
 
-const url = "http://localhost:3000";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);

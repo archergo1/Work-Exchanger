@@ -1,9 +1,7 @@
-const Button1 = ({ text }) => {
+export default function Button1({ text, onClick }) {
   return (
-    <div href="#" className="button1">
+    <button className="button1" onClick={onClick}>
       {text}
-    </div>
+    </button>
   );
-};
-
-export default Button1;
+}

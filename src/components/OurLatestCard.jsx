@@ -3,27 +3,25 @@ import Avatar from "./Avatar";
 import HashTags from "./HashTags";
 import { Link } from "react-router-dom";
 
-const OurLastCard = ({
-  id,
+export default function OurLastCard({
   store_name,
-  author,
   post_date,
   score,
   body,
   pros,
   storeId,
-}) => {
+  store,
+  user,
+}) {
   return (
     <Link to={`/stores/${storeId}`}>
       <li className="mt-6 mb-6 h-72 w-600px rounded bg-white px-6 py-4 shadow-lg">
         <div className="flex">
-          <Avatar
-          //   img={props.img}
-          />
+          <img className="mr-2 h-20 w-20" src={store?.img_url} alt="cat" />
           <div className="flex w-full justify-between">
             <div>
               <div className="mb-2 text-xl font-bold">{store_name}</div>
-              <div>{author}</div>
+              <div>{user?.name}</div>
               <div>{post_date}</div>
             </div>
             <Rating score={score} />
@@ -34,6 +32,4 @@ const OurLastCard = ({
       </li>
     </Link>
   );
-};
-
-export default OurLastCard;
+}

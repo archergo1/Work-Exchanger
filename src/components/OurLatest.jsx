@@ -9,7 +9,7 @@ const OurLatest = () => {
   useEffect(() => {
     // get all the posts from the server
     const getPosts = async () => {
-      const res = await axios.get(`${url}/posts`);
+      const res = await axios.get(`${url}/posts?_expand=store&_expand=user`);
       setPosts(res.data);
     };
     getPosts();
@@ -27,7 +27,7 @@ const OurLatest = () => {
   }
 
   const dateDescending = posts.slice().sort(dateComparison).slice(0, 4);
-  console.log(posts);
+  console.log(dateDescending);
 
   return (
     <div className="ourLatest w-full bg-gray-100 pt-1">
@@ -43,12 +43,14 @@ const OurLatest = () => {
             body,
             pros,
             storeId,
+            store,
+            user
           }) => (
             <OurLastCard
-              id={id}
+              user={user}
+              store={store}
               key={id}
               store_name={store_name}
-              author={author}
               post_date={post_date.substring(0, 10)}
               score={score}
               body={body}

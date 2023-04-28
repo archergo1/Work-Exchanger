@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Button1 from "./Button1";
 import Modal from "react-modal";
 import { url } from "../components/contexts/UserContext";
 import { useEffect, useState } from "react";
@@ -22,7 +23,7 @@ export default function Header() {
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
-  // preventScroll
+  // prevent the modal to be scrolled
   useEffect(() => {
     if (modalIsOpen) {
       document.body.style.overflow = "hidden";
@@ -126,17 +127,25 @@ export default function Header() {
       <a className="h-10 w-10" href="/">
         <img src="/src/assets/images/uniqlo.png" alt="" />
       </a>
-      {isLoggedIn ? (
-        // direct to memberpage
-        <Button
-          text={`Hi ${userName}`}
+      <div>
+        <Button1
+          text="常見Q&A"
           onClick={() => {
-            navigate("/memberpage", {});
+            navigate("/faq", {});
           }}
         />
-      ) : (
-        <Button onClick={openModal} text="登入/註冊" />
-      )}
+        {isLoggedIn ? (
+          // direct to memberpage
+          <Button
+            text={`Hi ${userName}`}
+            onClick={() => {
+              navigate("/memberpage", {});
+            }}
+          />
+        ) : (
+          <Button text="登入/註冊" onClick={openModal} />
+        )}
+      </div>
 
       <Modal
         className="flex"

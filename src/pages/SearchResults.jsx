@@ -93,14 +93,14 @@ export default function SearchResults() {
         {results.length} 個搜尋結果
       </div>
       {/* <!-- matched items --> */}
-      <div className="mb-4 min-h-[calc(100vh-550px)] w-full px-6">
+      <div className="mb-4 w-full px-6">
         <ul>
           {results.map((item) => {
             return (
               <Link to={`/stores/${item.id}`}>
                 <li
                   key={item.id}
-                  className="my-3 flex w-full rounded-md bg-white px-4 py-4"
+                  className="my-3 flex w-1/2 rounded-md bg-white px-4 py-4"
                 >
                   {/* <!-- mug --> */}
                   <img

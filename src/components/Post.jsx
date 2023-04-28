@@ -9,15 +9,14 @@ export default function Post({ storeId }) {
   const [posts, setPosts] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  // get all the posts from the server
-  const getData = async () => {
-    const res = await axios.get(`${url}/stores/${storeId}/posts`);
-    setPosts(res.data);
-  };
-
   useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get(`${url}/stores/${storeId}/posts?_expand=user`);
+      setPosts(res.data);
+    };
     getData();
   }, []);
+
 
   if (posts.length === 0) {
     return null;
@@ -31,7 +30,7 @@ export default function Post({ storeId }) {
     return date2 - date1;
   }
 
-  const dateDescending = posts.slice().sort(dateComparison).slice(0, 4);
+  const dateDescending = posts.slice().sort(dateComparison)
   console.log(dateDescending);
 
   return (
@@ -51,6 +50,7 @@ export default function Post({ storeId }) {
             body,
             pros,
             cons,
+            user
           },
           index
         ) => {
@@ -62,7 +62,7 @@ export default function Post({ storeId }) {
               {/* <!-- mug --> */}
               <img
                 className="mx-2 h-16 w-16 rounded-full"
-                src="/src/assets/images/dog.jpeg"
+                src={user.user_mug}
                 alt=""
               />
 
@@ -71,7 +71,7 @@ export default function Post({ storeId }) {
                 <div className="flex justify-between">
                   <div>
                     <div className="flex items-center">
-                      <div className="text-2xl font-bold">{author}</div>
+                      <div className="text-2xl font-bold">{user.name}</div>
                       <div className="mx-4 h-6 w-32 rounded-lg bg-yellow-400 text-white">
                         {type_pro}
                       </div>
@@ -109,7 +109,7 @@ export default function Post({ storeId }) {
                     less="看更少"
                     className="content-css"
                     anchorClass="show-more-less-clickable"
-                    expanded={false}
+                    expanded={true}
                     width={780}
                     truncatedEndingComponent={"... "}
                   >
