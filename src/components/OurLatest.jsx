@@ -31,7 +31,7 @@ const OurLatest = () => {
 
   return (
     <div className="ourLatest w-full bg-gray-100 pt-1">
-      <h2 className="my-16 text-center text-4xl text-black">最新評論</h2>
+      <h2 className="my-16 text-center text-4xl text-black font-bold">最新評論</h2>
       <ul className="mx-auto flex max-w-screen-xl flex-wrap justify-between">
         {dateDescending.map(
           ({

@@ -50,14 +50,14 @@ export default function MemberPage() {
     }
     // get all posts by the user
     const getPostData = async () => {
-      const res = await axios.get(`${url}/users/${userId}/posts`);
+      const res = await axios.get(`${url}/users/${userId}/posts?_expand=store`);
       setPosts(res.data);
     };
     getPostData();
   }, [user]);
 
   console.log(user);
-  const { id, name } = user;
+  const { id, name, user_mug } = user;
 
   if (!posts) {
     return null;
@@ -108,7 +108,7 @@ export default function MemberPage() {
           <div className="h-96 w-80 rounded bg-white px-8 py-3 shadow-lg">
             <img
               className="mx-auto block h-20 w-20 rounded-full"
-              src="/src/assets/images/dog.jpeg"
+              src={user_mug}
               alt=""
             />
             {/* look at here */}
@@ -139,7 +139,7 @@ export default function MemberPage() {
             <div className="w-960px rounded bg-white px-8 py-6 shadow-lg">
               <img
                 className="mx-auto block h-20 w-20 rounded-full"
-                src="/src/assets/images/dog.jpeg"
+                src={user_mug}
                 alt=""
               />
               {/* <!-- upload your mug --> */}
@@ -315,6 +315,7 @@ export default function MemberPage() {
                     body,
                     pros,
                     cons,
+                    store
                   }) => {
                     return (
                       <li
@@ -324,7 +325,7 @@ export default function MemberPage() {
                         {/* <!-- mug --> */}
                         <img
                           className="mx-2 h-16 w-16 rounded-full"
-                          src="/src/assets/images/dog.jpeg"
+                          src={store?.img_url}
                           alt=""
                         />
 
@@ -423,12 +424,12 @@ export default function MemberPage() {
                 {/* <Comments />    */}
 
                 {/* more comments */}
-                <a
+                {/* <a
                   className="my-4 block h-14 w-full rounded-md bg-mySecondColor pt-4 text-center font-bold text-myyFirstColorHover"
                   href=""
                 >
                   載入更多留言
-                </a>
+                </a> */}
               </ul>
             </div>
           </TabPanel>

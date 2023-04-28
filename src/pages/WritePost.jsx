@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { url } from "../components/contexts/UserContext";
-import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LastPage from "../components/LastPage";
@@ -9,11 +8,11 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default function WritePost() {
-  const navigate = useNavigate();
   const [stores, setStores] = useState([]);
   const userId = parseInt(localStorage.getItem("userId"));
   const JWTtoken = localStorage.getItem("JWTtoken");
   const userName = localStorage.getItem("userName");
+
   console.log(userId);
   console.log(JWTtoken);
   console.log(userName);

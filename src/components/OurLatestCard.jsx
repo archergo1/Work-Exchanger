@@ -1,7 +1,7 @@
 import Rating from "./Rating";
-import Avatar from "./Avatar";
 import HashTags from "./HashTags";
 import { Link } from "react-router-dom";
+import LinesEllipsis from "react-lines-ellipsis";
 
 export default function OurLastCard({
   store_name,
@@ -27,7 +27,15 @@ export default function OurLastCard({
             <Rating score={score} />
           </div>
         </div>
-        <p className="mt-4 mb-4 text-base text-gray-700">{body}</p>
+        <p className="mt-4 mb-4 text-base text-gray-700">
+          <LinesEllipsis
+            text={body}
+            maxLine="2"
+            ellipsis="..."
+            trimRight
+            basedOn="letters"
+          />
+        </p>
         <HashTags pros={pros} />
       </li>
     </Link>

@@ -9,15 +9,16 @@ import Comments from "../components/Comments";
 import LastPage from "../components/LastPage";
 import Button2 from "../components/Button";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function StoreBriefAndPosts() {
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [store, setStore] = useState([]);
   const routeParams = useParams();
   const storeId = routeParams.storeId;
 
-  useEffect(
-    () => {
+  useEffect(() => {
     const getPostData = async () => {
       const res = await axios.get(`${url}/stores/${storeId}`);
       setStore(res.data);
@@ -32,6 +33,15 @@ export default function StoreBriefAndPosts() {
   }
   console.log(store);
 
+  const {
+    store_name,
+    store_address,
+    store_phone,
+    img_url,
+    average_hour,
+    average_score,
+  } = store;
+
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
@@ -40,24 +50,22 @@ export default function StoreBriefAndPosts() {
         <div className="h-96 w-80 rounded bg-white px-4 py-3 shadow-lg">
           <img
             className="mx-auto block h-20 w-20 rounded-full"
-            src={store?.img_url}
+            src={img_url}
             alt=""
           />
-          <h2 className="my-2 text-center text-3xl">{store.store_name}</h2>
+          <h2 className="my-2 text-center text-3xl">{store_name}</h2>
 
           {/* rating */}
           <div className="flex justify-center">
-            <div className="rating">{store.average_score}</div>
+            <div className="rating">{average_score}</div>
           </div>
           <ul>
             <li className="my-1 h-10 w-full text-left">
-              地址：{store.store_address}
+              地址：{store_address}
             </li>
+            <li className="my-1 h-10 w-full text-left">電話：{store_phone}</li>
             <li className="my-1 h-10 w-full text-left">
-              電話：{store.store_phone}
-            </li>
-            <li className="my-1 h-10 w-full text-left">
-              平均日工時：{store.average_hour}小時
+              平均日工時：{average_hour}小時
             </li>
           </ul>
 
@@ -68,7 +76,12 @@ export default function StoreBriefAndPosts() {
             {/* <Button1
         text=""
         ></Button1> */}
-            <Button2 text="發表評論"></Button2>
+            <Button2
+              text="發表評論"
+              onClick={(store) => {
+                navigate("/writepost");
+              }}
+            />
           </div>
         </div>
         {/* StoreInfoCard ends here */}
