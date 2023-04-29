@@ -75,7 +75,6 @@ export default function MemberPage() {
     updateInfo();
     function updateInfo() {
       axios
-        // with the code 600, I can't see the change in data.json
         .patch(
           `${url}/600/users/${userId}`,
           { ...user, name: newName.trim(), password: newPassword.trim() },
@@ -118,9 +117,9 @@ export default function MemberPage() {
               <Tab className="flex">
                 <MySetting text="個人資料"></MySetting>
               </Tab>
-              <Tab className="flex">
+              {/* <Tab className="flex">
                 <MySetting text="我的通知"></MySetting>
-              </Tab>
+              </Tab> */}
               <Tab className="flex">
                 <MySetting text="我的評論"></MySetting>
               </Tab>
@@ -138,18 +137,18 @@ export default function MemberPage() {
           <TabPanel>
             <div className="w-960px rounded bg-white px-8 py-6 shadow-lg">
               <img
-                className="mx-auto block h-20 w-20 rounded-full"
+                className="mx-auto block h-20 w-20 rounded-full mb-6"
                 src={user_mug}
                 alt=""
               />
               {/* <!-- upload your mug --> */}
               <div className="flex justify-center">
-                <a
+                {/* <a
                   className="my-2 h-10 w-20 rounded-md bg-mySecondColor pt-2 text-center text-myFirstColor"
                   href=""
                 >
                   上傳頭貼
-                </a>
+                </a> */}
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -245,7 +244,7 @@ export default function MemberPage() {
               </form>
             </div>
           </TabPanel>
-          <TabPanel>
+          {/* <TabPanel>
             <div className="w-960px rounded bg-white px-8 py-6 shadow-lg">
               <ul>
                 <li className="my-2 rounded-md bg-mySecondColor">
@@ -282,7 +281,7 @@ export default function MemberPage() {
                 </li>
               </ul>
             </div>
-          </TabPanel>
+          </TabPanel> */}
           <TabPanel>
             <div>
               {/* <!-- matched nums & sorting --> */}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { url } from "../components/contexts/UserContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -9,11 +10,14 @@ import Comments from "../components/Comments";
 import LastPage from "../components/LastPage";
 import Button2 from "../components/Button";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
+import Swal from "sweetalert2";
 
 export default function StoreBriefAndPosts() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
   const [store, setStore] = useState([]);
   const routeParams = useParams();
   const storeId = routeParams.storeId;
@@ -78,8 +82,12 @@ export default function StoreBriefAndPosts() {
         ></Button1> */}
             <Button2
               text="發表評論"
-              onClick={(store) => {
-                navigate("/writepost");
+              onClick={() => {
+                {
+                  isLoggedIn
+                    ? navigate("/writepost")
+                    : Swal.fire({ title: `請先登入再發表評論` });
+                }
               }}
             />
           </div>
@@ -107,14 +115,14 @@ export default function StoreBriefAndPosts() {
             <Post storeId={storeId} />
             <hr />
             {/* if logged in, render the link */}
-            {isLoggedIn ? null : (
+            {/* {isLoggedIn ? null : (
               <a
                 className="my-4 block h-14 w-full rounded-md bg-orange-200 pt-4 text-center font-bold text-myThirdColor"
                 href="#"
               >
                 登入以留言
               </a>
-            )}
+            )} */}
             {/* <!-- each response --> */}
             {/* <Comments />s */}
 

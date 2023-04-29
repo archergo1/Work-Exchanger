@@ -27,15 +27,14 @@ export default function OurLastCard({
             <Rating score={score} />
           </div>
         </div>
-        <p className="mt-4 mb-4 text-base text-gray-700">
-          <LinesEllipsis
-            text={body}
-            maxLine="2"
-            ellipsis="..."
-            trimRight
-            basedOn="letters"
-          />
-        </p>
+        <LinesEllipsis
+          className="mt-4 mb-4 text-base text-gray-700"
+          text={body}
+          maxLine="2"
+          ellipsis="..."
+          trimRight
+          basedOn="letters"
+        />
         <HashTags pros={pros} />
       </li>
     </Link>
