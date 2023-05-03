@@ -87,7 +87,7 @@ export default function SearchResults() {
           </div>
         </div>
       </div>
-      <LastPage/>
+      <LastPage />
       {/* <!-- possible matches indicator --> */}
       <div className="my-4 ml-6 text-base font-bold">
         {results.length} 個搜尋結果
@@ -97,17 +97,13 @@ export default function SearchResults() {
         <ul>
           {results.map((item) => {
             return (
-              <Link to={`/stores/${item.id}`}>
+              <Link to={`/stores/${item.id}`} key={item.id}>
                 <li
                   key={item.id}
                   className="my-3 flex w-1/2 rounded-md bg-white px-4 py-4"
                 >
                   {/* <!-- mug --> */}
-                  <img
-                    className="h-24 w-24"
-                    src="/src/assets/images/cat.jpg"
-                    alt="cat"
-                  />
+                  <img className="h-24 w-24" src={item.img_url} alt="cat" />
 
                   <div className="ml-4 flex w-full items-center justify-between">
                     <div>

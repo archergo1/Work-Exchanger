@@ -53,7 +53,7 @@ export default function WritePost() {
       store_name: store_name,
       store_phone: store_phone,
       store_address: store_address,
-      
+
       // 先用第一篇po文的資訊代替average_score and average_hour
       average_score: score,
       average_hour: work_hour,
@@ -263,6 +263,12 @@ export default function WritePost() {
                   className="mr-3 rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
                   {...register("work_year", { required: true })}
                 >
+                  <option name="work_year" value="2017">
+                    2017
+                  </option>
+                  <option name="work_year" value="2018">
+                    2018
+                  </option>
                   <option name="work_year" value="2019">
                     2019
                   </option>

@@ -36,7 +36,6 @@ export default function MemberPage() {
   });
 
   useEffect(() => {
-    // could i use IIFE here?
     const getUserData = async () => {
       const res = await axios.get(`${url}/users/${userId}`);
       setUser(res.data);
@@ -94,7 +93,18 @@ export default function MemberPage() {
         })
         .catch((error) => {
           console.log(error.response);
-          Swal.fire({ title: `修改失敗` });
+          if (error.response.data === "jwt expired") {
+            Swal.fire({ title: `登入過期，請重新登入` });
+
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("JWTtoken");
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userId");
+
+            setTimeout(() => {
+              navigate("/");
+            }, 2000);
+          }
         });
     }
   };
@@ -137,7 +147,7 @@ export default function MemberPage() {
           <TabPanel>
             <div className="w-960px rounded bg-white px-8 py-6 shadow-lg">
               <img
-                className="mx-auto block h-20 w-20 rounded-full mb-6"
+                className="mx-auto mb-6 block h-20 w-20 rounded-full"
                 src={user_mug}
                 alt=""
               />
@@ -314,7 +324,7 @@ export default function MemberPage() {
                     body,
                     pros,
                     cons,
-                    store
+                    store,
                   }) => {
                     return (
                       <li

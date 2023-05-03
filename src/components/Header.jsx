@@ -23,6 +23,9 @@ export default function Header() {
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
+
+  
+
   // prevent the modal to be scrolled
   useEffect(() => {
     if (modalIsOpen) {

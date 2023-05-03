@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
-import { HashRouter, Link, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { url } from "../components/contexts/UserContext";
 import axios from "axios";
 
 export default function OurSelect() {
   const [data, setData] = useState([]);
+  const [post, setPost] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -13,6 +14,15 @@ export default function OurSelect() {
       });
     };
     getData();
+  }, []);
+
+  useEffect(() => {
+    const getPost = async () => {
+      axios.get(`${url}/posts`).then((res) => {
+        setPost(res.data);
+      });
+    };
+    getPost();
   }, []);
 
   const scoreDescending = data
@@ -29,12 +39,39 @@ export default function OurSelect() {
     })
     .slice(0, 3);
 
-  // const prosDescending = data.slice().sort((a, b) => {
-  //   return;
-  // });
+  console.log(hourAscending);
 
-  // Q sort 會改變原來的data!?
-  // A 用slice來淺拷貝
+  const count = {};
+  post.forEach((item, index) => {
+    const name = post[index].store_name;
+    if (count[name]) {
+      count[name].count += 1;
+    } else {
+      count[name] = { count: 1, index: index };
+    }
+  });
+
+  console.log(count);
+
+  const countArr = Object.entries(count);
+
+  console.log(countArr);
+
+  countArr.sort((a, b) => b[1].count - a[1].count);
+
+  const resultArr = [];
+  const addedNames = new Set();
+  for (let i = 0; i < countArr.length; i++) {
+    const name = countArr[i][0];
+    const index = countArr[i][1].index;
+    if (!addedNames.has(name)) {
+      resultArr.push(post[index]);
+      addedNames.add(name);
+    }
+  }
+  console.log(resultArr);
+
+  const mostPopular = resultArr.slice(0, 3);
 
   return (
     <div className="ourSelect bg-mySecondColor pt-1">
@@ -45,7 +82,7 @@ export default function OurSelect() {
         {/* <!-- ourSelect cards --> */}
         <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
           <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
-            評分最高
+            最高評分
           </h3>
           <ol className="list-decimal pl-12">
             {scoreDescending.map(({ id, store_name }, index) => {
@@ -59,10 +96,25 @@ export default function OurSelect() {
             })}
           </ol>
         </div>
-
         <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
           <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
-            工時最短
+            最熱門討論
+          </h3>
+          <ol className="list-decimal pl-12">
+            {mostPopular.map(({ storeId, store_name }) => {
+              return (
+                <Link key={storeId} to={`/stores/${storeId}`}>
+                  <li className="my-2 font-bold" key={storeId}>
+                    {store_name}
+                  </li>
+                </Link>
+              );
+            })}
+          </ol>
+        </div>
+        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
+          <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
+            最短工時
           </h3>
           <ol className="list-decimal pl-12">
             {hourAscending.map(({ id, store_name }) => {
@@ -77,22 +129,6 @@ export default function OurSelect() {
           </ol>
         </div>
         {/* not done yet */}
-        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
-          <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
-            評論最多
-          </h3>
-          {/* <ol className="list-decimal pl-12">
-            <li>
-              <a href="">北山古洋樓</a>
-            </li>
-            <li>
-              <a href="">晃晃二手書</a>
-            </li>
-            <li>
-              <a href="">台東龍捲風</a>
-            </li>
-          </ol> */}
-        </div>
       </div>
     </div>
   );
