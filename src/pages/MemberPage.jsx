@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MySetting from "../components/MySetting";
 import Button from "../components/Button";
+import ShowMoreText from "react-show-more-text";
 
 import "react-tabs/style/react-tabs.css";
 import Comments from "../components/Comments";
@@ -177,21 +178,6 @@ export default function MemberPage() {
                     {...register("newName", { required: false })}
                   />
                 </div>
-                {/* <div className="mb-6">
-                  <label
-                    htmlFor="email"
-                    className="mb-2 block text-xl font-medium text-gray-900"
-                  >
-                    信箱
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
-                    placeholder="WorkExchange@gmail.com"
-                    {...register("email", { required: true })}
-                  />
-                </div> */}
                 <div className="mb-6">
                   <label
                     htmlFor="newPassword"
@@ -309,119 +295,133 @@ export default function MemberPage() {
                 </select>
               </div> */}
               </div>
+              {posts.length == 0 ? (
+                <p className="my-4 flex w-960px rounded bg-white px-8 py-6 text-center shadow-lg">
+                  看來你還沒發表任何換宿評論喔......快來分享你的換宿心得吧！
+                </p>
+              ) : (
+                <ul>
+                  {posts.map(
+                    ({
+                      store_name,
+                      post_date,
+                      work_year,
+                      first_half,
+                      work_hour,
+                      work_span,
+                      type_pro,
+                      score,
+                      body,
+                      pros,
+                      cons,
+                      store,
+                    }) => {
+                      return (
+                        <li
+                          key={id}
+                          className="my-4 flex w-960px rounded bg-white px-8 py-6 shadow-lg"
+                        >
+                          {/* <!-- mug --> */}
+                          <img
+                            className="mx-2 h-16 w-16 rounded-full"
+                            src={store?.img_url}
+                            alt=""
+                          />
 
-              <ul>
-                {posts.map(
-                  ({
-                    store_name,
-                    post_date,
-                    work_year,
-                    first_half,
-                    work_hour,
-                    work_span,
-                    type_pro,
-                    score,
-                    body,
-                    pros,
-                    cons,
-                    store,
-                  }) => {
-                    return (
-                      <li
-                        key={id}
-                        className="my-4 flex w-960px rounded bg-white px-8 py-6 shadow-lg"
-                      >
-                        {/* <!-- mug --> */}
-                        <img
-                          className="mx-2 h-16 w-16 rounded-full"
-                          src={store?.img_url}
-                          alt=""
-                        />
-
-                        {/* <!-- info & comment --> */}
-                        <div className="w-full">
-                          <div className="flex justify-between">
-                            <div>
-                              <div className="flex items-center">
-                                <div className="text-2xl font-bold">
-                                  {store_name}
-                                </div>
-                                <div className="mx-4 h-6 w-32 rounded-lg bg-yellow-400 text-white">
-                                  {type_pro}
-                                </div>
-                              </div>
+                          {/* <!-- info & comment --> */}
+                          <div className="w-full">
+                            <div className="flex justify-between">
                               <div>
-                                <div className="mt-2">
-                                  <div className="mr-2 inline-block">
-                                    日工時：{work_hour}小時
+                                <div className="flex items-center">
+                                  <div className="text-2xl font-bold">
+                                    {store_name}
                                   </div>
-                                  •
-                                  <div className="ml-2 inline-block">
-                                    換宿期間：{work_span}
+                                  <div className="mx-4 h-6 w-32 rounded-lg bg-yellow-400 text-white">
+                                    {type_pro}
                                   </div>
                                 </div>
-                                <div className="mb-2">
-                                  <div className="mr-2 inline-block">
-                                    換宿時間：{work_year} {first_half}
+                                <div>
+                                  <div className="mt-2">
+                                    <div className="mr-2 inline-block">
+                                      日工時：{work_hour}小時
+                                    </div>
+                                    •
+                                    <div className="ml-2 inline-block">
+                                      換宿期間：{work_span}
+                                    </div>
                                   </div>
-                                  •
-                                  <div className="ml-2 inline-block">
-                                    發文日期：{post_date.substring(0, 10)}
+                                  <div className="mb-2">
+                                    <div className="mr-2 inline-block">
+                                      換宿時間：{work_year} {first_half}
+                                    </div>
+                                    •
+                                    <div className="ml-2 inline-block">
+                                      發文日期：{post_date.substring(0, 10)}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
+                              {/* <!-- rating stars --> */}
+                              <div>
+                                <Rating score={score}></Rating>
+                              </div>
                             </div>
-                            {/* <!-- rating stars --> */}
-                            <div>
-                              <Rating score={score}></Rating>
+                            <div className="my-2 text-lg">
+                              <ShowMoreText
+                                lines={3}
+                                more="看更多"
+                                less="看更少"
+                                className="content-css"
+                                anchorClass="show-more-less-clickable"
+                                expanded={true}
+                                width={780}
+                                truncatedEndingComponent={"... "}
+                              >
+                                {body}
+                              </ShowMoreText>
                             </div>
+                            {/* <!-- pros --> */}
+                            <div className="my-3">
+                              <div className="mb-4 font-bold">優點福利</div>
+                              <ul>
+                                {pros.map((item, index) => {
+                                  return (
+                                    <li
+                                      key={index}
+                                      className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                                    >
+                                      #{item}
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                            {/* <!-- cons --> */}
+                            <div className="my-3">
+                              <div className="mb-4 font-bold">有待改進</div>
+                              <ul>
+                                {cons.map((item, index) => {
+                                  return (
+                                    <li
+                                      key={index}
+                                      className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+                                    >
+                                      #{item}
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                            {/* <!-- other functions may need to be added in the future*/}
+                            <div></div>
                           </div>
-                          <p className="my-2 text-lg">{body}</p>
+                        </li>
+                      );
+                    }
+                  )}
 
-                          {/* <!-- pros --> */}
-                          <div className="my-3">
-                            <div className="mb-4 font-bold">優點福利</div>
-                            <ul>
-                              {pros.map((item, index) => {
-                                return (
-                                  <li
-                                    key={index}
-                                    className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
-                                  >
-                                    #{item}
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </div>
-                          {/* <!-- cons --> */}
-                          <div className="my-3">
-                            <div className="mb-4 font-bold">有待改進</div>
-                            <ul>
-                              {cons.map((item, index) => {
-                                return (
-                                  <li
-                                    key={index}
-                                    className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
-                                  >
-                                    #{item}
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </div>
-                          {/* <!-- other functions may need to be added in the future*/}
-                          <div></div>
-                        </div>
-                      </li>
-                    );
-                  }
-                )}
-
-                <hr />
-
-                {/* if logged in, render the link */}
-                {/* {isLoggedIn ? null : (
+                  {/* if logged in, render the link */}
+                  {/* {isLoggedIn ? null : (
                   <a
                     className="my-4 block h-14 w-full rounded-md bg-orange-200 pt-4 text-center font-bold text-myThirdColor"
                     href="#"
@@ -429,17 +429,18 @@ export default function MemberPage() {
                     登入以留言
                   </a>
                 )} */}
-                {/* <!-- each response --> */}
-                {/* <Comments />    */}
+                  {/* <!-- each response --> */}
+                  {/* <Comments />    */}
 
-                {/* more comments */}
-                {/* <a
+                  {/* more comments */}
+                  {/* <a
                   className="my-4 block h-14 w-full rounded-md bg-mySecondColor pt-4 text-center font-bold text-myyFirstColorHover"
                   href=""
                 >
                   載入更多留言
                 </a> */}
-              </ul>
+                </ul>
+              )}
             </div>
           </TabPanel>
         </Tabs>

@@ -23,9 +23,6 @@ export default function Header() {
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
-
-  
-
   // prevent the modal to be scrolled
   useEffect(() => {
     if (modalIsOpen) {
@@ -146,7 +143,12 @@ export default function Header() {
             }}
           />
         ) : (
-          <Button text="登入/註冊" onClick={openModal} />
+          <Button
+            text="登入/註冊"
+            onClick={() => {
+              navigate("/signup", {});
+            }}
+          />
         )}
       </div>
 

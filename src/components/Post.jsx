@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { url } from "../components/contexts/UserContext";
 import Rating from "./Rating";
 import axios from "axios";
-// import LinesEllipsis from "react-lines-ellipsis";
 import ShowMoreText from "react-show-more-text";
 
 export default function Post({ storeId }) {
@@ -11,12 +10,13 @@ export default function Post({ storeId }) {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(`${url}/stores/${storeId}/posts?_expand=user`);
+      const res = await axios.get(
+        `${url}/stores/${storeId}/posts?_expand=user`
+      );
       setPosts(res.data);
     };
     getData();
   }, []);
-
 
   if (posts.length === 0) {
     return null;
@@ -30,7 +30,7 @@ export default function Post({ storeId }) {
     return date2 - date1;
   }
 
-  const dateDescending = posts.slice().sort(dateComparison)
+  const dateDescending = posts.slice().sort(dateComparison);
   console.log(dateDescending);
 
   return (
@@ -50,7 +50,7 @@ export default function Post({ storeId }) {
             body,
             pros,
             cons,
-            user
+            user,
           },
           index
         ) => {
