@@ -80,7 +80,7 @@ export default function OurSelect() {
       </h2>
       <div className="recommended mx-auto flex max-w-screen-xl justify-between">
         {/* <!-- ourSelect cards --> */}
-        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
+        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm border-2 border-myyFirstColorHover">
           <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
             最高評分
           </h3>
@@ -96,7 +96,7 @@ export default function OurSelect() {
             })}
           </ol>
         </div>
-        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
+        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm border-2 border-myyFirstColorHover">
           <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
             最熱門討論
           </h3>
@@ -112,7 +112,7 @@ export default function OurSelect() {
             })}
           </ol>
         </div>
-        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm">
+        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm border-2 border-myyFirstColorHover">
           <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
             最短工時
           </h3>
@@ -128,7 +128,6 @@ export default function OurSelect() {
             })}
           </ol>
         </div>
-        {/* not done yet */}
       </div>
     </div>
   );
