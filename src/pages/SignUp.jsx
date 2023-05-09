@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { url } from "../components/contexts/UserContext";
 import { useState } from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -41,6 +41,7 @@ export default function SignUp() {
     function signUp() {
       axios
         .post(`${url}/signup`, {
+          user_mug: "/src/assets/images/userMug/defaultMug.jpg",
           email: email.trim(),
           password: password.trim(),
           name: name.trim(),

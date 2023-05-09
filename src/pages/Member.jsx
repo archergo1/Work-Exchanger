@@ -15,7 +15,7 @@ import Rating from "../components/Rating";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export default function MemberPage() {
+export default function Member() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn")
@@ -303,6 +303,7 @@ export default function MemberPage() {
                 <ul>
                   {posts.map(
                     ({
+                      id,
                       store_name,
                       post_date,
                       work_year,
@@ -363,7 +364,7 @@ export default function MemberPage() {
                               </div>
                               {/* <!-- rating stars --> */}
                               <div>
-                                <Rating score={score}></Rating>
+                                <Rating score={score}/>
                               </div>
                             </div>
                             <div className="my-2 text-lg">

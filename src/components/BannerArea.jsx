@@ -1,11 +1,9 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function BannerArea() {
-  const [data, setData] = useState([]);
+export default function BannerArea() {
   const [searchInput, setSearchInput] = useState("");
-  const [results, setResults] = useState([]);
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -60,5 +58,3 @@ function BannerArea() {
     </div>
   );
 }
-
-export default BannerArea;

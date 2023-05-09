@@ -2,7 +2,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
 import StoreBriefAndPosts from "./pages/StoreBriefAndPosts";
-import MemberPage from "./pages/MemberPage";
+import Member from "./pages/Member";
 import WritePost from "./pages/WritePost";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
@@ -24,7 +24,7 @@ export default function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/memberpage" element={<MemberPage />} />
+        <Route path="/member" element={<Member />} />
         <Route path="/searchresults" element={<SearchResults />} />
         <Route path="/stores/:storeId" element={<StoreBriefAndPosts />} />
         <Route path="/writepost" element={<WritePost />} />

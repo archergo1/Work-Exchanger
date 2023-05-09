@@ -42,10 +42,6 @@ export default function SearchResults() {
   };
 
   const handleSearch = useCallback(() => {
-    // if (searchInput==='') {
-    // console.log('沒有被執行');
-    //   return;
-    // }
     const matched = data.filter((item) =>
       item.store_name.includes(searchInput)
     );
@@ -66,7 +62,6 @@ export default function SearchResults() {
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
-      {/* banner area */}
       <div className="banner h-64 bg-bannerImage bg-center pt-24">
         <div className="mx-auto max-w-xl">
           <div className="relative">

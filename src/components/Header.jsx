@@ -139,7 +139,7 @@ export default function Header() {
           <Button
             text={`Hi ${userName}`}
             onClick={() => {
-              navigate("/memberpage", {});
+              navigate("/member", {});
             }}
           />
         ) : (

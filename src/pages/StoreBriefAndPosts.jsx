@@ -4,13 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { url } from "../components/contexts/UserContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import StoreInfoCard from "../components/StoreInfoCard";
 import Post from "../components/Post";
-import Comments from "../components/Comments";
 import LastPage from "../components/LastPage";
 import Button2 from "../components/Button";
 import axios from "axios";
-
 import Swal from "sweetalert2";
 
 export default function StoreBriefAndPosts() {
@@ -113,8 +110,7 @@ export default function StoreBriefAndPosts() {
           {/* <!-- posts --> */}
           <div className="">
             <Post storeId={storeId} />
-            <hr />
-            {/* if logged in, render the link */}
+
             {/* {isLoggedIn ? null : (
               <a
                 className="my-4 block h-14 w-full rounded-md bg-orange-200 pt-4 text-center font-bold text-myThirdColor"
