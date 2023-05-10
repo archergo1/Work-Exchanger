@@ -1,4 +1,5 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
+import "/src/tailwind.css";
 import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
 import StoreBriefAndPosts from "./pages/StoreBriefAndPosts";
@@ -11,7 +12,7 @@ import PageNotFound from "./pages/PageNotFound";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 
-import "/src/tailwind.css";
+
 
 export default function App() {
   return (

@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 import MySetting from "../components/MySetting";
 import Button from "../components/Button";
 import ShowMoreText from "react-show-more-text";
-
 import "react-tabs/style/react-tabs.css";
 import Comments from "../components/Comments";
 import Rating from "../components/Rating";
@@ -26,6 +25,8 @@ export default function Member() {
 
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState([]);
+
+  const [bookmarks, setBookmarks] = useState([]);
 
   const {
     register,
@@ -45,9 +46,6 @@ export default function Member() {
   }, []);
 
   useEffect(() => {
-    if (!user) {
-      return null;
-    }
     // get all posts by the user
     const getPostData = async () => {
       const res = await axios.get(`${url}/users/${userId}/posts?_expand=store`);
@@ -55,6 +53,19 @@ export default function Member() {
     };
     getPostData();
   }, [user]);
+
+  useEffect(() => {
+    // get all bookmarked stores by the user
+    const getBookmarkedStores = async () => {
+      const res = await axios.get(
+        `${url}/users/${userId}/bookmarks?_expand=store`
+      );
+      setBookmarks(res.data);
+    };
+    getBookmarkedStores();
+  }, [user]);
+
+  console.log(bookmarks);
 
   console.log(user);
   const { id, name, user_mug } = user;
@@ -65,6 +76,13 @@ export default function Member() {
 
   console.log(posts);
   console.log(userId);
+
+  function logOut() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("JWTtoken");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userId");
+  }
 
   const onSubmit = (data) => {
     console.log(data);
@@ -96,12 +114,7 @@ export default function Member() {
           console.log(error.response);
           if (error.response.data === "jwt expired") {
             Swal.fire({ title: `登入過期，請重新登入` });
-
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("JWTtoken");
-            localStorage.removeItem("userName");
-            localStorage.removeItem("userId");
-
+            logOut();
             setTimeout(() => {
               navigate("/");
             }, 2000);
@@ -119,7 +132,7 @@ export default function Member() {
             <img
               className="mx-auto block h-20 w-20 rounded-full"
               src={user_mug}
-              alt=""
+              alt="user_mug"
             />
             {/* look at here */}
             <h1 className="my-6 text-center text-3xl">{userName}</h1>
@@ -130,6 +143,9 @@ export default function Member() {
               </Tab>
               {/* <Tab className="flex">
                 <MySetting text="我的通知"></MySetting>
+              </Tab> */}
+              {/* <Tab className="flex">
+                <MySetting text="我的最愛店家"></MySetting>
               </Tab> */}
               <Tab className="flex">
                 <MySetting text="我的評論"></MySetting>
@@ -142,6 +158,18 @@ export default function Member() {
                   navigate("/writepost");
                 }}
               />
+              <button
+                className="button1"
+                onClick={() => {
+                  Swal.fire({ title: `成功登出！` });
+                  logOut();
+                  setTimeout(() => {
+                    navigate("/");
+                  }, 1000);
+                }}
+              >
+                登出
+              </button>
             </div>
           </div>
 
@@ -278,6 +306,7 @@ export default function Member() {
               </ul>
             </div>
           </TabPanel> */}
+
           <TabPanel>
             <div>
               {/* <!-- matched nums & sorting --> */}
@@ -364,7 +393,7 @@ export default function Member() {
                               </div>
                               {/* <!-- rating stars --> */}
                               <div>
-                                <Rating score={score}/>
+                                <Rating score={score} />
                               </div>
                             </div>
                             <div className="my-2 text-lg">

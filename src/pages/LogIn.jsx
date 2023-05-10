@@ -60,7 +60,7 @@ export default function LogIn() {
 
           Swal.fire({ title: `登入成功` });
           setTimeout(() => {
-            navigate("/memberpage"), 2000;
+            navigate("/member"), 2000;
           });
         })
         .catch((error) => {

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-Modal.setAppElement("#root");
+// Modal.setAppElement("#root");
 
 export default function Header() {
   const navigate = useNavigate();

@@ -2,10 +2,10 @@ import { useState, useEffect, useCallback } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { url } from "../components/contexts/UserContext";
 import Header from "../components/Header";
-// import BannerArea from "../components/BannerArea";
 import Footer from "../components/Footer";
 import Rating from "../components/Rating";
 import LastPage from "../components/LastPage";
+import BannerArea from "../components/BannerArea";
 import axios from "axios";
 
 export default function SearchResults() {
@@ -30,16 +30,23 @@ export default function SearchResults() {
     handleSearch();
   }, [data]);
 
-  // useEffect(() => {
-  //   setSearchInput(initialSearch)
-  //   console.log(searchInput);
-  //  },[initialSearch])
-
-  //  useEffect(()=>{handleSearch()},[searchInput])
-
   const handleInputChange = (e) => {
     setSearchInput(e.target.value);
   };
+
+  // const handleSearch = async (e) => {
+  //   e.preventDefault();
+  //   return await axios
+  //     .get(`${url}/stores?q=${searchInput}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       setResults(response.data);
+  //       setSearchInput("");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const handleSearch = useCallback(() => {
     const matched = data.filter((item) =>
@@ -47,17 +54,6 @@ export default function SearchResults() {
     );
     setResults(matched);
   }, [data, searchInput]);
-
-  // const handleSearch2 = useCallback(() => {
-  //   if (!initialSearch)  {
-  //     return;
-  //   }
-  //   const matched = data.filter((item) =>
-  //     item.store_name.includes(initialSearch)
-  //   );
-  //   setResults(matched);
-  // }, [data, searchInput]);
-  // handleSearch2();
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
@@ -83,7 +79,7 @@ export default function SearchResults() {
         </div>
       </div>
       <LastPage />
-      {/* <!-- possible matches indicator --> */}
+     
       <div className="my-4 ml-6 text-base font-bold">
         {results.length} 個搜尋結果
       </div>
@@ -97,7 +93,6 @@ export default function SearchResults() {
                   key={item.id}
                   className="my-3 flex w-1/2 rounded-md bg-white px-4 py-4"
                 >
-                  {/* <!-- mug --> */}
                   <img className="h-24 w-24" src={item.img_url} alt="cat" />
 
                   <div className="ml-4 flex w-full items-center justify-between">
