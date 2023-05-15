@@ -125,7 +125,7 @@ export default function Header() {
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
       <a className="h-10 w-10" href="/">
-        <img src="/src/assets/images/logo.svg" alt="" />
+        <img src="./src/assets/images/uniqlo.png" alt="logo" />
       </a>
       <div>
         <Button1
