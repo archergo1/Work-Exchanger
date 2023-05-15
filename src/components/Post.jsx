@@ -65,7 +65,7 @@ export default function Post({ storeId }) {
               <img
                 className="mx-2 h-16 w-16 rounded-full"
                 src={user.user_mug}
-                alt=""
+                alt="userMug"
               />
 
               {/* <!-- info & comment --> */}

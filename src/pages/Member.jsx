@@ -178,7 +178,7 @@ export default function Member() {
               <img
                 className="mx-auto mb-6 block h-20 w-20 rounded-full"
                 src={user_mug}
-                alt=""
+                alt="userMug"
               />
               {/* <!-- upload your mug --> */}
               <div className="flex justify-center">

@@ -52,7 +52,7 @@ export default function StoreBriefAndPosts() {
           <img
             className="mx-auto block h-20 w-20 rounded-full"
             src={img_url}
-            alt=""
+            alt="storeImage"
           />
           <h2 className="my-2 text-center text-3xl">{store_name}</h2>
 
