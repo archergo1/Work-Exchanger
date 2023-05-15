@@ -1,27 +1,27 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <div className=" bg-white p-4 shadow md:flex md:items-center md:justify-between md:p-6">
       <span className="text-sm text-gray-500 sm:text-center">
         © 2023
-        <a href="/" className="hover:underline">
-          WorkExchange
-        </a>
+        <Link to={`/`}>
+          <span className="hover:underline">WorkExchange</span>
+        </Link>
         . All Rights Reserved.
       </span>
       <ul className="mt-3 flex flex-wrap items-center text-sm text-gray-500 sm:mt-0">
-       
+        <li>此網站僅為程式練習使用，相關內容如有雷同請見諒。</li>
         <li>
-            此網站僅為程式練習使用，相關內容如有雷同請見諒。
+          <Link to={`/about`}>
+            <div className="mx-4 hover:underline md:mr-6">關於我們</div>
+          </Link>
         </li>
+
         <li>
-          <a href="WorkExchange#/about" className="mr-4 hover:underline md:mr-6">
-            關於我們
-          </a>
-        </li>
-        <li>
-          <a href="WorkExchange#/contact" className="hover:underline">
-            聯絡我們
-          </a>
+          <Link to={`/contact`}>
+            <div className="hover:underline">聯絡我們</div>
+          </Link>
         </li>
       </ul>
     </div>
