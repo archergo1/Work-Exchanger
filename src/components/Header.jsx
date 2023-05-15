@@ -1,12 +1,12 @@
-import Button from "./Button";
-import Button1 from "./Button1";
-import Modal from "react-modal";
-import { url } from "../components/contexts/UserContext";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { url } from "../components/contexts/UserContext";
+import Button from "./Button";
+import Button1 from "./Button1";
+import Modal from "react-modal";
 
 // Modal.setAppElement("#root");
 
@@ -125,7 +125,7 @@ export default function Header() {
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
       <a className="h-10 w-10" href="/">
-        <img src="/src/assets/images/logo.png" alt="" />
+        <img src="/src/assets/images/logo.svg" alt="" />
       </a>
       <div>
         <Button1

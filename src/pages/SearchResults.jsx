@@ -68,6 +68,11 @@ export default function SearchResults() {
               className=":border-gray-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900"
               placeholder="請輸入換宿商家名稱"
               onChange={handleInputChange}
+              onKeyDown={(event) => { 
+                if (event.key === "Enter") {
+                  handleSearch();
+                }
+               }}
             />
             <button
               onClick={handleSearch}
@@ -86,22 +91,22 @@ export default function SearchResults() {
       {/* <!-- matched items --> */}
       <div className="mb-4 w-full px-6">
         <ul>
-          {results.map((item) => {
+          {results.map((result) => {
             return (
-              <Link to={`/stores/${item.id}`} key={item.id}>
+              <Link to={`/stores/${result.id}`} key={result.id}>
                 <li
-                  key={item.id}
+                  key={result.id}
                   className="my-3 flex w-1/2 rounded-md bg-white px-4 py-4"
                 >
-                  <img className="h-24 w-24" src={item.img_url} alt="cat" />
+                  <img className="h-24 w-24" src={result.img_url} alt="cat" />
 
                   <div className="ml-4 flex w-full items-center justify-between">
                     <div>
-                      <p className="text-xl font-bold">{item.store_name}</p>
-                      <p>{item.store_address}</p>
-                      <p>{item.store_phone}</p>
+                      <p className="text-xl font-bold">{result.store_name}</p>
+                      <p>{result.store_address}</p>
+                      <p>{result.store_phone}</p>
                     </div>
-                    <Rating score={item.average_score} />
+                    <Rating score={result.average_score} />
                   </div>
                 </li>
               </Link>

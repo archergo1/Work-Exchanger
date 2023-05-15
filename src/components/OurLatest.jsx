@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { url } from "../components/contexts/UserContext";
-import OurLastCard from "./OurLatestCard";
 import axios from "axios";
+import OurLastCard from "./OurLatestCard";
+
 
 const OurLatest = () => {
   const [posts, setPosts] = useState([]);

@@ -138,8 +138,8 @@ export default function Member() {
             <h1 className="my-6 text-center text-3xl">{userName}</h1>
 
             <TabList>
-              <Tab className="flex">
-                <MySetting text="個人資料"></MySetting>
+              <Tab className="flex hover:cursor-pointer">
+                <MySetting text="個人資料"/>
               </Tab>
               {/* <Tab className="flex">
                 <MySetting text="我的通知"></MySetting>
@@ -147,8 +147,8 @@ export default function Member() {
               {/* <Tab className="flex">
                 <MySetting text="我的最愛店家"></MySetting>
               </Tab> */}
-              <Tab className="flex">
-                <MySetting text="我的評論"></MySetting>
+              <Tab className="flex hover:cursor-pointer">
+                <MySetting text="我的評論"/>
               </Tab>
             </TabList>
             <div className="flex justify-center">
@@ -479,4 +479,4 @@ export default function Member() {
     </div>
   );
 }
-// 如何在content不足的時候，把footer置底？ 用了flex-grow好像沒效果？
+

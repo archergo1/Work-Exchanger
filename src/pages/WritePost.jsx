@@ -122,7 +122,7 @@ export default function WritePost() {
           Swal.fire({ title: `送出成功` });
           setTimeout(() => {
             navigate(`/stores/${storeId}`);
-          }, 3000);
+          }, 1500);
         })
         .catch((error) => {
           console.log(error.response);

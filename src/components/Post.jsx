@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { url } from "../components/contexts/UserContext";
-import Rating from "./Rating";
-import axios from "axios";
 import ShowMoreText from "react-show-more-text";
+import axios from "axios";
+import Rating from "./Rating";
+
+
 
 export default function Post({ storeId }) {
   const [posts, setPosts] = useState([]);

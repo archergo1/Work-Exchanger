@@ -1,11 +1,11 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { url } from "../components/contexts/UserContext";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { url } from "../components/contexts/UserContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function LogIn() {
   const navigate = useNavigate();
@@ -128,7 +128,7 @@ export default function LogIn() {
             <input
               type="submit"
               value="登入"
-              className="mr-2 mb-2 w-full rounded-full bg-myFirstColor px-5 py-3 text-center text-lg font-medium text-white hover:bg-myyFirstColorHover hover:cursor-pointer"
+              className="mr-2 mb-2 w-full rounded-full bg-myFirstColor px-5 py-3 text-center text-lg font-medium text-white hover:cursor-pointer hover:bg-myyFirstColorHover"
             />
           </form>
         </div>

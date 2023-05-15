@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export default function BannerArea() {
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
@@ -53,11 +52,20 @@ export default function BannerArea() {
               className=":border-gray-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900"
               placeholder="請輸入換宿商家名稱"
               onChange={handleInputChange}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  navigate("/searchresults", {
+                    state: {
+                      searchInput,
+                    },
+                  });
+                }
+              }}
             />
 
             {/* direct to SearchInput page */}
             <button
-              onClick={(e) => {
+              onClick={() => {
                 navigate("/searchresults", {
                   state: {
                     searchInput,

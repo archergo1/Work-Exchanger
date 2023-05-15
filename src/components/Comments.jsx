@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { url } from "../components/contexts/UserContext";
 import axios from "axios";
 
-
-const Comments = () => {
+export default function Comments() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -39,6 +38,4 @@ const Comments = () => {
       </div>
     </div>
   );
-};
-
-export default Comments;
+}

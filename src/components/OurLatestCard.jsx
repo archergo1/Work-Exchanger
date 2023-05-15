@@ -1,7 +1,8 @@
-import Rating from "./Rating";
-import HashTags from "./HashTags";
 import { Link } from "react-router-dom";
 import LinesEllipsis from "react-lines-ellipsis";
+import Rating from "./Rating";
+import HashTags from "./HashTags";
+
 
 export default function OurLastCard({
   store_name,

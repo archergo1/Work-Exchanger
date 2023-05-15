@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  #root {
-    @apply h-full w-full;
-  }
-}
 
 @layer components {
   .button1 {
