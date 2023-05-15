@@ -1,3 +1,3 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-export const url = "http://localhost:3000";
+export const url = "https://demo-ynm1.onrender.com/";
