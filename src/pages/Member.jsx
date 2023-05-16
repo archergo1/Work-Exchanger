@@ -139,7 +139,7 @@ export default function Member() {
 
             <TabList>
               <Tab className="flex hover:cursor-pointer">
-                <MySetting text="個人資料"/>
+                <MySetting text="個人資料" />
               </Tab>
               {/* <Tab className="flex">
                 <MySetting text="我的通知"></MySetting>
@@ -148,7 +148,7 @@ export default function Member() {
                 <MySetting text="我的最愛店家"></MySetting>
               </Tab> */}
               <Tab className="flex hover:cursor-pointer">
-                <MySetting text="我的評論"/>
+                <MySetting text="我的評論" />
               </Tab>
             </TabList>
             <div className="flex justify-center">
@@ -479,4 +479,3 @@ export default function Member() {
     </div>
   );
 }
-
