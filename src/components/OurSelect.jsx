@@ -1,8 +1,7 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { url } from "../components/contexts/UserContext";
-
 
 export default function OurSelect() {
   const [data, setData] = useState([]);
@@ -31,14 +30,14 @@ export default function OurSelect() {
     .sort((a, b) => {
       return b.average_score - a.average_score;
     })
-    .slice(0, 3);
+    .slice(0, 4);
 
   const hourAscending = data
     .slice()
     .sort((c, d) => {
       return c.average_hour - d.average_hour;
     })
-    .slice(0, 3);
+    .slice(0, 4);
 
   console.log(hourAscending);
 
@@ -72,24 +71,27 @@ export default function OurSelect() {
   }
   console.log(resultArr);
 
-  const mostPopular = resultArr.slice(0, 3);
+  const mostPopular = resultArr.slice(0, 4);
 
   return (
     <div className="ourSelect bg-mySecondColor pt-1">
-      <h2 className="my-16 text-center text-4xl font-bold text-black">
+      <h2 className="my-16 text-center text-5xl font-bold text-black">
         精選換宿
       </h2>
       <div className="recommended mx-auto flex max-w-screen-xl justify-between">
         {/* <!-- ourSelect cards --> */}
-        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm border-2 border-myyFirstColorHover">
-          <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
+        <div className="mb-24 mt-6 h-72 w-72 rounded border-2 border-myyFirstColorHover bg-white shadow-lg">
+          <h3 className="my-8 text-center text-3xl text-myyFirstColorHover underline">
             最高評分
           </h3>
           <ol className="list-decimal pl-12">
             {scoreDescending.map(({ id, store_name }, index) => {
               return (
                 <Link key={id} to={`/stores/${id}`}>
-                  <li className="my-2 font-bold" key={index}>
+                  <li
+                    className="my-3 text-lg font-bold hover:text-myyFirstColorHover"
+                    key={index}
+                  >
                     {store_name}
                   </li>
                 </Link>
@@ -97,15 +99,18 @@ export default function OurSelect() {
             })}
           </ol>
         </div>
-        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm border-2 border-myyFirstColorHover">
-          <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
+        <div className="mb-24 mt-6 h-72 w-72 rounded border-2 border-myyFirstColorHover bg-white shadow-lg">
+          <h3 className="my-8 text-center text-3xl text-myyFirstColorHover underline">
             最熱門討論
           </h3>
           <ol className="list-decimal pl-12">
             {mostPopular.map(({ storeId, store_name }) => {
               return (
                 <Link key={storeId} to={`/stores/${storeId}`}>
-                  <li className="my-2 font-bold" key={storeId}>
+                  <li
+                    className="my-3 text-lg font-bold hover:text-myyFirstColorHover"
+                    key={storeId}
+                  >
                     {store_name}
                   </li>
                 </Link>
@@ -113,15 +118,18 @@ export default function OurSelect() {
             })}
           </ol>
         </div>
-        <div className="mb-16 h-60 w-72 rounded bg-white shadow-sm border-2 border-myyFirstColorHover">
-          <h3 className="my-8 text-center text-3xl text-myyFirstColorHover">
+        <div className="mb-24 mt-6 h-72 w-72 rounded border-2 border-myyFirstColorHover bg-white shadow-lg">
+          <h3 className="my-8 text-center text-3xl text-myyFirstColorHover underline">
             最短工時
           </h3>
           <ol className="list-decimal pl-12">
             {hourAscending.map(({ id, store_name }) => {
               return (
                 <Link key={id} to={`/stores/${id}`}>
-                  <li className="my-2 font-bold" key={id}>
+                  <li
+                    className="my-3 text-lg font-bold hover:text-myyFirstColorHover"
+                    key={id}
+                  >
                     {store_name}
                   </li>
                 </Link>

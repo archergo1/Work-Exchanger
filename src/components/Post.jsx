@@ -4,8 +4,6 @@ import ShowMoreText from "react-show-more-text";
 import axios from "axios";
 import Rating from "./Rating";
 
-
-
 export default function Post({ storeId }) {
   const [posts, setPosts] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -101,6 +99,7 @@ export default function Post({ storeId }) {
                   </div>
                   {/* <!-- rating stars --> */}
                   <div className="">
+                    
                     <Rating score={score} />
                   </div>
                 </div>

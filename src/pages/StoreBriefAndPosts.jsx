@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Post from "../components/Post";
 import LastPage from "../components/LastPage";
+import Rating from "../components/Rating";
 import Button2 from "../components/Button";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -48,17 +49,17 @@ export default function StoreBriefAndPosts() {
       <Header />
       <LastPage />
       <div className="flex min-h-[calc(100vh-230px)] justify-around py-4 pl-6 pr-6">
-        <div className="h-96 w-80 rounded bg-white px-4 py-3 shadow-lg">
+        <div className="h-[28rem] w-80 rounded bg-white px-4 py-3 shadow-lg">
           <img
-            className="mx-auto block h-20 w-20 rounded-full"
+            className="mx-auto block h-24 w-24 rounded-full"
             src={img_url}
             alt="storeImage"
           />
           <h2 className="my-2 text-center text-3xl">{store_name}</h2>
 
           {/* rating */}
-          <div className="flex justify-center">
-            <div className="rating">{average_score}</div>
+          <div className="flex justify-center my-4">
+            <Rating score={average_score}/>
           </div>
           <ul>
             <li className="my-1 h-10 w-full text-left">

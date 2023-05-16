@@ -128,12 +128,12 @@ export default function Header() {
         <img src="/static/images/uniqlo.png" alt="logo" />
       </a>
       <div>
-        <Button1
+        {/* <Button1
           text="常見Q&A"
           onClick={() => {
             navigate("/faq", {});
           }}
-        />
+        /> */}
         {isLoggedIn ? (
           // direct to memberpage
           <Button

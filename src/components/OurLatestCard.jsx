@@ -3,7 +3,6 @@ import LinesEllipsis from "react-lines-ellipsis";
 import Rating from "./Rating";
 import HashTags from "./HashTags";
 
-
 export default function OurLastCard({
   store_name,
   post_date,
@@ -15,10 +14,14 @@ export default function OurLastCard({
   user,
 }) {
   return (
-    <Link to={`/stores/${storeId}`}>
-      <li className="mt-6 mb-6 h-72 w-600px rounded bg-white px-6 py-4 shadow-lg">
+    <li className="mt-6 mb-10 h-72 w-600px rounded bg-white px-4 py-4 shadow-lg">
+      <Link to={`/stores/${storeId}`}>
         <div className="flex">
-          <img className="mr-2 h-20 w-20" src={store?.img_url} alt="storeImage" />
+          <img
+            className="mr-2 h-24 w-24"
+            src={store?.img_url}
+            alt="storeImage"
+          />
           <div className="flex w-full justify-between">
             <div>
               <div className="mb-2 text-xl font-bold">{store_name}</div>
@@ -37,7 +40,7 @@ export default function OurLastCard({
           basedOn="letters"
         />
         <HashTags pros={pros} />
-      </li>
-    </Link>
+      </Link>
+    </li>
   );
 }
