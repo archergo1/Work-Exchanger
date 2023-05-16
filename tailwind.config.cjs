@@ -56,7 +56,7 @@ module.exports = {
         "linear-gradient(to top left, var(--tw-gradient-stops))",
 
       // banner image
-      bannerImage: "url('/src/assets/images/spring.jpg')",
+      // bannerImage: "url('/src/assets/images/spring.jpg')",
     },
     backgroundOpacity: ({ theme }) => theme("opacity"),
     backgroundPosition: {

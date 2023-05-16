@@ -158,7 +158,7 @@ export default function Member() {
                   navigate("/writepost");
                 }}
               />
-              <button
+              {/* <button
                 className="button1"
                 onClick={() => {
                   Swal.fire({ title: `成功登出！` });
@@ -169,17 +169,18 @@ export default function Member() {
                 }}
               >
                 登出
-              </button>
+              </button> */}
             </div>
           </div>
 
           <TabPanel>
             <div className="w-960px rounded bg-white px-8 py-6 shadow-lg">
-              <img
+              <p className="text-center text-2xl font-bold my-3">修改個人資訊</p>
+              {/* <img
                 className="mx-auto mb-6 block h-20 w-20 rounded-full"
                 src={user_mug}
                 alt="userMug"
-              />
+              /> */}
               {/* <!-- upload your mug --> */}
               <div className="flex justify-center">
                 {/* <a
@@ -191,17 +192,17 @@ export default function Member() {
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="mb-6">
+                <div className="mb-6 justify-center flex flex-col">
                   <label
                     htmlFor="newName"
-                    className="mb-2 block text-xl font-medium text-gray-900"
+                    className="mb-2 text-xl font-medium text-gray-900"
                   >
                     名稱
                   </label>
                   <input
                     type="text"
                     id="newName"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    className="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-md text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="Archer Huang"
                     {...register("newName", { required: false })}
                   />
@@ -216,7 +217,7 @@ export default function Member() {
                   <input
                     type="password"
                     id="newPassword"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-md text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="New password"
                     {...register("newPassword", {
                       required: {
@@ -243,7 +244,7 @@ export default function Member() {
                   <input
                     type="password"
                     id="newPasswordConfirm"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-myyFirstColorHover"
+                    className="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-md text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="Please enter new password again"
                     {...register("newPasswordConfirm", {
                       required: {

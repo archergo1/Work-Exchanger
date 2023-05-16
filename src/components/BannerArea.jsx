@@ -42,7 +42,7 @@ export default function BannerArea() {
 
   return (
     <>
-      <div className="banner h-64 bg-bannerImage bg-center pt-24">
+      <div className="banner h-64 bg-[url('/static/images/spring.jpg')] bg-center pt-24">
         <div className="mx-auto max-w-xl">
           <div className="relative">
             <input
