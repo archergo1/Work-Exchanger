@@ -58,7 +58,7 @@ export default function SearchResults() {
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
-      <div className="banner h-64 bg-bannerImage bg-center pt-24">
+      <div className="banner h-64 bg-[url('/static/images/spring.jpg')] bg-center pt-24">
         <div className="mx-auto max-w-xl">
           <div className="relative">
             <input
@@ -79,7 +79,6 @@ export default function SearchResults() {
         </div>
       </div>
       <LastPage />
-     
       <div className="my-4 ml-6 text-base font-bold">
         {results.length} 個搜尋結果
       </div>
