@@ -130,7 +130,7 @@ export default function Member() {
         <Tabs className="flex flex-grow justify-around py-4 pl-6 pr-6">
           <div className="h-96 w-80 rounded bg-white px-8 py-3 shadow-lg">
             <img
-              className="mx-auto block h-20 w-20 rounded-full"
+              className="mx-auto block h-24 w-24 rounded-full"
               src={user_mug}
               alt="user_mug"
             />
