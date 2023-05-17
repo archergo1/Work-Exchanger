@@ -124,8 +124,8 @@ export default function Header() {
 
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
-      <a className="h-10 w-10" href="/">
-        <img src="/static/images/logo.jpg" alt="logo" />
+      <a href="/">
+        <img src="/static/images/logo.png" className="h-12" alt="logo" />
       </a>
       <div>
         {/* <Button1
