@@ -30,15 +30,15 @@ export default function Footer() {
             />
           </a>
         </div>
-        <ul className="mt-3 flex w-1/3 flex-col items-end sm:mt-0">
+        <ul className="mt-3 flex w-1/3 items-center justify-end">
           <li>
             <Link to={`/about`}>
-              <p className="text-lg hover:underline">關於我們</p>
+              <p className="text-lg hover:underline mx-4">關於我們|</p>
             </Link>
           </li>
           <li>
             <Link to={`/contact`}>
-              <p className="text-lg hover:underline">聯絡我們</p>
+              <p className="text-lg hover:underline mx-4">聯絡我們|</p>
             </Link>
           </li>
           <li>
