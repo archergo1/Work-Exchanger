@@ -41,7 +41,7 @@ export default function SignUp() {
     function signUp() {
       axios
         .post(`${url}/signup`, {
-          user_mug: "/src/assets/images/userMug/defaultMug.png",
+          user_mug: "/static/images/userMug/defaultMug.png",
           email: email.trim(),
           password: password.trim(),
           name: name.trim(),
