@@ -64,7 +64,7 @@ npm install
 ### 運行專案
 
 ```bash
-npm run serve
+npm run dev
 ```
 
 ### 開啟專案
@@ -72,7 +72,7 @@ npm run serve
 在瀏覽器網址列輸入以下即可看到畫面
 
 ```bash
-http://localhost:8080/
+http://localhost:5173/
 ```
 
 ## 環境變數說明
@@ -101,16 +101,6 @@ COUSTOMPATH= # 自訂變數
 - Vue Router v4.0.11
 - Axios v0.24.0
 - Bootstrap v5.1.3
-...
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
 
 
 ## 第三方服務
