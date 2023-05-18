@@ -42,7 +42,7 @@ Node.js 版本建議為：`16.15.0` 以上...
 ### 取得專案
 
 ```bash
-git clone git@github.com:hsiangfeng/README-Example-Template.git
+git clone (https://github.com/archergo1/Work-Exchange.git)
 ```
 
 ### 移動到專案內
