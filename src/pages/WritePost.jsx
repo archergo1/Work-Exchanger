@@ -59,7 +59,7 @@ export default function WritePost() {
       // 先用第一篇po文的資訊代替average_score and average_hour
       average_score: score,
       average_hour: work_hour,
-      img_url: "/src/assets/images/storeImage/hostel.png"
+      img_url: "/static/images/storeImage/hostel.png"
     };
 
     // make data type conversions for that the values type of data are strings by default
