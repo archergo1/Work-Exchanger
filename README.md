@@ -11,7 +11,7 @@
 
 ## 功能
 
-測試帳號密碼 **
+測試帳號密碼
 
 ```bash
 帳號： user123@gmail.com
@@ -66,14 +66,6 @@ npm run dev
 
 ```bash
 http://localhost:5173/
-```
-
-## 環境變數說明
-
-```env
-APIPATH= # API 位置
-COUSTOMPATH= # 自訂變數
-...
 ```
 
 ## 資料夾說明
