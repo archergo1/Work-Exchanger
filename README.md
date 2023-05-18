@@ -91,11 +91,14 @@ COUSTOMPATH= # 自訂變數
 ## 專案技術
 
 - Node.js v16.15.0
-- Vue v3.2.20
-- Vite v4.0.4
-- Vue Router v4.0.11
-- Axios v0.24.0
-- Bootstrap v5.1.3
+- React.js v18.2.0
+- React Router v6.9.0
+- React Hook Form v7.43.7
+- Vite v4.1.0
+- Axios v1.3.4
+- Tailwind CSS v3.2.7
+- SweetAlert2 v11.7.3
+- Flowbite v1.6.4
 
 
 ## 第三方服務
