@@ -9,7 +9,6 @@ import MySetting from "../components/MySetting";
 import Button from "../components/Button";
 import ShowMoreText from "react-show-more-text";
 import "react-tabs/style/react-tabs.css";
-import Comments from "../components/Comments";
 import Rating from "../components/Rating";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -175,7 +174,9 @@ export default function Member() {
 
           <TabPanel>
             <div className="w-960px rounded bg-white px-8 py-6 shadow-lg">
-              <p className="text-center text-2xl font-bold my-3">修改個人資訊</p>
+              <p className="my-3 text-center text-2xl font-bold">
+                修改個人資訊
+              </p>
               {/* <img
                 className="mx-auto mb-6 block h-20 w-20 rounded-full"
                 src={user_mug}
@@ -192,7 +193,7 @@ export default function Member() {
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="mb-6 justify-center flex flex-col">
+                <div className="mb-6 flex flex-col justify-center">
                   <label
                     htmlFor="newName"
                     className="mb-2 text-xl font-medium text-gray-900"
@@ -202,8 +203,8 @@ export default function Member() {
                   <input
                     type="text"
                     id="newName"
-                    className="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-md text-gray-900 focus:border-myyFirstColorHover"
-                    placeholder="Archer Huang"
+                    className="text-md w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-gray-900 focus:border-myyFirstColorHover"
+                    placeholder="請輸入新名稱"
                     {...register("newName", { required: false })}
                   />
                 </div>
@@ -217,12 +218,12 @@ export default function Member() {
                   <input
                     type="password"
                     id="newPassword"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-md text-gray-900 focus:border-myyFirstColorHover"
+                    className="text-md block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="New password"
                     {...register("newPassword", {
                       required: {
                         value: true,
-                        message: "請輸入密碼！",
+                        message: "請輸入新密碼！",
                       },
                       minLength: {
                         value: 6,
@@ -244,12 +245,12 @@ export default function Member() {
                   <input
                     type="password"
                     id="newPasswordConfirm"
-                    className="w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-md text-gray-900 focus:border-myyFirstColorHover"
+                    className="text-md w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-gray-900 focus:border-myyFirstColorHover"
                     placeholder="Please enter new password again"
                     {...register("newPasswordConfirm", {
                       required: {
                         value: true,
-                        message: "請再次輸入密碼！",
+                        message: "請再次輸入新密碼！",
                       },
                       minLength: {
                         value: 6,
@@ -263,7 +264,6 @@ export default function Member() {
                 </div>
 
                 <div className="flex justify-center">
-                  {/* <Button1 text="修改密碼"></Button1> */}
                   <input type="submit" value="儲存修改" className="button2" />
                 </div>
               </form>
