@@ -104,26 +104,6 @@ COUSTOMPATH= # 自訂變數
 - Google Analytics
 ...
 
-## CI/CD 說明
-
-此專案有使用 Github Actions，所以發起 PR 時會自動執行以下動作：
-
-- 建立 Node.js 環境
-- 安裝相依套件
-- 編譯程式碼
-- 執行 ESLint 掃描
-- 執行測試
-...
-
-當專案 merge 到 main 時會自動執行以下動作：
-
-- 建立 Node.js 環境
-- 安裝相依套件
-- 編譯程式碼
-- 執行 ESLint 掃描
-- 執行測試
-- 部署到 Github Pages
-...
 
 ## 聯絡作者
 
