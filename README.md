@@ -90,14 +90,6 @@ http://localhost:5173/
 - SweetAlert2 v11.7.3
 - Flowbite v1.6.4
 
-
-## 第三方服務
-
-- Algolia
-- Google Analytics
-...
-
-
 ## 聯絡作者
 
 你可以透過以下方式與我聯絡
