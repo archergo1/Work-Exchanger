@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Post from "../components/Post";
 import LastPage from "../components/LastPage";
 import Rating from "../components/Rating";
-import Button2 from "../components/Button";
+import Button from "../components/Button";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -58,8 +58,8 @@ export default function StoreBriefAndPosts() {
           <h2 className="my-2 text-center text-3xl">{store_name}</h2>
 
           {/* rating */}
-          <div className="flex justify-center my-4">
-            <Rating score={average_score}/>
+          <div className="my-4 flex justify-center">
+            <Rating score={average_score} />
           </div>
           <ul>
             <li className="my-1 h-10 w-full text-left">
@@ -78,7 +78,8 @@ export default function StoreBriefAndPosts() {
             {/* <Button1
         text=""
         ></Button1> */}
-            <Button2
+            <Button
+              style={"button"}
               text="發表評論"
               onClick={() => {
                 {

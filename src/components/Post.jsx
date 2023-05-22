@@ -99,7 +99,6 @@ export default function Post({ storeId }) {
                   </div>
                   {/* <!-- rating stars --> */}
                   <div className="">
-                    
                     <Rating score={score} />
                   </div>
                 </div>

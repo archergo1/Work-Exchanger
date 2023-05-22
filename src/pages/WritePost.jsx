@@ -9,7 +9,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default function WritePost() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [stores, setStores] = useState([]);
   const userId = parseInt(localStorage.getItem("userId"));
   const JWTtoken = localStorage.getItem("JWTtoken");
@@ -59,7 +59,7 @@ export default function WritePost() {
       // 先用第一篇po文的資訊代替average_score and average_hour
       average_score: score,
       average_hour: work_hour,
-      img_url: "/static/images/storeImage/hostel.png"
+      img_url: "/static/images/storeImage/hostel.png",
     };
 
     // make data type conversions for that the values type of data are strings by default
@@ -109,7 +109,7 @@ export default function WritePost() {
             userId: userId,
             storeId: storeId,
             author: userName,
-            ...convertedData
+            ...convertedData,
           },
           {
             headers: {
@@ -704,7 +704,7 @@ export default function WritePost() {
                 ></textarea>
                 {errors.body && <p className="text-red-600">此欄位為必填</p>}
               </div>
-              <input type="submit" value="送出" className="button2" />
+              <input type="submit" value="送出" className="button" />
             </div>
           </div>
         </div>

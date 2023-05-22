@@ -12,7 +12,6 @@ import PageNotFound from "./pages/PageNotFound";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 
-
 export default function App() {
   return (
     <HashRouter>

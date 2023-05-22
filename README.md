@@ -2,9 +2,7 @@
 
 此專案源於作者本身兩次打工換宿經驗，在尋找換宿資訊時，常常要在不同平台間來回整理資訊。有感於這樣搜尋的方式要花上許多時間和精力，因此便想以架設網站平台的方式，整合資訊。期望有越來越多人使用，將可以造福更多想換宿的小幫手們。
 
-
-
-## Logo 設計理念 
+## Logo 設計理念
 
 鼓勵有換宿經驗的前人分享心得，讓未來想換宿的朋友可以更瞭解想選擇的店家
 
@@ -27,14 +25,14 @@
 帳號： user123@gmail.com
 密碼： user123
 ```
+
 - [DEMO](https://work-exchange.vercel.app/)
 
 ## 實際畫面
 
-| ![demo1](/public/static/images/demo/demo1.png) | ![demo2](/public/static/images/demo/demo2.png) |![demo3](/public/static/images/demo/demo3.png) |
-|:---:|:---:|:---:|
-| 首頁 | 會員登入 | 撰寫評論 |
-
+| ![demo1](/public/static/images/demo/demo1.png) | ![demo2](/public/static/images/demo/demo2.png) | ![demo3](/public/static/images/demo/demo3.png) |
+| :--------------------------------------------: | :--------------------------------------------: | :--------------------------------------------: |
+|                      首頁                      |                    會員登入                    |                    撰寫評論                    |
 
 ## 安裝
 

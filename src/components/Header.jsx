@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import Swal from "sweetalert2";
-import { url } from "../components/contexts/apiUrl";
 import Button from "./Button";
 
 export default function Header() {
@@ -19,10 +15,8 @@ export default function Header() {
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
-
   console.log(JWTtoken);
   console.log(userName);
-
 
   return (
     <div className="mx-auto flex justify-between bg-white p-4 shadow">
@@ -30,14 +24,9 @@ export default function Header() {
         <img src="/static/images/logo.png" className="h-14" alt="logo" />
       </a>
       <div>
-        {/* <Button1
-          text="常見Q&A"
-          onClick={() => {
-            navigate("/faq", {});
-          }}
-        /> */}
         {isLoggedIn ? (
           <Button
+            style={"button"}
             text={`Hi ${userName}`}
             onClick={() => {
               navigate("/member", {});
@@ -45,6 +34,7 @@ export default function Header() {
           />
         ) : (
           <Button
+            style={"button"}
             text="登入/註冊"
             onClick={() => {
               navigate("/signup", {});

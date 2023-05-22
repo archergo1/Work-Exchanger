@@ -152,6 +152,7 @@ export default function Member() {
             </TabList>
             <div className="flex justify-center">
               <Button
+                style={"button"}
                 text="發表評論"
                 onClick={() => {
                   navigate("/writepost");
@@ -264,7 +265,7 @@ export default function Member() {
                 </div>
 
                 <div className="flex justify-center">
-                  <input type="submit" value="儲存修改" className="button2" />
+                  <input type="submit" value="儲存修改" className="button" />
                 </div>
               </form>
             </div>

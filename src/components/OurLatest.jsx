@@ -3,7 +3,6 @@ import { url } from "../components/contexts/apiUrl";
 import axios from "axios";
 import OurLastCard from "./OurLatestCard";
 
-
 const OurLatest = () => {
   const [posts, setPosts] = useState([]);
 
@@ -32,7 +31,9 @@ const OurLatest = () => {
 
   return (
     <div className="ourLatest w-full bg-gray-100 pt-1">
-      <h2 className="my-16 text-center text-5xl text-black font-bold">最新評論</h2>
+      <h2 className="my-16 text-center text-5xl font-bold text-black">
+        最新評論
+      </h2>
       <ul className="mx-auto flex max-w-screen-xl flex-wrap justify-between">
         {dateDescending.map(
           ({
@@ -45,7 +46,7 @@ const OurLatest = () => {
             pros,
             storeId,
             store,
-            user
+            user,
           }) => (
             <OurLastCard
               user={user}

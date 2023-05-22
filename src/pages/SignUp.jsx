@@ -50,7 +50,7 @@ export default function SignUp() {
           console.log(response.data);
           Swal.fire({ title: `註冊成功，請重新登入` });
           setTimeout(() => {
-            navigate("/login"), 2000
+            navigate("/login"), 2000;
           });
           reset();
         })
@@ -134,7 +134,7 @@ export default function SignUp() {
             <input
               type="submit"
               value="註冊"
-              className="mr-2 mb-2 w-full rounded-full bg-myFirstColor px-5 py-3 text-center text-lg font-medium text-white hover:bg-myyFirstColorHover hover:cursor-pointer"
+              className="mr-2 mb-2 w-full rounded-full bg-myFirstColor px-5 py-3 text-center text-lg font-medium text-white hover:cursor-pointer hover:bg-myyFirstColorHover"
             />
           </form>
         </div>
