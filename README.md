@@ -12,7 +12,12 @@
   style="height: 240px;"
   src="./public/static/images/logo.png">
 
+## 功能介紹
 
+- 會員註冊登入
+- 會員發表評論
+- 訪客瀏覽評論資訊
+- 換宿商家搜尋
 
 ## 測試
 
@@ -27,8 +32,7 @@
 ## 實際畫面
 
 ![範例圖片 1](https://fakeimg.pl/500/)
-![範例圖片 2](https://fakeimg.pl/500/)
-![範例圖片 3](https://fakeimg.pl/500/)
+
 
 ## 安裝
 
