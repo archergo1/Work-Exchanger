@@ -1,15 +1,22 @@
-# Work-Exchange
-<!-- 底下標籤來源參考寫法可至：https://github.com/Envoy-VC/awesome-badges#github-stats -->
+# Work Exchange
 
-![](https://img.shields.io/github/stars/hsiangfeng/README-Example-Template.svg)｜![](https://img.shields.io/github/forks/hsiangfeng/README-Example-Template.svg)｜![](https://img.shields.io/github/issues-pr/hsiangfeng/README-Example-Template.svg)｜![](https://img.shields.io/github/issues/hsiangfeng/README-Example-Template.svg)
+此專案源於作者本身兩次打工換宿經驗，在尋找換宿資訊時，常常要在不同平台間來回整理資訊。有感於這樣搜尋的方式要花上許多時間和精力，因此便想以架設網站平台的方式，整合資訊。期望有越來越多人使用，將可以造福更多想換宿的小幫手們。
 
-![專案封面圖](https://fakeimg.pl/500/)
 
-> 此專案是一份 README 的撰寫範本，主要是方便所有人可以快速撰寫 README，讓大家可以更有方向的去寫出 README。
 
-- [線上觀看連結](https://israynotarray.com/)
+# Logo 設計理念 
 
-## 功能
+鼓勵有換宿經驗的前人分享心得，讓未來想換宿的朋友可以更瞭解想選擇的店家
+
+<img
+  style="height: 280px;"
+  src="./public/static/images/logo.png">
+
+
+
+## 測試
+
+- [DEMO](https://work-exchange.vercel.app/)
 
 測試帳號密碼
 
