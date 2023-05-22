@@ -74,6 +74,85 @@ http://localhost:5173/
 
 ## 資料夾結構
 
+Work Exchange/
+├── README.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   └── static
+│       └── images
+│           ├── 404.jpg
+│           ├── demo
+│           │   ├── demo1.png
+│           │   ├── demo2.png
+│           │   └── demo3.png
+│           ├── facebook.png
+│           ├── instagram.png
+│           ├── logo.png
+│           ├── logo.svg
+│           ├── spring.jpg
+│           ├── star.png
+│           ├── storeImage
+│           │   ├── beachcastle.jpg
+│           │   ├── beishan.png
+│           │   ├── bigfish.jpg
+│           │   ├── catbooks.jpg
+│           │   ├── hostel.png
+│           │   ├── lake.jpg
+│           │   ├── mermaid.jpg
+│           │   ├── oceandiary.jpg
+│           │   ├── song.jpg
+│           │   ├── summer.jpg
+│           │   ├── sunshine.jpg
+│           │   └── tornado.jpg
+│           ├── userMug
+│           │   ├── archer.jpg
+│           │   ├── defaultMug.png
+│           │   ├── gege.jpg
+│           │   ├── green.jpg
+│           │   ├── mei.jpg
+│           │   ├── rou.jpg
+│           │   ├── wayne.jpg
+│           │   └── welly.jpg
+│           ├── whiteStar.png
+│           └── youtube.png
+├── src
+│   ├── App.jsx
+│   ├── components
+│   │   ├── BannerArea.jsx
+│   │   ├── Button.jsx
+│   │   ├── Button1.jsx
+│   │   ├── Comments.jsx
+│   │   ├── Footer.jsx
+│   │   ├── HashTags.jsx
+│   │   ├── Header.jsx
+│   │   ├── LastPage.jsx
+│   │   ├── MySetting.jsx
+│   │   ├── OurLatest.jsx
+│   │   ├── OurLatestCard.jsx
+│   │   ├── OurSelect.jsx
+│   │   ├── Post.jsx
+│   │   ├── Rating.jsx
+│   │   └── contexts
+│   │       └── apiUrl.js
+│   ├── index.css
+│   ├── main.jsx
+│   ├── pages
+│   │   ├── About.jsx
+│   │   ├── Contact.jsx
+│   │   ├── FAQ.jsx
+│   │   ├── Home.jsx
+│   │   ├── LogIn.jsx
+│   │   ├── Member.jsx
+│   │   ├── PageNotFound.jsx
+│   │   ├── SearchResults.jsx
+│   │   ├── SignUp.jsx
+│   │   ├── StoreBriefAndPosts.jsx
+│   │   └── WritePost.jsx
+│   └── tailwind.css
+├── tailwind.config.cjs
+└── vite.config.js
 
 
 ## 專案技術
@@ -92,5 +171,5 @@ http://localhost:5173/
 
 你可以透過以下方式與我聯絡
 
-- Email: econarcher2010@gmail.com
+- econarcher2010@gmail.com
 - [LinkedIn](https://www.linkedin.com/in/archerkeepgoing12/)
