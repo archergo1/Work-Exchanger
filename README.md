@@ -124,7 +124,6 @@ Work Exchange/
 │   ├── components
 │   │   ├── BannerArea.jsx
 │   │   ├── Button.jsx
-│   │   ├── Comments.jsx
 │   │   ├── Footer.jsx
 │   │   ├── HashTags.jsx
 │   │   ├── Header.jsx
@@ -145,7 +144,6 @@ Work Exchange/
 │   │   ├── Home.jsx
 │   │   ├── LogIn.jsx
 │   │   ├── Member.jsx
-│   │   ├── OurLatestCard.jsx
 │   │   ├── PageNotFound.jsx
 │   │   ├── SearchResults.jsx
 │   │   ├── SignUp.jsx
