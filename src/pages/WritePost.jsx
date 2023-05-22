@@ -159,7 +159,7 @@ export default function WritePost() {
               <h2 className="my-4 text-2xl font-bold">發表評論</h2>
               <p className="my-6">
                 分享你的換宿經驗，幫助下一個換宿人有更棒的換宿體驗！
-              </ㄣ>
+              </p>
               <h1 className="my-4 text-2xl font-bold text-myFirstColor">
                 換宿資訊
               </h1>
