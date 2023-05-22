@@ -68,7 +68,7 @@ const OurLatest = () => {
                           {store_name}
                         </div>
                         <div>{user?.name}</div>
-                        <div>{post_date}</div>
+                        <div>{post_date.substring(0, 10)}</div>
                       </div>
                       <Rating score={score} />
                     </div>
