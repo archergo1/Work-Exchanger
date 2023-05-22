@@ -10,7 +10,7 @@ export default function PageNotFound() {
           抱歉，這個頁面換宿去了......
         </h2>
         <p className="my-2 text-center text-4xl">您也該放個假了。</p>
-        <img src="/src/assets/images/404.jpg" alt="" />
+        <img src="/static/images/404.jpg" alt="404" />
       </div>
       <Footer />
     </div>
