@@ -31,7 +31,9 @@
 
 ## 實際畫面
 
-![範例圖片 1](https://fakeimg.pl/500/)
+| ![demo1](/public/static/images/demo/demo1.png) | ![demo2](/public/static/images/demo/demo2.png) |![demo3](/public/static/images/demo/demo3.png) |
+|:---:|:---:|:---:|
+| 首頁 | 會員登入 | 撰寫評論 |
 
 
 ## 安裝
@@ -57,10 +59,6 @@ cd Work-Exchange
 ```bash
 npm install
 ```
-
-### 環境變數設定
-
-請在終端機輸入 `cp .env.example .env` 來複製 .env.example 檔案，並依據 `.env` 內容調整相關欄位。
 
 ### 運行專案
 
