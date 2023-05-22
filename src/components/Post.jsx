@@ -3,6 +3,7 @@ import { url } from "../components/contexts/apiUrl";
 import ShowMoreText from "react-show-more-text";
 import axios from "axios";
 import Rating from "./Rating";
+import HashTags from "./HashTags";
 
 export default function Post({ storeId }) {
   const [posts, setPosts] = useState([]);
@@ -115,8 +116,9 @@ export default function Post({ storeId }) {
                 </div>
                 {/* <!-- pros --> */}
                 <div className="my-3">
-                  <div className="mb-4 font-bold">優點福利</div>
-                  <ul>
+                  <p className="mb-4 font-bold">優點福利</p>
+                  <HashTags tags={pros}/>
+                  {/* <ul>
                     {pros.map((item, index) => {
                       return (
                         <li
@@ -127,12 +129,13 @@ export default function Post({ storeId }) {
                         </li>
                       );
                     })}
-                  </ul>
+                  </ul> */}
                 </div>
                 {/* <!-- cons --> */}
                 <div className="my-3">
-                  <div className="mb-4 font-bold">有待改進</div>
-                  <ul>
+                  <p className="mb-4 font-bold">有待改進</p>
+                  <HashTags tags={cons}/>
+                  {/* <ul>
                     {cons.map((item, index) => {
                       return (
                         <li
@@ -143,7 +146,7 @@ export default function Post({ storeId }) {
                         </li>
                       );
                     })}
-                  </ul>
+                  </ul> */}
                 </div>
                 {/* <!-- other functions may need to be added in the future*/}
               </div>

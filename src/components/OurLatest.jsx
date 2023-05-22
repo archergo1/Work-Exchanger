@@ -81,7 +81,7 @@ const OurLatest = () => {
                     trimRight
                     basedOn="letters"
                   />
-                  <HashTags pros={pros} />
+                  <HashTags tags={pros} />
                 </div>
               </Link>
             </li>

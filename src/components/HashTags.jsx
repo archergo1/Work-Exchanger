@@ -1,13 +1,13 @@
-export default function HashTags({ pros }) {
+export default function HashTags({ tags }) {
   return (
-    <ul className="pt-2 pb-2">
-      {pros.map((pro, index) => {
+    <ul className="py-2">
+      {tags.map((tag, index) => {
         return (
           <li
             key={index}
             className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
           >
-            #{pro}
+            #{tag}
           </li>
         );
       })}
