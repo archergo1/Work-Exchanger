@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { url } from "../components/contexts/UserContext";
+import { url } from "../components/contexts/apiUrl";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Rating from "../components/Rating";

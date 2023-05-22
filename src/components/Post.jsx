@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { url } from "../components/contexts/UserContext";
+import { url } from "../components/contexts/apiUrl";
 import ShowMoreText from "react-show-more-text";
 import axios from "axios";
 import Rating from "./Rating";

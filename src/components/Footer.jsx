@@ -48,7 +48,7 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <p>此網站僅為程式練習使用，相關內容如有雷同請見諒。</p>
+      <p>此網站僅為程式練習使用，相關內容如有雷同敬請見諒。</p>
     </div>
   );
 }

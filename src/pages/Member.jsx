@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useForm } from "react-hook-form";
-import { url } from "../components/contexts/UserContext";
+import { url } from "../components/contexts/apiUrl";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";

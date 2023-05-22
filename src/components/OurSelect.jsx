@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { url } from "../components/contexts/UserContext";
+import { url } from "../components/contexts/apiUrl";
 
 export default function OurSelect() {
   const [data, setData] = useState([]);

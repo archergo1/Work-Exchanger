@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { url } from "../components/contexts/UserContext";
+import { url } from "../components/contexts/apiUrl";
 import axios from "axios";
 
 export default function Comments() {

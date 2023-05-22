@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { url } from "../components/contexts/UserContext";
+import { url } from "../components/contexts/apiUrl";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Post from "../components/Post";

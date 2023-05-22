@@ -15,7 +15,7 @@ export default function OurLastCard({
 }) {
   return (
     <li className="mt-6 mb-10 h-72 w-600px rounded bg-white px-4 py-4 shadow-lg">
-      <Link to={`/stores/${storeId}`}>
+      <Link to={`/stores/${storeId}`} className="block">
         <div className="flex">
           <img
             className="mr-2 h-24 w-24"
