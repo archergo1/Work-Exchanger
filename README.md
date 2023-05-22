@@ -72,15 +72,9 @@ npm run dev
 http://localhost:5173/
 ```
 
-## 資料夾說明
+## 資料夾結構
 
-- views - 畫面放置處
-- controllers - 控制器放置處
-- modules - 模組放置處
-- assets - 靜態資源放置處
-  - scss - scss 檔案放置處
-  - images - 圖片放置處
-...
+
 
 ## 專案技術
 
