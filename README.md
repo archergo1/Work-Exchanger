@@ -74,6 +74,7 @@ http://localhost:5173/
 
 ## 資料夾結構
 
+```
 Work Exchange/
 ├── README.md
 ├── index.html
@@ -153,7 +154,7 @@ Work Exchange/
 │   └── tailwind.css
 ├── tailwind.config.cjs
 └── vite.config.js
-
+```
 
 ## 專案技術
 
