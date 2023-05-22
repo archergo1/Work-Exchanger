@@ -24,9 +24,7 @@
 ```
 - [DEMO](https://work-exchange.vercel.app/)
 
-## 畫面
-
-> 可提供 1~3 張圖片，讓觀看者透過 README 了解整體畫面
+## 實際畫面
 
 ![範例圖片 1](https://fakeimg.pl/500/)
 ![範例圖片 2](https://fakeimg.pl/500/)
