@@ -39,7 +39,6 @@ export default function Post({ storeId }) {
         (
           {
             id,
-            author,
             type_pro,
             work_hour,
             work_span,
@@ -51,8 +50,7 @@ export default function Post({ storeId }) {
             pros,
             cons,
             user,
-          },
-          index
+          }
         ) => {
           return (
             <li
@@ -61,12 +59,11 @@ export default function Post({ storeId }) {
             >
               {/* <!-- mug --> */}
               <img
-                className="mx-2 h-16 w-16 rounded-full"
+                className="mx-2 h-20 w-20 rounded-full"
                 src={user.user_mug}
                 alt="userMug"
               />
 
-              {/* <!-- info & comment --> */}
               <div className="w-full">
                 <div className="flex justify-between">
                   <div>
@@ -149,7 +146,6 @@ export default function Post({ storeId }) {
                   </ul>
                 </div>
                 {/* <!-- other functions may need to be added in the future*/}
-                <div></div>
               </div>
             </li>
           );

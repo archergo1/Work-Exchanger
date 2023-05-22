@@ -58,7 +58,7 @@ export default function SearchResults() {
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <Header />
-      <div className="banner h-64 bg-[url('/static/images/spring.jpg')] bg-center pt-24">
+      <div className="banner h-80 bg-[url('/static/images/spring.jpg')] bg-center pt-32">
         <div className="mx-auto max-w-xl">
           <div className="relative">
             <input
@@ -87,13 +87,12 @@ export default function SearchResults() {
         <ul>
           {results.map((result) => {
             return (
-              <Link to={`/stores/${result.id}`} key={result.id}>
-                <li
-                  key={result.id}
-                  className="my-3 flex w-1/2 rounded-md bg-white px-4 py-4"
+              <li key={result.id} className="my-3 rounded-md bg-white px-4 py-4">
+                <Link
+                  to={`/stores/${result.id}`}
+                  className="flex"
                 >
-                  <img className="h-24 w-24" src={result.img_url} alt="cat" />
-
+                  <img className="h-24 w-24" src={result.img_url} alt="storeImage" />
                   <div className="ml-4 flex w-full items-center justify-between">
                     <div>
                       <p className="text-xl font-bold">{result.store_name}</p>
@@ -102,8 +101,8 @@ export default function SearchResults() {
                     </div>
                     <Rating score={result.average_score} />
                   </div>
-                </li>
-              </Link>
+                </Link>
+              </li>
             );
           })}
         </ul>

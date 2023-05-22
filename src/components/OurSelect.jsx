@@ -75,13 +75,17 @@ export default function OurSelect() {
 
   return (
     <div className="ourSelect bg-mySecondColor pt-1">
-      <div className="my-16 flex items-center mx-auto justify-center">
-        <h2 className="mx-2 text-center text-5xl font-bold text-black">精選換宿</h2>
-        <img src="/static/images/thumbup.png"
-          alt="thumbup" 
-          className="h-12 w-12"/>
+      <div className="my-16 mx-auto flex items-center justify-center">
+        <img
+          src="/static/images/thumbup.png"
+          alt="thumbup"
+          className="h-12 w-12"
+        />
+        <h2 className="mx-2 text-center text-5xl font-bold text-black">
+          精選換宿
+        </h2>
       </div>
-      <div className="recommended mx-auto flex max-w-screen-xl justify-between">
+      <div className="mx-auto flex max-w-screen-xl justify-between flex-wrap">
         {/* <!-- ourSelect cards --> */}
         <div className="mb-24 mt-6 h-72 w-72 rounded border-2 border-myyFirstColorHover bg-white shadow-lg">
           <h3 className="my-8 text-center text-3xl text-myyFirstColorHover underline">
