@@ -4,19 +4,17 @@
 
 
 
-# Logo 設計理念 
+## Logo 設計理念 
 
 鼓勵有換宿經驗的前人分享心得，讓未來想換宿的朋友可以更瞭解想選擇的店家
 
 <img
-  style="height: 280px;"
+  style="height: 240px;"
   src="./public/static/images/logo.png">
 
 
 
 ## 測試
-
-- [DEMO](https://work-exchange.vercel.app/)
 
 測試帳號密碼
 
@@ -24,6 +22,7 @@
 帳號： user123@gmail.com
 密碼： user123
 ```
+- [DEMO](https://work-exchange.vercel.app/)
 
 ## 畫面
 
