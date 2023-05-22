@@ -84,6 +84,7 @@ Work Exchange/
 │   └── static
 │       └── images
 │           ├── 404.jpg
+│           ├── chat.png
 │           ├── demo
 │           │   ├── demo1.png
 │           │   ├── demo2.png
@@ -93,7 +94,6 @@ Work Exchange/
 │           ├── logo.png
 │           ├── logo.svg
 │           ├── spring.jpg
-│           ├── star.png
 │           ├── storeImage
 │           │   ├── beachcastle.jpg
 │           │   ├── beishan.png
@@ -107,6 +107,7 @@ Work Exchange/
 │           │   ├── summer.jpg
 │           │   ├── sunshine.jpg
 │           │   └── tornado.jpg
+│           ├── thumbup.png
 │           ├── userMug
 │           │   ├── archer.jpg
 │           │   ├── defaultMug.png
@@ -123,7 +124,6 @@ Work Exchange/
 │   ├── components
 │   │   ├── BannerArea.jsx
 │   │   ├── Button.jsx
-│   │   ├── Button1.jsx
 │   │   ├── Comments.jsx
 │   │   ├── Footer.jsx
 │   │   ├── HashTags.jsx
@@ -131,7 +131,6 @@ Work Exchange/
 │   │   ├── LastPage.jsx
 │   │   ├── MySetting.jsx
 │   │   ├── OurLatest.jsx
-│   │   ├── OurLatestCard.jsx
 │   │   ├── OurSelect.jsx
 │   │   ├── Post.jsx
 │   │   ├── Rating.jsx
@@ -146,6 +145,7 @@ Work Exchange/
 │   │   ├── Home.jsx
 │   │   ├── LogIn.jsx
 │   │   ├── Member.jsx
+│   │   ├── OurLatestCard.jsx
 │   │   ├── PageNotFound.jsx
 │   │   ├── SearchResults.jsx
 │   │   ├── SignUp.jsx
