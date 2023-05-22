@@ -76,22 +76,22 @@ export default function Post({ storeId }) {
                     </div>
                     <div>
                       <div className="mt-2">
-                        <div className="mr-2 inline-block">
+                        <p className="mr-2 inline-block">
                           日工時：{work_hour}小時
-                        </div>
+                        </p>
                         •
-                        <div className="ml-2 inline-block">
+                        <p className="ml-2 inline-block">
                           換宿期間：{work_span}
-                        </div>
+                        </p>
                       </div>
                       <div className="mb-2">
-                        <div className="mr-2 inline-block">
+                        <p className="mr-2 inline-block">
                           換宿時間：{work_year} {first_half}
-                        </div>
+                        </p>
                         •
-                        <div className="ml-2 inline-block">
+                        <p className="ml-2 inline-block">
                           發文日期：{post_date.substring(0, 10)}
-                        </div>
+                        </p>
                       </div>
                     </div>
                   </div>

@@ -156,10 +156,10 @@ export default function WritePost() {
         <div className="flex justify-around py-4 pl-6 pr-6">
           <div className="w-full rounded bg-white px-8 py-6 shadow-lg">
             <div className="firstSection max-w-3xl">
-              <div className="my-4 text-2xl font-bold">發表評論</div>
-              <div className="my-6">
+              <h2 className="my-4 text-2xl font-bold">發表評論</h2>
+              <p className="my-6">
                 分享你的換宿經驗，幫助下一個換宿人有更棒的換宿體驗！
-              </div>
+              </ㄣ>
               <h1 className="my-4 text-2xl font-bold text-myFirstColor">
                 換宿資訊
               </h1>

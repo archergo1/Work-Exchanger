@@ -143,7 +143,6 @@ export default function SignUp() {
           <span>已經有帳號？</span>
           <div
             onClick={() => {
-              console.log("das");
               navigate("/login");
             }}
             className="my-4 text-center text-lg text-myThirdColor hover:cursor-pointer"

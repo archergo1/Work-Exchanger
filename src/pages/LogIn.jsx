@@ -134,14 +134,14 @@ export default function LogIn() {
         </div>
         <div className="mx-auto text-center">
           <span>沒有帳號？</span>
-          <div
+          <button
             onClick={() => {
               navigate("/signup");
             }}
             className="my-4 text-center text-lg text-myThirdColor hover:cursor-pointer"
           >
             立即註冊
-          </div>
+          </button>
         </div>
       </div>
       <Footer />
