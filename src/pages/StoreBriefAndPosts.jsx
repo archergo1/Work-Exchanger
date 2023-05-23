@@ -30,7 +30,6 @@ export default function StoreBriefAndPosts() {
   if (store.length === 0) {
     return null;
   }
-  console.log(store);
 
   const {
     store_name,
@@ -67,12 +66,6 @@ export default function StoreBriefAndPosts() {
           </ul>
 
           <div className="my-3 flex justify-center">
-            {/* <a className="button1 bg-mySecondColor">發問問題</a> */}
-            {/* 確認一下能不能用important蓋掉背景色 */}
-            {/* <a className="button2">發表評論</a> */}
-            {/* <Button1
-        text=""
-        ></Button1> */}
             <Button
               style={"button"}
               text="發表評論"
@@ -90,42 +83,10 @@ export default function StoreBriefAndPosts() {
 
         <div className="">
           {/* <!-- matched nums & sorting --> */}
-          <div className="my-3 flex justify-between">
-            {/* <div>12則評論{}</div> */}
-            {/* <div>
-              <select
-                defaultValue={"latest"}
-                id="sorting"
-                className="block w-full rounded-md border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-              >
-                <option value="latest">依最新評論</option>
-                <option value="highest">依最高評分</option>
-                <option value="hottest">最熱門</option>
-              </select>
-            </div> */}
-          </div>
+          <div className="my-3 flex justify-between"></div>
           {/* <!-- posts --> */}
           <div className="">
             <Post storeId={storeId} />
-
-            {/* {isLoggedIn ? null : (
-              <a
-                className="my-4 block h-14 w-full rounded-md bg-orange-200 pt-4 text-center font-bold text-myThirdColor"
-                href="#"
-              >
-                登入以留言
-              </a>
-            )} */}
-            {/* <!-- each response --> */}
-            {/* <Comments />s */}
-
-            {/* more comments */}
-            {/* <a
-              className="my-4 block h-14 w-full rounded-md bg-mySecondColor pt-4 text-center font-bold text-myyFirstColorHover"
-              href=""
-            >
-              載入更多留言
-            </a> */}
           </div>
         </div>
       </div>

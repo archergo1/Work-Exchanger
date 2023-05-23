@@ -31,8 +31,6 @@ export default function LogIn() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-
     const { email, password } = data;
 
     function logIn() {
@@ -42,8 +40,6 @@ export default function LogIn() {
           password: password.trim(),
         })
         .then((response) => {
-          // console.log(response.data);
-
           setIsLoggedIn(response.data.accessToken);
           setUserId(response.data.user.id);
           setUserName(response.data.user.name);
@@ -62,7 +58,6 @@ export default function LogIn() {
           });
         })
         .catch((error) => {
-          console.log(error);
           Swal.fire({ title: `登入失敗` });
         });
     }

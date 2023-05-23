@@ -62,17 +62,13 @@ export default function Member() {
     getBookmarkedStores();
   }, [user]);
 
-  console.log(bookmarks);
 
-  console.log(user);
   const { id, name, user_mug } = user;
 
   if (!posts) {
     return null;
   }
 
-  console.log(posts);
-  console.log(userId);
 
   function logOut() {
     localStorage.removeItem("isLoggedIn");
@@ -82,10 +78,9 @@ export default function Member() {
   }
 
   const onSubmit = (data) => {
-    console.log(data);
+  
     const { newName, newPassword } = data;
 
-    console.log(JWTtoken);
 
     updateInfo();
     function updateInfo() {
@@ -100,7 +95,7 @@ export default function Member() {
           }
         )
         .then((response) => {
-          console.log(response);
+        
           localStorage.setItem("userName", response.data.name);
           setUserName(response.data.name);
 
@@ -108,7 +103,7 @@ export default function Member() {
           Swal.fire({ title: `修改成功` });
         })
         .catch((error) => {
-          console.log(error.response);
+         
           if (error.response.data === "jwt expired") {
             Swal.fire({ title: `登入過期，請重新登入` });
             logOut();

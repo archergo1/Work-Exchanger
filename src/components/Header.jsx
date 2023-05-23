@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
@@ -15,8 +15,6 @@ export default function Header() {
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
-  console.log(JWTtoken);
-  console.log(userName);
 
   return (
     <div className="mx-auto flex max-w-screen-2xl justify-between bg-white p-4 shadow">

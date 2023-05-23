@@ -12,10 +12,6 @@ export default function WritePost() {
   const JWTtoken = localStorage.getItem("JWTtoken");
   const userName = localStorage.getItem("userName");
 
-  console.log(userId);
-  console.log(JWTtoken);
-  console.log(userName);
-
   useEffect(() => {
     const getStoresData = async () => {
       axios.get(`${url}/stores`).then((res) => {
@@ -24,8 +20,6 @@ export default function WritePost() {
     };
     getStoresData();
   }, []);
-
-  console.log(stores);
 
   const {
     register,
@@ -36,16 +30,7 @@ export default function WritePost() {
   });
 
   const onSubmit = (data) => {
-    const {
-      work_span,
-      work_hour,
-      first_half,
-      type_pro,
-      score,
-      store_name,
-      store_address,
-      store_phone,
-    } = data;
+    const { work_hour, score, store_name, store_address, store_phone } = data;
 
     // another data to be sent to `stores` if there is no store_name matched in the database
     const newStoreInfo = {
@@ -69,9 +54,6 @@ export default function WritePost() {
 
     const convertedData = {
       ...data,
-      // type_pro: toBoolean1,
-      // first_half: toBoolean2,
-      // work_span: toNumber1,
       work_hour: toNumber2,
       score: toNumber3,
       post_date: nowTime,
@@ -82,21 +64,17 @@ export default function WritePost() {
     const storeExisted = stores.find((item, index) => {
       return item.store_name === store_name;
     });
-    console.log(storeExisted);
 
     let storeId = "";
     if (storeExisted) {
       storeId = parseInt(storeExisted.id);
-      console.log("a");
+
       addPost();
     } else {
       storeId = stores.length + 1;
       addPost();
       addStore();
-      console.log("b");
     }
-
-    console.log(storeId);
 
     function addPost() {
       axios
@@ -115,31 +93,22 @@ export default function WritePost() {
           }
         )
         .then((res) => {
-          console.log(res);
           Swal.fire({ title: `送出成功` });
           setTimeout(() => {
             navigate(`/stores/${storeId}`);
           }, 1500);
         })
         .catch((error) => {
-          console.log(error.response);
           Swal.fire({ title: `送出失敗` });
         });
     }
 
     function addStore() {
-      axios
-        .post(`${url}/stores`, newStoreInfo, {
-          headers: {
-            authorization: `Bearer ${JWTtoken}`,
-          },
-        })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
+      axios.post(`${url}/stores`, newStoreInfo, {
+        headers: {
+          authorization: `Bearer ${JWTtoken}`,
+        },
+      });
     }
   };
   // why should i need to use async await, even in post?

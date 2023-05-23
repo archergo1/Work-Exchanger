@@ -39,8 +39,6 @@ export default function OurSelect() {
     })
     .slice(0, 4);
 
-  console.log(hourAscending);
-
   const count = {};
   post.forEach((item, index) => {
     const name = post[index].store_name;
@@ -51,11 +49,7 @@ export default function OurSelect() {
     }
   });
 
-  console.log(count);
-
   const countArr = Object.entries(count);
-
-  console.log(countArr);
 
   countArr.sort((a, b) => b[1].count - a[1].count);
 
@@ -69,7 +63,6 @@ export default function OurSelect() {
       addedNames.add(name);
     }
   }
-  console.log(resultArr);
 
   const mostPopular = resultArr.slice(0, 4);
 

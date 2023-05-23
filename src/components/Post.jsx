@@ -22,7 +22,6 @@ export default function Post({ storeId }) {
   if (posts.length === 0) {
     return null;
   }
-  console.log(posts);
 
   function dateComparison(a, b) {
     const date1 = new Date(a.post_date);
@@ -32,7 +31,6 @@ export default function Post({ storeId }) {
   }
 
   const dateDescending = posts.slice().sort(dateComparison);
-  console.log(dateDescending);
 
   return (
     <ul>
@@ -112,39 +110,15 @@ export default function Post({ storeId }) {
                     {body}
                   </ShowMoreText>
                 </div>
-                {/* <!-- pros --> */}
+
                 <div className="my-3">
                   <p className="mb-4 font-bold">優點福利</p>
                   <HashTags tags={pros} />
-                  {/* <ul>
-                    {pros.map((item, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
-                        >
-                          #{item}
-                        </li>
-                      );
-                    })}
-                  </ul> */}
                 </div>
-                {/* <!-- cons --> */}
+
                 <div className="my-3">
                   <p className="mb-4 font-bold">有待改進</p>
                   <HashTags tags={cons} />
-                  {/* <ul>
-                    {cons.map((item, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
-                        >
-                          #{item}
-                        </li>
-                      );
-                    })}
-                  </ul> */}
                 </div>
                 {/* <!-- other functions may need to be added in the future*/}
               </div>

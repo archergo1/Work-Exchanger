@@ -2,13 +2,12 @@ import { useState, useEffect, useCallback } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { url } from "../components/contexts/apiUrl";
 import Rating from "../components/Rating";
-import BannerArea from "../components/BannerArea";
 import axios from "axios";
 
 export default function SearchResults() {
   const location = useLocation();
   const initialSearch = location.state.searchInput;
-  console.log(initialSearch);
+
 
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState(initialSearch);
@@ -36,12 +35,12 @@ export default function SearchResults() {
   //   return await axios
   //     .get(`${url}/stores?q=${searchInput}`)
   //     .then((response) => {
-  //       console.log(response);
+  //       
   //       setResults(response.data);
   //       setSearchInput("");
   //     })
   //     .catch((err) => {
-  //       console.log(err);
+  //      
   //     });
   // };
 

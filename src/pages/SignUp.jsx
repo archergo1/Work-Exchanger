@@ -32,7 +32,7 @@ export default function SignUp() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+  
 
     const { email, password, name } = data;
 
@@ -45,7 +45,7 @@ export default function SignUp() {
           name: name.trim(),
         })
         .then((response) => {
-          console.log(response.data);
+          
           Swal.fire({ title: `註冊成功，請重新登入` });
           setTimeout(() => {
             navigate("/login"), 2000;
@@ -53,7 +53,7 @@ export default function SignUp() {
           reset();
         })
         .catch((error) => {
-          console.log(error.response);
+          
           Swal.fire({ title: `註冊失敗` });
         });
     }
