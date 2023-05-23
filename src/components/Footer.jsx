@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="mx-auto flex flex-col max-w-screen-2xl bg-white p-4 shadow md:flex md:items-center md:justify-between md:p-6">
+    <div className="mx-auto flex max-w-screen-2xl flex-col bg-white p-4 shadow md:flex md:items-center md:justify-between md:p-6">
       <div className="mb-4 flex w-full items-center">
         <p className="w-1/3 text-lg">
           © 2023 WorkExchange All Rights Reserved.
