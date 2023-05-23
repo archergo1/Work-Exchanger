@@ -137,37 +137,6 @@ Work Exchange/
 │   │       └── apiUrl.js
 │   ├── index.css
 │   ├── main.jsx
-│   ├── obsolete
-│   │   ├── 0 HOME.html
-│   │   ├── 00.html
-│   │   ├── 1 SEARCH.html
-│   │   ├── 1.2.1 COMMENT.html
-│   │   ├── 1.2.1.1a EDIT COMMENT DETAIL.html
-│   │   ├── 1.2.1.1b.html
-│   │   ├── 10 LogIn.html
-│   │   ├── 3.1 MEMBER_myInfo.html
-│   │   ├── 3.2 MEMBER_myNoti.html
-│   │   ├── 3.3 MEMBER_myComment.html
-│   │   ├── 9 Register.html
-│   │   ├── A.jsx
-│   │   ├── Ab.jsx
-│   │   ├── Avatar.jsx
-│   │   ├── Button1.jsx
-│   │   ├── Comments.jsx
-│   │   ├── LogIn.jsx
-│   │   ├── MemberMyNoti.jsx
-│   │   ├── MemberMyPost.jsx
-│   │   ├── Modal.jsx
-│   │   ├── OurLatestCard.jsx
-│   │   ├── ReactStars.jsx
-│   │   ├── StoreInfoCard.jsx
-│   │   ├── Test1.jsx
-│   │   ├── UploadImg.jsx
-│   │   ├── WritePage2.jsx
-│   │   ├── data
-│   │   │   └── data.js
-│   │   ├── ddd.html
-│   │   └── test.html
 │   ├── pages
 │   │   ├── About.jsx
 │   │   ├── Contact.jsx
