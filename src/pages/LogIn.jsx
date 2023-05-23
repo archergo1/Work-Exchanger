@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { url } from "../components/contexts/apiUrl";
 import axios from "axios";
 import Swal from "sweetalert2";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 export default function LogIn() {
   const navigate = useNavigate();
@@ -81,7 +79,6 @@ export default function LogIn() {
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      <Header />
       <div className="mx-auto my-4 w-[640px] flex-col rounded-lg bg-white px-6 py-6">
         <div className="">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -144,7 +141,6 @@ export default function LogIn() {
           </button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

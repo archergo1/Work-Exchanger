@@ -19,7 +19,7 @@ export default function Header() {
   console.log(userName);
 
   return (
-    <div className="mx-auto flex justify-between bg-white p-4 shadow">
+    <div className="mx-auto flex max-w-screen-2xl justify-between bg-white p-4 shadow">
       <a href="/">
         <img src="/static/images/logo.png" className="h-14" alt="logo" />
       </a>

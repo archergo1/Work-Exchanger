@@ -1,10 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { url } from "../components/contexts/apiUrl";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Rating from "../components/Rating";
-import LastPage from "../components/LastPage";
 import BannerArea from "../components/BannerArea";
 import axios from "axios";
 
@@ -56,8 +53,7 @@ export default function SearchResults() {
   }, [data, searchInput]);
 
   return (
-    <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      <Header />
+    <div className="mx-auto max-w-screen-2xl bg-myFifthColor pb-2">
       <div className="banner h-80 bg-[url('/static/images/spring.jpg')] bg-center pt-32">
         <div className="mx-auto max-w-xl">
           <div className="relative">
@@ -78,7 +74,6 @@ export default function SearchResults() {
           </div>
         </div>
       </div>
-      <LastPage />
       <div className="my-4 ml-6 text-base font-bold">
         {results.length} 個搜尋結果
       </div>
@@ -87,12 +82,16 @@ export default function SearchResults() {
         <ul>
           {results.map((result) => {
             return (
-              <li key={result.id} className="my-3 rounded-md bg-white px-4 py-4">
-                <Link
-                  to={`/stores/${result.id}`}
-                  className="flex"
-                >
-                  <img className="h-24 w-24" src={result.img_url} alt="storeImage" />
+              <li
+                key={result.id}
+                className="my-3 rounded-md bg-white px-4 py-4"
+              >
+                <Link to={`/stores/${result.id}`} className="flex">
+                  <img
+                    className="h-24 w-24"
+                    src={result.img_url}
+                    alt="storeImage"
+                  />
                   <div className="ml-4 flex w-full items-center justify-between">
                     <div>
                       <p className="text-xl font-bold">{result.store_name}</p>
@@ -107,7 +106,6 @@ export default function SearchResults() {
           })}
         </ul>
       </div>
-      <Footer />
     </div>
   );
 }

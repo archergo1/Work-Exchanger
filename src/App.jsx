@@ -11,10 +11,13 @@ import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
     <HashRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LogIn />} />
@@ -29,6 +32,7 @@ export default function App() {
         <Route path="/writepost" element={<WritePost />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </HashRouter>
   );
 }

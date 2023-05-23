@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { url } from "../components/contexts/apiUrl";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import LastPage from "../components/LastPage";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -149,8 +146,6 @@ export default function WritePost() {
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      <Header />
-      <LastPage />
       {/* FORM STARTS HERE */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-around py-4 pl-6 pr-6">
@@ -709,7 +704,6 @@ export default function WritePost() {
           </div>
         </div>
       </form>
-      <Footer />
     </div>
   );
 }

@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { url } from "../components/contexts/apiUrl";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Post from "../components/Post";
-import LastPage from "../components/LastPage";
 import Rating from "../components/Rating";
 import Button from "../components/Button";
 import axios from "axios";
@@ -46,8 +43,6 @@ export default function StoreBriefAndPosts() {
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      <Header />
-      <LastPage />
       <div className="flex min-h-[calc(100vh-230px)] justify-around py-4 pl-6 pr-6">
         <div className="h-[28rem] w-80 rounded bg-white px-4 py-3 shadow-lg">
           <img
@@ -134,7 +129,6 @@ export default function StoreBriefAndPosts() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

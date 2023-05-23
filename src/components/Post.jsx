@@ -37,22 +37,20 @@ export default function Post({ storeId }) {
   return (
     <ul>
       {dateDescending.map(
-        (
-          {
-            id,
-            type_pro,
-            work_hour,
-            work_span,
-            work_year,
-            first_half,
-            post_date,
-            score,
-            body,
-            pros,
-            cons,
-            user,
-          }
-        ) => {
+        ({
+          id,
+          type_pro,
+          work_hour,
+          work_span,
+          work_year,
+          first_half,
+          post_date,
+          score,
+          body,
+          pros,
+          cons,
+          user,
+        }) => {
           return (
             <li
               key={id}
@@ -117,7 +115,7 @@ export default function Post({ storeId }) {
                 {/* <!-- pros --> */}
                 <div className="my-3">
                   <p className="mb-4 font-bold">優點福利</p>
-                  <HashTags tags={pros}/>
+                  <HashTags tags={pros} />
                   {/* <ul>
                     {pros.map((item, index) => {
                       return (
@@ -134,7 +132,7 @@ export default function Post({ storeId }) {
                 {/* <!-- cons --> */}
                 <div className="my-3">
                   <p className="mb-4 font-bold">有待改進</p>
-                  <HashTags tags={cons}/>
+                  <HashTags tags={cons} />
                   {/* <ul>
                     {cons.map((item, index) => {
                       return (

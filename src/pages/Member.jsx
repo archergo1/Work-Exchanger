@@ -3,8 +3,6 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useForm } from "react-hook-form";
 import { url } from "../components/contexts/apiUrl";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import MySetting from "../components/MySetting";
 import Button from "../components/Button";
 import ShowMoreText from "react-show-more-text";
@@ -124,7 +122,6 @@ export default function Member() {
 
   return (
     <div className="mx-auto max-w-screen-2xl flex-col bg-myFifthColor">
-      <Header />
       <div className="min-h-[calc(100vh-200px)]">
         <Tabs className="flex flex-grow justify-around py-4 pl-6 pr-6">
           <div className="h-96 w-80 rounded bg-white px-8 py-3 shadow-lg">
@@ -477,7 +474,6 @@ export default function Member() {
           </TabPanel>
         </Tabs>
       </div>
-      <Footer />
     </div>
   );
 }

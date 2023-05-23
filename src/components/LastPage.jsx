@@ -5,7 +5,7 @@ export default function LastPage() {
 
   return (
     <button
-      className="my-4 ml-6 block pl-5 text-base font-bold text-myFirstColor"
+      className="ml-6 block pl-5 text-base font-bold text-myFirstColor"
       onClick={() => {
         navigate(-1);
       }}

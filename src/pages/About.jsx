@@ -1,12 +1,6 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import LastPage from "../components/LastPage";
-
 export default function About() {
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      <Header />
-      <LastPage />
       <div className="flex justify-around py-4 px-6">
         <div className="w-full rounded bg-white px-8 py-6 shadow-lg">
           <p className="my-2 text-lg">
@@ -14,7 +8,6 @@ export default function About() {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

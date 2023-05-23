@@ -2,8 +2,6 @@ import { url } from "../components/contexts/apiUrl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -71,7 +69,6 @@ export default function SignUp() {
   }
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      <Header />
       <div className="mx-auto my-4 w-[640px] flex-col rounded-lg bg-white px-6 py-6">
         <div className="">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -151,7 +148,6 @@ export default function SignUp() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

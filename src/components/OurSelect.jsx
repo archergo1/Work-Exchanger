@@ -85,7 +85,7 @@ export default function OurSelect() {
           精選換宿
         </h2>
       </div>
-      <div className="mx-auto flex max-w-screen-xl justify-between flex-wrap">
+      <div className="mx-auto flex max-w-screen-xl flex-wrap justify-between">
         {/* <!-- ourSelect cards --> */}
         <div className="mb-24 mt-6 h-72 w-72 rounded border-2 border-myyFirstColorHover bg-white shadow-lg">
           <h3 className="my-8 text-center text-3xl text-myyFirstColorHover underline">
