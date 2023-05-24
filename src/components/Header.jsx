@@ -15,7 +15,6 @@ export default function Header() {
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
-
   return (
     <div className="mx-auto flex max-w-screen-2xl justify-between bg-white p-4 shadow">
       <a href="/">
@@ -24,6 +23,8 @@ export default function Header() {
       <div>
         {isLoggedIn ? (
           <Button
+            id="dropdownDefaultButton"
+            data-dropdown-toggle="dropdown"
             style={"button"}
             text={`Hi ${userName}`}
             onClick={() => {
