@@ -14,15 +14,24 @@ export default function StoreBriefAndPosts() {
     localStorage.getItem("isLoggedIn")
   );
   const [store, setStore] = useState([]);
+  const [posts, setPosts] = useState([]);
   const routeParams = useParams();
   const storeId = routeParams.storeId;
 
   useEffect(() => {
-    const getPostData = async () => {
+    const getData = async () => {
       const res = await axios.get(`${url}/stores/${storeId}`);
       setStore(res.data);
     };
-    getPostData();
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await axios.get(`${url}/stores/${storeId}/posts`);
+      setPosts(res.data);
+    };
+    getData();
   }, []);
   // 為什麼stores有時候有接收到資料，從空陣列改變為有資料
   // 店有時候又沒有，維持空陣列？
@@ -83,7 +92,9 @@ export default function StoreBriefAndPosts() {
 
         <div className="">
           {/* <!-- matched nums & sorting --> */}
-          <div className="my-3 flex justify-between"></div>
+          <p className="my-3 flex justify-between font-bold">
+            {posts.length}則評論
+          </p>
           {/* <!-- posts --> */}
           <div className="">
             <Post storeId={storeId} />

@@ -73,8 +73,8 @@ export default function LogIn() {
   }
 
   return (
-    <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-      <div className="mx-auto my-4 w-[640px] flex-col rounded-lg bg-white px-6 py-6">
+    <div className="mx-auto max-w-screen-2xl bg-myFifthColor py-10">
+      <div className="mx-auto w-[640px] flex-col rounded-lg bg-white px-6 py-6">
         <div className="">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-6 text-center">

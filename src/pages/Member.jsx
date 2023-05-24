@@ -299,7 +299,7 @@ export default function Member() {
             <div>
               {/* <!-- matched nums & sorting --> */}
               <div className="my-3 flex justify-between">
-                <div className="font-bold">{posts.length}則評論</div>
+                <p className="font-bold">{posts.length}則評論</p>
                 {/* <div>
                 <select
                   defaultValue={"latest"}

@@ -42,7 +42,7 @@ export default function BannerArea() {
             value={searchInput}
             id="search"
             className=":border-gray-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900"
-            placeholder="請輸入換宿商家名稱"
+            placeholder="請輸入換宿商家名稱，例如：北山古洋樓"
             onChange={handleInputChange}
           />
 
