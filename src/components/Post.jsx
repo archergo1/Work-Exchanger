@@ -66,7 +66,7 @@ export default function Post({ storeId }) {
                   <div>
                     <div className="flex items-center">
                       <div className="text-2xl font-bold">{user.name}</div>
-                      <div className="mx-4 h-6 w-32 rounded-lg bg-yellow-400 text-white">
+                      <div className="mx-4 h-8 pt-1 w-[136px] text-center rounded-lg bg-myFirstColor text-white">
                         {type_pro}
                       </div>
                     </div>
