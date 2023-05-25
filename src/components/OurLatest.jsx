@@ -55,7 +55,7 @@ const OurLatest = () => {
           }) => (
             <li key={id}>
               <Link to={`/stores/${storeId}`}>
-                <div className="mt-6 mb-10 h-72 w-600px rounded bg-white p-4 shadow-lg">
+                <div className="mt-6 mb-10 h-72 w-600px rounded bg-white p-4 shadow-lg hover:opacity-50">
                   <div className="flex">
                     <img
                       className="mr-2 h-24 w-24"

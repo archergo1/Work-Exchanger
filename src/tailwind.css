@@ -4006,6 +4006,10 @@ input:checked + .toggle-bg {
   text-decoration-line: underline;
 }
 
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+}
+
 .focus\:z-10:focus {
   z-index: 10;
 }
