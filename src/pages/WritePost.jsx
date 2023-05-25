@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { url } from "../components/contexts/apiUrl";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Button from "../components/Button";
 
 export default function WritePost() {
   const navigate = useNavigate();
@@ -668,6 +669,13 @@ export default function WritePost() {
                 ></textarea>
                 {errors.body && <p className="text-red-600">此欄位為必填</p>}
               </div>
+              <Button
+                style={"button1"}
+                text={"上一頁"}
+                onClick={() => {
+                  navigate(-1);
+                }}
+              />
               <input type="submit" value="送出" className="button" />
             </div>
           </div>

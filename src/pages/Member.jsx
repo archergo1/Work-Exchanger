@@ -151,7 +151,7 @@ export default function Member() {
                   text="登出"
                   style={"button1"}
                   onClick={() => {
-                    Swal.fire({ title: `成功登出！` });
+                    
                     logOut();
                     setTimeout(() => {
                       navigate("/");
