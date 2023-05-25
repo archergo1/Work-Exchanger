@@ -136,26 +136,29 @@ export default function Member() {
                 <MySetting text="我的評論" />
               </Tab>
             </TabList>
-            <div className="flex justify-center">
-              <Button
-                style={"button"}
-                text="發表評論"
-                onClick={() => {
-                  navigate("/writepost");
-                }}
-              />
-              <hr/>
-              <Button
-                text="登出"
-                style={"button1"}
-                onClick={() => {
-                  Swal.fire({ title: `成功登出！` });
-                  logOut();
-                  setTimeout(() => {
-                    navigate("/");
-                  }, 1000);
-                }}
-              />
+            <div className="flex flex-row justify-center">
+              <div>
+                <Button
+                  style={"button"}
+                  text="發表評論"
+                  onClick={() => {
+                    navigate("/writepost");
+                  }}
+                />
+              </div>
+              <div>
+                <Button
+                  text="登出"
+                  style={"button1"}
+                  onClick={() => {
+                    Swal.fire({ title: `成功登出！` });
+                    logOut();
+                    setTimeout(() => {
+                      navigate("/");
+                    }, 1500);
+                  }}
+                />
+              </div>
             </div>
           </div>
 

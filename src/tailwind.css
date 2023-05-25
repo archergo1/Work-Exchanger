@@ -1058,7 +1058,7 @@ input:checked + .toggle-bg {
   width: 7rem;
   border-radius: 0.375rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(252 233 106 / var(--tw-bg-opacity));
+  background-color: rgb(244 140 43 / var(--tw-bg-opacity));
   padding-top: 0.5rem;
   text-align: center;
   font-size: 1.25rem;

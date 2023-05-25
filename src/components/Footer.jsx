@@ -8,27 +8,27 @@ export default function Footer() {
           © 2023 WorkExchange All Rights Reserved.
         </p>
         <div className="socialmedia flex w-1/3 justify-center text-center text-base">
-          <a href="#">
+          <div className="hover:cursor-pointer">
             <img
               src="./static/images/facebook.png"
               alt="facebook"
               className="mx-2 h-10"
             />
-          </a>
-          <a href="#">
+          </div>
+          <div className="hover:cursor-pointer">
             <img
               src="./static/images/instagram.png"
               alt="facebook"
               className="mx-2 h-10"
             />
-          </a>
-          <a href="#">
+          </div>
+          <div className="hover:cursor-pointer">
             <img
               src="./static/images/youtube.png"
               alt="facebook"
               className="mx-2 h-10"
             />
-          </a>
+          </div>
         </div>
         <ul className="mt-3 flex w-1/3 items-center justify-end">
           <li>
