@@ -30,15 +30,15 @@ export default function Footer() {
             />
           </div>
         </div>
-        <ul className="mt-3 flex w-1/3 items-center justify-end">
+        <ul className="mt-3 flex w-1/3 items-center justify-between">
           <li>
             <Link to={`/about`}>
-              <p className="mx-4 text-lg hover:underline">關於我們|</p>
+              <p className="mx-4 text-lg hover:underline">關於我們</p>
             </Link>
           </li>
           <li>
             <Link to={`/contact`}>
-              <p className="mx-4 text-lg hover:underline">聯絡我們|</p>
+              <p className="mx-4 text-lg hover:underline">聯絡我們</p>
             </Link>
           </li>
           <li>
@@ -48,7 +48,7 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <p>此網站僅為程式練習使用，相關內容如有雷同敬請見諒。</p>
+      <p className="my-6">此網站僅為程式練習使用，相關內容如有雷同敬請見諒。</p>
     </div>
   );
 }
