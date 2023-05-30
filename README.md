@@ -43,13 +43,13 @@ Node.js 版本建議為：`16.15.0` 以上
 ### 取得專案
 
 ```bash
-git clone https://github.com/archergo1/Work-Exchange.git
+git clone https://github.com/archergo1/Work-Exchanger.git
 ```
 
 ### 移動到專案內
 
 ```bash
-cd Work-Exchange
+cd Work-Exchanger
 ```
 
 ### 安裝套件
