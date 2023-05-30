@@ -3182,6 +3182,10 @@ input:checked + .toggle-bg {
   line-height: 2.25rem;
 }
 
+.leading-loose {
+  line-height: 2;
+}
+
 .leading-none {
   line-height: 1;
 }
