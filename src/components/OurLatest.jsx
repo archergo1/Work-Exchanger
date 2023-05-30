@@ -33,7 +33,7 @@ const OurLatest = () => {
 
 
   return (
-    <div className="ourLatest w-full bg-gray-100 pt-1">
+    <div className="ourLatest w-full bg-myFifthColor pt-1">
       <div className="my-16 mx-auto flex items-center justify-center">
         <img src="/static/images/chat.png" alt="chat" className="h-12 w-12" />
         <h2 className="mx-2 text-center text-5xl font-bold text-black">
