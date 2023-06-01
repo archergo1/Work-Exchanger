@@ -7,7 +7,7 @@ export default function Home() {
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
      
       <BannerArea />
-      <div className="bg-myFifthColor py-10">
+      <div className="bg-mySecondColor py-10">
         <p className="mx-auto max-w-screen-xl rounded-lg bg-white px-8 py-4 text-3xl font-semibold leading-loose text-myFirstColor">
           對生活、工作開始厭倦了嗎？
           <br />
