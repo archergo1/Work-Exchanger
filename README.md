@@ -127,13 +127,13 @@ Work Exchange/
 │   │   ├── Footer.jsx
 │   │   ├── HashTags.jsx
 │   │   ├── Header.jsx
-│   │   ├── LastPage.jsx
 │   │   ├── MySetting.jsx
 │   │   ├── OurLatest.jsx
 │   │   ├── OurSelect.jsx
 │   │   ├── Post.jsx
 │   │   ├── Rating.jsx
 │   │   └── contexts
+│   │       ├── GlobalState.js
 │   │       └── apiUrl.js
 │   ├── index.css
 │   ├── main.jsx
