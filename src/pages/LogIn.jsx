@@ -8,8 +8,8 @@ import { userNameContext } from "../components/contexts/GlobalState";
 
 export default function LogIn() {
   const navigate = useNavigate();
-  
-  const { userName, setUserName } = useContext((userNameContext))
+
+  const { userName, setUserName } = useContext(userNameContext);
 
   const {
     register,
@@ -34,13 +34,13 @@ export default function LogIn() {
         })
         .then((response) => {
           // NOTE: DO NOT USE setState HERE FOR ASYNC ISSUE
+          reset();
           localStorage.setItem("JWTtoken", response.data.accessToken);
           localStorage.setItem("userName", response.data.user.name);
           localStorage.setItem("userId", response.data.user.id);
           setUserName(response.data.user.name);
           Swal.fire({ title: `登入成功` });
           setTimeout(() => {
-            
             navigate("/member"), 2000;
           });
         })

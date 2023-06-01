@@ -7,7 +7,6 @@ import HashTags from "./HashTags";
 
 export default function Post({ storeId }) {
   const [posts, setPosts] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
@@ -66,7 +65,7 @@ export default function Post({ storeId }) {
                   <div>
                     <div className="flex items-center">
                       <div className="text-2xl font-bold">{user.name}</div>
-                      <div className="mx-4 h-8 pt-1 w-[136px] text-center rounded-lg bg-myFirstColor text-white">
+                      <div className="mx-4 h-8 w-[136px] rounded-lg bg-myFirstColor pt-1 text-center text-white">
                         {type_pro}
                       </div>
                     </div>
@@ -120,7 +119,6 @@ export default function Post({ storeId }) {
                   <p className="mb-4 font-bold">有待改進</p>
                   <HashTags tags={cons} />
                 </div>
-                {/* <!-- other functions may need to be added in the future*/}
               </div>
             </li>
           );

@@ -15,10 +15,7 @@ import Swal from "sweetalert2";
 
 export default function Member() {
   const navigate = useNavigate();
- 
   const { userName, setUserName } = useContext(userNameContext)
-
-  
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
@@ -444,26 +441,6 @@ export default function Member() {
                       );
                     }
                   )}
-
-                  {/* if logged in, render the link */}
-                  {/* {isLoggedIn ? null : (
-                  <a
-                    className="my-4 block h-14 w-full rounded-md bg-orange-200 pt-4 text-center font-bold text-myThirdColor"
-                    href="#"
-                  >
-                    登入以留言
-                  </a>
-                )} */}
-                  {/* <!-- each response --> */}
-                  {/* <Comments />    */}
-
-                  {/* more comments */}
-                  {/* <a
-                  className="my-4 block h-14 w-full rounded-md bg-mySecondColor pt-4 text-center font-bold text-myyFirstColorHover"
-                  href=""
-                >
-                  載入更多留言
-                </a> */}
                 </ul>
               )}
             </div>

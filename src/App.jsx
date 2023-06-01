@@ -1,3 +1,6 @@
+
+import { useState } from "react";
+import { userNameContext } from "./components/contexts/GlobalState";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import "/src/tailwind.css";
 import Home from "./pages/Home";
@@ -14,8 +17,6 @@ import LogIn from "./pages/LogIn";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import { useState } from "react";
-import { userNameContext } from "./components/contexts/GlobalState";
 
 export default function App() {
   const [userName, setUserName] = useState(localStorage.getItem("userName"));

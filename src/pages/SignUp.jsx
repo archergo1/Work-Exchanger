@@ -1,5 +1,4 @@
 import { url } from "../components/contexts/apiUrl";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -7,16 +6,6 @@ import Swal from "sweetalert2";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn")
-  );
-
-  const [haveAccount, setHaveAccount] = useState(
-    localStorage.getItem("haveAccount")
-  );
-  const [userName, setUserName] = useState(localStorage.getItem("userName"));
-  const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
-  const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
   const {
     register,
@@ -32,8 +21,6 @@ export default function SignUp() {
   });
 
   const onSubmit = (data) => {
-  
-
     const { email, password, name } = data;
 
     function signUp() {
@@ -45,7 +32,6 @@ export default function SignUp() {
           name: name.trim(),
         })
         .then((response) => {
-          
           Swal.fire({ title: `註冊成功，請重新登入` });
           setTimeout(() => {
             navigate("/login"), 2000;
@@ -53,22 +39,14 @@ export default function SignUp() {
           reset();
         })
         .catch((error) => {
-          
           Swal.fire({ title: `註冊失敗` });
         });
     }
     signUp();
   };
 
-  function toLogIn() {
-    setHaveAccount(false);
-  }
-
-  function toSignUp() {
-    setHaveAccount(true);
-  }
   return (
-    <div className="mx-auto py-4 max-w-screen-2xl bg-myFifthColor py-10">
+    <div className="mx-auto max-w-screen-2xl bg-myFifthColor py-4 py-10">
       <div className="mx-auto my-4 w-[640px] flex-col rounded-lg bg-white px-6 py-6">
         <div className="">
           <form onSubmit={handleSubmit(onSubmit)}>

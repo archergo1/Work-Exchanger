@@ -5,7 +5,6 @@ import OurLatest from "../components/OurLatest";
 export default function Home() {
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
-     
       <BannerArea />
       <div className="bg-mySecondColor py-10">
         <p className="mx-auto max-w-screen-xl rounded-lg bg-white px-8 py-4 text-3xl font-semibold leading-loose text-myFirstColor">
