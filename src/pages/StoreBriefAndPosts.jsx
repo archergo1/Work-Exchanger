@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { url } from "../components/contexts/apiUrl";
+import { userNameContext } from "../components/contexts/GlobalState";
 import Post from "../components/Post";
 import Rating from "../components/Rating";
 import Button from "../components/Button";
@@ -10,9 +11,8 @@ import Swal from "sweetalert2";
 
 export default function StoreBriefAndPosts() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn")
-  );
+
+  const { userName, setUserName } = useContext(userNameContext);
   const [store, setStore] = useState([]);
   const [posts, setPosts] = useState([]);
   const routeParams = useParams();
@@ -80,7 +80,7 @@ export default function StoreBriefAndPosts() {
               text="發表評論"
               onClick={() => {
                 {
-                  isLoggedIn
+                  userName
                     ? navigate("/writepost")
                     : Swal.fire({ title: `請先登入再發表評論` });
                 }

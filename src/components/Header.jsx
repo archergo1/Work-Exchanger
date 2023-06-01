@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
+import { userNameContext } from "./contexts/GlobalState";
+
 export default function Header() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn")
-  );
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [haveAccount, setHaveAccount] = useState(
-    localStorage.getItem("haveAccount")
-  );
-  const [userName, setUserName] = useState(localStorage.getItem("userName"));
+ 
+  // const [userName, setUserName] = useState(localStorage.getItem("userName"));
+
+  const { userName, setUserName } = useContext(userNameContext)
+
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
@@ -21,7 +20,7 @@ export default function Header() {
         <img src="/static/images/logo.png" className="h-14" alt="logo" />
       </a>
       <div>
-        {isLoggedIn ? (
+        {userName ? (
           <Button
             id="dropdownDefaultButton"
             data-dropdown-toggle="dropdown"

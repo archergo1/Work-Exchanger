@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useForm } from "react-hook-form";
 import { url } from "../components/contexts/apiUrl";
 import { useNavigate } from "react-router-dom";
+import { userNameContext } from "../components/contexts/GlobalState";
 import MySetting from "../components/MySetting";
 import Button from "../components/Button";
 import ShowMoreText from "react-show-more-text";
@@ -11,12 +12,13 @@ import Rating from "../components/Rating";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+
 export default function Member() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn")
-  );
-  const [userName, setUserName] = useState(localStorage.getItem("userName"));
+ 
+  const { userName, setUserName } = useContext(userNameContext)
+
+  
   const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
@@ -69,10 +71,12 @@ export default function Member() {
   }
 
   function logOut() {
-    localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("JWTtoken");
     localStorage.removeItem("userName");
     localStorage.removeItem("userId");
+    setTimeout(() => {
+      setUserName(null);
+    },2000)
   }
 
   const onSubmit = (data) => {

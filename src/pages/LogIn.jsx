@@ -1,22 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { url } from "../components/contexts/apiUrl";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { userNameContext } from "../components/contexts/GlobalState";
 
 export default function LogIn() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn")
-  );
-
-  const [haveAccount, setHaveAccount] = useState(
-    localStorage.getItem("haveAccount")
-  );
-  const [userName, setUserName] = useState(localStorage.getItem("userName"));
-  const [JWTtoken, setJWTtoken] = useState(localStorage.getItem("JWTtoken"));
-  const [userId, setUserId] = useState(localStorage.getItem("userId"));
+  
+  const { userName, setUserName } = useContext((userNameContext))
 
   const {
     register,
@@ -40,20 +33,14 @@ export default function LogIn() {
           password: password.trim(),
         })
         .then((response) => {
-          setIsLoggedIn(response.data.accessToken);
-          setUserId(response.data.user.id);
-          setUserName(response.data.user.name);
-          setIsLoggedIn(true);
-          setHaveAccount(true);
-
           // NOTE: DO NOT USE setState HERE FOR ASYNC ISSUE
           localStorage.setItem("JWTtoken", response.data.accessToken);
           localStorage.setItem("userName", response.data.user.name);
           localStorage.setItem("userId", response.data.user.id);
-          localStorage.setItem("isLoggedIn", true);
-
+          setUserName(response.data.user.name);
           Swal.fire({ title: `登入成功` });
           setTimeout(() => {
+            
             navigate("/member"), 2000;
           });
         })
@@ -63,14 +50,6 @@ export default function LogIn() {
     }
     logIn();
   };
-
-  function toLogIn() {
-    setHaveAccount(false);
-  }
-
-  function toSignUp() {
-    setHaveAccount(true);
-  }
 
   return (
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor py-10">

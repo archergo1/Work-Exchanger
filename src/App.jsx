@@ -13,28 +13,32 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
 import { useState } from "react";
+import { userNameContext } from "./components/contexts/GlobalState";
 
 export default function App() {
-
+  const [userName, setUserName] = useState(localStorage.getItem("userName"));
 
   return (
-    <HashRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/member" element={<Member />} />
-        <Route path="/searchresults" element={<SearchResults />} />
-        <Route path="/stores/:storeId" element={<StoreBriefAndPosts />} />
-        <Route path="/writepost" element={<WritePost />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-      <Footer />
-    </HashRouter>
+    <userNameContext.Provider value={{ userName, setUserName }}>
+      <HashRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/member" element={<Member />} />
+          <Route path="/searchresults" element={<SearchResults />} />
+          <Route path="/stores/:storeId" element={<StoreBriefAndPosts />} />
+          <Route path="/writepost" element={<WritePost />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+        <Footer />
+      </HashRouter>
+    </userNameContext.Provider>
   );
 }
