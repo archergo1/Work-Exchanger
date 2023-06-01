@@ -3,7 +3,7 @@ export default function FAQ() {
     <div className="mx-auto max-w-screen-2xl bg-myFifthColor">
       <div className="flex justify-around py-10 px-14">
         <div className="w-full rounded bg-white px-8 py-6 shadow-lg">
-        <h2 className="my-4 text-2xl font-bold">常見問題</h2>
+        <h1 className="my-4 text-2xl font-bold">常見問題</h1>
           <p className="my-2">Q: 為什麼不開放匿名發表評論呢？</p>
           <p className="my-2">
             A:
